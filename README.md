@@ -1,6 +1,9 @@
 #サイト
 Ours
 
+#実装機能URL:
+https://docs.google.com/spreadsheets/d/1Dl7L4Hoy5lQdX-j2Uu6Y9HG9oGZhxcCJlUU3o30RDqE/edit?usp=sharing
+
 ## サイト概要
 ### サイトテーマ
 インテリア等の生活商材を中心としたライフスタイル系のコミュニティサイト

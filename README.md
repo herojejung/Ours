@@ -21,7 +21,6 @@ https://docs.google.com/spreadsheets/d/1Dl7L4Hoy5lQdX-j2Uu6Y9HG9oGZhxcCJlUU3o30R
 <dd>・商材は好きだが、まだノウハウがないユーザー(これから一人暮らしを始める方など)</dd>
 
 ### 主な利用シーン
-ユーザー
 <dd>・ノウハウの共有や情報収集をしたいとき</dd>
 <dd>・インテリアなどが好きなユーザーとの交流の場が欲しいとき</dd>
 

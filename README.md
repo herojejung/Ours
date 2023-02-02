@@ -4,6 +4,61 @@ Ours
 #実装機能URL:
 https://docs.google.com/spreadsheets/d/1Dl7L4Hoy5lQdX-j2Uu6Y9HG9oGZhxcCJlUU3o30RDqE/edit?usp=sharing
 
+#ER図
+```puml
+@startuml
+entity users as "users/n会員" {
+  + id [PK]
+  --
+email [メールアドレス]
+password [パスワード]
+last_name [名前(姓)]
+first_name [名前(名)]
+user_name [ユーザーネーム]
+image [プロフ画像URL]
+delete [退会フラグ]
+created_at [作成日]
+update_at [更新日]
+}
+entity posts as "posts/n投稿" {
+  + id [PK]
+  --
+# ユーザー_id [FK(ユーザー_id,id)]
+title [タイトル]
+text [本文]
+post_image [投稿画像 ]
+post_movie [投稿動画]
+spot [位置情報]
+tag [タグ]
+created_at [作成日]
+update_at [更新日]
+}
+entity comments as "comments/nコメント" {
+  + id [PK]
+  --
+# 投稿_id [FK(id,投稿_id)]
+# ユーザー_id [FK(ユーザー_id,id)]
+comment [コメント]
+created_at [作成日]
+update_at [更新日]
+}
+entity favorites as "favorites/nいいね" {
+  + id [PK]
+  --
+# 投稿_id [FK(id,投稿_id)]
+# ユーザー_id [FK(ユーザー_id,id)]
+favorite [いいね]
+created_at [作成日]
+update_at [更新日]
+}
+users ||-d--o{ posts
+users ||-d--o{ comments
+users ||-d--o{ favorites
+posts ||-d--o{ comments
+posts ||-d--o{ favorites
+@enduml
+```
+
 ## サイト概要
 ### サイトテーマ
 <dd>・インテリア等の生活商材を中心としたライフスタイル系のコミュニティサイト</dd>

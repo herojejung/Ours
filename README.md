@@ -42,7 +42,7 @@ https://docs.google.com/spreadsheets/d/1Dl7L4Hoy5lQdX-j2Uu6Y9HG9oGZhxcCJlUU3o30R
 - 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
 - 使用しない場合は、使用素材の項目をREADMEから削除してください。
 
-##ER図
+## ER図
 ```puml
 @startuml
 entity users as "users/n会員" {

@@ -4,7 +4,7 @@ Ours
 #実装機能URL:
 https://docs.google.com/spreadsheets/d/1Dl7L4Hoy5lQdX-j2Uu6Y9HG9oGZhxcCJlUU3o30RDqE/edit?usp=sharing
 
-#ER図
+#ER
 ```puml
 @startuml
 entity users as "users/n会員" {

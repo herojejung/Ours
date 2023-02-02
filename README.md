@@ -54,7 +54,7 @@ last_name [名前(姓)]
 first_name [名前(名)]
 user_name [ユーザーネーム]
 image [プロフ画像URL]
-delete [退会フラグ]
+is_delete [退会フラグ]
 created_at [作成日]
 update_at [更新日]
 }
@@ -66,7 +66,16 @@ title [タイトル]
 text [本文]
 post_image [投稿画像 ]
 post_movie [投稿動画]
-spot [位置情報]
+address [住所]
+latitude [緯度]
+longitude [経度]
+created_at [作成日]
+update_at [更新日]
+}
+entity tags as "tags/nコメント" {
+  + id [PK]
+  --
+# 投稿_id [FK(id,投稿_id)]
 tag [タグ]
 created_at [作成日]
 update_at [更新日]
@@ -85,11 +94,11 @@ entity favorites as "favorites/nいいね" {
   --
 # 投稿_id [FK(id,投稿_id)]
 # ユーザー_id [FK(ユーザー_id,id)]
-favorite [いいね]
 created_at [作成日]
 update_at [更新日]
 }
 users ||-d--o{ posts
+posts ||-d--o{tags
 users ||-d--o{ comments
 users ||-d--o{ favorites
 posts ||-d--o{ comments

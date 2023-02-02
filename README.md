@@ -54,7 +54,7 @@ last_name [名前(姓)]
 first_name [名前(名)]
 user_name [ユーザーネーム]
 image [プロフ画像URL]
-is_delete [退会フラグ]
+is_deleted [退会フラグ]
 created_at [作成日]
 update_at [更新日]
 }

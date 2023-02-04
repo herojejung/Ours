@@ -102,13 +102,13 @@ entity favorites as "likes/nいいね" {
 created_at [作成日]
 update_at [更新日]
 }
-post_images ||-d--o{ tags
 tag_post_images ||-d--o{ post_images
 tag_post_images ||-d--o{ tags
+post_images ||-d--o{ tags
+post_images ||-d--o{ comments
+post_images ||-d--o{ favorites
 users ||-d--o{ post_images
 users ||-d--o{ comments
 users ||-d--o{ favorites
-post_images ||-d--o{ comments
-post_images ||-d--o{ favorites
 @enduml
 ```

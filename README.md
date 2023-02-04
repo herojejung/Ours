@@ -57,7 +57,7 @@ is_deleted [退会フラグ]
 created_at [作成日]
 update_at [更新日]
 }
-entity posts as "posts/n投稿" {
+entity post_images as "post_images/n投稿" {
   + id [PK]
   --
 # ユーザー_id [FK(ユーザー_id,id)]
@@ -69,11 +69,19 @@ longitude [経度]
 created_at [作成日]
 update_at [更新日]
 }
-entity tags as "tags/nコメント" {
+entity tags as "tags/nタグ" {
   + id [PK]
   --
 # 投稿_id [FK(id,投稿_id)]
-tag [タグ]
+tag_name [タグ名]
+created_at [作成日]
+update_at [更新日]
+}
+entity tag_post_images as "tag_post_images/nタグ中間テーブル" {
+  + id [PK]
+  --
+# 投稿_id [FK(id,投稿_id)]
+# タグ_id [FK(id,タグ_id)]
 created_at [作成日]
 update_at [更新日]
 }
@@ -86,7 +94,7 @@ comment [コメント]
 created_at [作成日]
 update_at [更新日]
 }
-entity favorites as "favorites/nいいね" {
+entity favorites as "likes/nいいね" {
   + id [PK]
   --
 # 投稿_id [FK(id,投稿_id)]

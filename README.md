@@ -45,7 +45,7 @@ https://docs.google.com/spreadsheets/d/1Dl7L4Hoy5lQdX-j2Uu6Y9HG9oGZhxcCJlUU3o30R
 ## ER図
 ```puml
 @startuml
-entity users as "users/n会員" {
+entity end_users as "end_users/n会員" {
   + id [PK]
   --
 email [メールアドレス]
@@ -105,10 +105,10 @@ update_at [更新日]
 tag_post_images ||-u--o{ post_images
 tag_post_images ||-r--o{ tags
 post_images ||-d--o{ tags
-post_images ||--l---o{ comments
+post_images ||-l--o{ comments
 post_images ||-d--o{ likes
-users ||-l--o{ post_images
-users ||-d--o{ comments
-users ||-u--o{ likes
+end_users ||-l--o{ post_images
+end_users ||-d--o{ comments
+end_users ||-u--o{ likes
 @enduml
 ```

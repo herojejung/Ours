@@ -104,10 +104,10 @@ update_at [更新日]
 }
 tag_post_images ||-u--o{ post_images
 tag_post_images ||-u--o{ tags
-post_images ||-l--o{ tags
+post_images ||-d--o{ tags
 post_images ||-l--o{ comments
 post_images ||-d--o{ likes
-users ||-u--o{ post_images
+users ||-l--o{ post_images
 users ||-d--o{ comments
 users ||-u--o{ likes
 @enduml

@@ -94,7 +94,7 @@ comment [コメント]
 created_at [作成日]
 update_at [更新日]
 }
-entity favorites as "likes/nいいね" {
+entity likes as "likes/nいいね" {
   + id [PK]
   --
 # 投稿_id [FK(id,投稿_id)]

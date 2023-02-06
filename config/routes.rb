@@ -9,6 +9,11 @@ devise_for :users,skip: [:passwords], controllers: {
   sessions: 'user/sessions'
 }
 
+namespace :user do
+  root to: "homes#top"
+  get "destroy_user_session" => "users#sign_out"
+end  
+
 namespace :admin do
   root to: 'homes#top'
   get "destroy/admin/session" => "admin#sign_out"
@@ -23,10 +28,6 @@ namespace :admin do
 end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-namespace :user do
-  root to: "homes#top"
-  get "destroy_user_session" => "users#sign_out"
-end  
   
 namespace :user do
   resources :users, only:[:show,:edit,:update,:index]

@@ -10,6 +10,18 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   Rails.application.credentials[:secret_key_base]
+#（略）
+  # メールを送信するアドレス
+  config.mailer_sender = ENV["GOOGLE_MAIL_ADDRESS"]
+  # パスワード再設定するためのキーカラム。
+  config.reset_password_keys = [:email]
+
+  # リセットパスワードキーを使ってパスワードをリセットできる時間間隔。
+  config.reset_password_within = 6.hours
+
+  #既定値はtrueで, リセットされた後に自動的にサインインする。
+  config.sign_in_after_reset_password = true
+#（略）
   
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
@@ -311,4 +323,6 @@ Devise.setup do |config|
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
   config.scoped_views = true
+  config.authentication_keys = [:name]
+  
 end

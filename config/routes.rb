@@ -5,6 +5,8 @@ devise_for :users,skip: [:passwords], controllers: {
   sessions: 'users/sessions'
 }
 
+resources :password_resets, only: [:new, :create, :edit, :update]
+
 devise_for :admins, skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"
 }

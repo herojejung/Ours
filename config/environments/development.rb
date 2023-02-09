@@ -29,6 +29,9 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
+  
+  #config.action_mailer.smtp_settings = {
+  
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
@@ -75,5 +78,4 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
   config.hosts.clear
   config.active_job.queue_adapter = :inline
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end

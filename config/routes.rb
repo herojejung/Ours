@@ -5,16 +5,17 @@ devise_for :users, controllers: {
   sessions: 'users/sessions'
 }
 
+devise_scope :users do
+  post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  get 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+end
+
 devise_for :admins, skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"
 }
 
 namespace :user do
   root to: 'homes#index'
-end
-
-devise_scope :user do
-  post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
 end
 
 namespace :admin do

@@ -3,7 +3,7 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :"ユーザーネーム" %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'current-name' %>
   </div>
 
   <div class="field">
@@ -14,8 +14,9 @@
   <div class="actions">
     <%= f.submit "ログイン",class:"btn btn-primary" %>
   </div>
+   <p><%= link_to "パスワードをお忘れの方はこちら",  new_user_password_path,class:"btn btn-primary"%></p>
+
 <% end %>
 
-<h4 class="text-muted">
-<p><%= link_to "パスワードをお忘れの方はこちらから", new_password_reset_path%></p>
+
 </h3>

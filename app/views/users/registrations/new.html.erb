@@ -15,7 +15,7 @@
 
   <div class="field">
     <%= f.label :"パスワード" %>
-    <em>(※英数字を含めた6~20文字以上を入力してください。)</em>
+    <em>(※英数字を含めた6~30文字以上を入力してください。)</em>
     <br />
     <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
     <br />
@@ -26,5 +26,3 @@
     <%= f.submit "新規登録を行う",class:"btn btn-primary" %>
   </div>
 <% end %>
-
-<%= render "users/shared/links" %>

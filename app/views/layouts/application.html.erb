@@ -2,28 +2,39 @@
 <html>
   <head>
     <title>ours</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-<header>
-  <nav>
-    <% if user_signed_in? %>
-        <%= link_to 'HOME', user_post_images_path %>
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-    <% else %>
-        <%= link_to 'サインアップ', new_user_registration_path %>
-        <%= link_to 'ログイン', new_user_session_path %>
-    <% end %>
-  </nav>
-</header>
+  
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <%= yield %>
-</body>
+  <header class="<%= (admin_signed_in? ? "admin_header" : "" ) %>">
+    <div class="header-content">
+      <%= link_to 'Ours', (admin_signed_in? ? admin_root_path : user_root_path ), class: "logo" %>
+        <ul class="flex">
+          <% if admin_signed_in? %>
+            <li><%= link_to '投稿一覧',  admin_root_path %></li>
+            <li><%= link_to '会員一覧',  admin_users_path %></li>
+            <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
+          <% elsif user_signed_in? %>
+            <li><%= link_to 'HOME', user_post_images_path %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to 'マイページ', user_users_path %></li>
+          <% else %>
+            <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+            <li><%= link_to 'ログイン', new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </header>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>Copyright © Infratop Inc. All Rights Reserved.</footer>
+  </body>
 </html>

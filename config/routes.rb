@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
 devise_for :users, controllers: {
   registrations: "users/registrations",
-  sessions: 'users/sessions'
+  sessions: 'users/sessions',
+  passwords: 'users/passwords'
 }
 
 devise_scope :user do
@@ -15,17 +16,13 @@ devise_for :admins, skip: [:registrations, :passwords], controllers: {
 }
 
   namespace :user do
-    
-  end
-
-  namespace :user do
     root to: 'homes#index'
     get '/users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     patch '/users/withdrawal' => 'users#withdrawal', as: 'withdrawal'
-    resources :users, only:[:show,:edit,:update,:index]
+    resources :users, only:[:show,:edit,:update,:index,:destroy]
     resources :comments, only:[:destroy,:create]
     resources :likes, only:[:index,:create,:destroy,:show]
-    resources :post_images, only:[:index,:edit,:new,:create,:show]
+    resources :post_images, only：[:index,:edit,:new,:create,:show,:destroy]
   end
 
 namespace :admin do

@@ -4,6 +4,15 @@ class Admin::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+  has_one_attached :image
+  
+  def get_image(width, height)
+    unless image.attached?
+      file_path = Rails.root.join('app/assets/images/no_image.jpg')
+      image.attach(io: File.open(file_path), filename: 'no_image.jpg', content_type: 'image/jpg')
+    end
+    image.variant(resize_to_limit: [width, height]).processed
+  end
   # GET /resource/sign_up
   # def new
   #   super

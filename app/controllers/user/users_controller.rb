@@ -43,7 +43,7 @@ class User::UsersController < ApplicationController
 private
   # ストロングパラメータ
 def user_params
-  params.require(:user).permit(:email,:name)
+  params.require(:user).permit(:email,:name,:image)
 end
 
 end

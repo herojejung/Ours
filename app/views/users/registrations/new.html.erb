@@ -4,8 +4,8 @@
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :"メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+    <%= f.file "プロフィール画像" %><br />
+    <%= f.file_field :image, autofocus: true, autocomplete: "image", class: "w-100" %>	
   </div>
 
   <div class="field">

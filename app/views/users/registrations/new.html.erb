@@ -4,14 +4,14 @@
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.file "プロフィール画像" %><br />
-    <%= f.file_field :image, autofocus: true, autocomplete: "image", class: "w-100" %>	
+    <%= f.label :image,"プロフィール画像",for: "file-input"%><br />
+    <%= f.file_field :image, id: "file-input" %>
   </div>
 
   <div class="field">
     <%= f.label :"ユーザーネーム" %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
-  </div>
+  </div><br />
 
   <div class="field">
     <%= f.label :"パスワード" %>
@@ -22,6 +22,7 @@
     <%= f.password_field :password_confirmation,autocomplete: "new-password", placeholder: "確認のため、もう一度入力してください", class: 'form-control' %>
   </div>
 
+   <br />
   <div class="actions">
     <%= f.submit "新規登録を行う",class:"btn btn-primary" %>
   </div>

@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-     
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  
+
 <body>
   <header class="<%= (admin_signed_in? ? "admin_header" : "" ) %>">
     <div class="header-content">
@@ -20,9 +20,9 @@
             <li><%= link_to '会員一覧',  admin_users_path %></li>
             <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
           <% elsif user_signed_in? %>
-            <li><%= link_to 'HOME', user_post_images_path %></li>
+            <li><%= link_to 'HOME', user_root_path %></li>
             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-            <li><%= link_to 'マイページ', user_users_path %></li>
+            <li><%= link_to 'マイページ', user_user_path(current_user.id) %></li>
           <% else %>
             <li><%= link_to 'サインアップ', new_user_registration_path %></li>
             <li><%= link_to 'ログイン', new_user_session_path %></li>

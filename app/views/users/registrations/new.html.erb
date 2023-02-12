@@ -4,9 +4,14 @@
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :image,"プロフィール画像",for: "file-input"%><br />
-    <%= f.file_field :image, id: "file-input" %>
+    <%= f.label :image,"プロフィール画像",for: "file-input"%><span class="must">*</span><br />
+    <%= f.file_field :images, class: "push", multiple: true, onchange: "loadImage(this);" %>
   </div>
+  <div id="images" style="display: none;">
+    <p id="preview"></p>
+  </div>
+  <%= render "loadimage" %><br />
+  
 
   <div class="field">
     <%= f.label :"ユーザーネーム" %><br />

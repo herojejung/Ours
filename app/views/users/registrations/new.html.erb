@@ -2,17 +2,16 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
-
+    
   <div class="field">
     <%= f.label :image,"プロフィール画像",for: "file-input"%><span class="must">*</span><br />
     <%= f.file_field :images, class: "push", multiple: true, onchange: "loadImage(this);" %>
   </div>
+
   <div id="images" style="display: none;">
     <p id="preview"></p>
-  </div>
-  <%= render "loadimage" %><br />
+  </div><br />
   
-
   <div class="field">
     <%= f.label :"ユーザーネーム" %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>

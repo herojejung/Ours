@@ -23,7 +23,7 @@ class User::UsersController < ApplicationController
 
   def withdrawal
   end
-  
+
   def destroy_confirm
     @user = current_user
   end

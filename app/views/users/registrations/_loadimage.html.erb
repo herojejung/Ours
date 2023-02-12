@@ -1,12 +1,12 @@
 <script>
   function loadImage(obj)
   {
-    var allPreview = document.getElementById('image');
+    var allPreview = document.getElementById('images');
     var newPreview = document.createElement("p");
     allPreview.querySelector("p").remove();
     newPreview.setAttribute("id","preview");
     allPreview.insertBefore(newPreview, allPreview.firstChild);
-    document.getElementById("image").style.display = "";
+    document.getElementById("images").style.display = "";
     for (i = 0; i < obj.files.length; i++) {
         var fileReader = new FileReader();
         fileReader.onload = (function (e) {
@@ -18,3 +18,8 @@
     }
   }
 </script>
+<style>
+p#preview  img{
+    width:100px;
+}
+</style>

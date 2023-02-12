@@ -3,7 +3,7 @@
     <p class="text-active"><%= flash[:notice] %></p>
   <% end %>
 	<h2 class="section-ttl">マイページ</h2>
-	<h3>登録情報</h3>
+
 	<table class="customer_info mb3">
 		<thead>
 			<th></th>
@@ -12,18 +12,18 @@
 		</thead>
 		<tbody>
 		  <tr>
-		  		<td></td>
-				<td><%= image_tag @user.get_image(50,50) %></td>
-				<td><%= link_to "ユーザー情報を編集する", edit_user_user_path, class: "btn btn-success ml2" %></td>
+		  	<td></td>
+			<td><%= image_tag @user.get_image(50,50) %></td>
+			<td><%= link_to "ユーザー情報を編集する", edit_user_user_path, class: "btn btn-success ml2" %></td>
 		  </tr>
-			<tr>
-				<td>ユーザーネーム</td>
-				<td><%= @user.name %></td>
-			</tr>
-			<tr>
-				<td>メールアドレス</td>
-				<td colspan="2"><%= @user.email %></td>
-			</tr>
+		  <tr>
+			<td>ユーザーネーム</td>
+			<td><%= @user.name %></td>
+		  </tr>
+		  <tr>
+			<td>メールアドレス</td>
+			<td colspan="2"><%= @user.email %></td>
+		  </tr>
 		</tbody>
 	</table>
 	<div class="flex">

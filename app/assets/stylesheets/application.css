@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+.header-content {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 40px;
+}
+
+.header-content > :ul :li {
+  margin-right: auto;
+}

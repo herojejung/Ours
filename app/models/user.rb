@@ -4,9 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :post_images
-
   has_one_attached :image
+  has_many :post_images
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
@@ -20,7 +19,6 @@ class User < ApplicationRecord
       user.password = SecureRandom.alphanumeric
     end
   end
-
 
   def get_image(width, height)
     unless image.attached?

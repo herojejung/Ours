@@ -1,11 +1,13 @@
-class User::PostsController < ApplicationController
+class User::PostImagesController < ApplicationController
 before_action :authenticate_user!
 
   def new
-    @post = Post.new
+    @post_image = PostImage.new
   end
 
   def create
+    @post_image = PostImage.new(post_image_params)
+    @post_image.save ? (redirect_to user_root_path(@post_image)) : (render :new)
   end
 
   def show
@@ -22,7 +24,7 @@ before_action :authenticate_user!
 
 private
   # ストロングパラメータ
-def post_images_params
+def post_image_params
   params.require(:post_images).permit(:title,:text,:image,:latitude,:longitude,:user_id,:tag_id)
 end
 

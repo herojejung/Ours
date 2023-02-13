@@ -1,2 +1,39 @@
-<h1>User::Posts#new</h1>
-<p>Find me in app/views/user/posts/new.html.erb</p>
+<%= form_with model: @post, local: true do |form| %>
+  
+  <div class="form-group">
+    <label class="text-secondary">タイトル</label><br>
+    <%= f.text_field :title %>
+  </div>
+  
+  <div class="form-group">
+    <label class="text-secondary">画像</label><br>
+    <%= f.file_field :image %>
+  </div>
+   <div id="new-image"></div> 
+  
+  <div class="form-group">
+    <label class="text-secondary">本文</label><br>
+    <%= f.text_field :text %>
+  </div>
+
+  <div class="form-group">
+    <label class="text-secondary">本文</label><br>
+    <%= f.text_field :text %>
+  </div>
+  
+  <div class="form-group">
+    <label class="text-secondary">緯度</label><br>
+    <%= f.text_field :lat,:value =>"緯度", id: :lat %>
+    <label class="text-secondary">経度</label><br>
+    <%= f.text_field :lng,:value =>"経度", id: :lng %>
+  </div>
+  
+  <div class="form-group">
+    <label class="text-secondary">タグ</label><br>
+    <%= f.text_field :tag %>
+  </div>
+  
+  <div class="actions">
+     <%= f.submit "投稿",class:"btn btn-primary" %>
+  </div>
+<% end %>

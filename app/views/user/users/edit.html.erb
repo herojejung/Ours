@@ -1,2 +1,41 @@
-<h1>User::Users#edit</h1>
-<p>Find me in app/views/user/users/edit.html.erb</p>
+<%= form_with model: @user, url: user_user_path do |f| %>
+	<%= render "users/shared/error_messages", resource: f.object %>
+
+		<table class="user_info user_form">
+			<thead>
+				<tr>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+			  <tr>
+			   <td><%= f.label :image,"プロフィール画像",for: "file-input" do%>
+        <i class="fa-regular fa-image"></i>
+        </td>
+        <td><%= f.file_field :image, class: "push" %></td>
+          <% end %>
+        <td>
+			     <td id="images" style="display: none;">
+           <p id="preview"></p>
+          <br />
+        </td>
+        </tr>
+				<tr>
+          <td><%= f.label :"ユーザーネーム" %></td>
+          <td><%= f.text_field :name %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :"メールアドレス" %></td>
+          <td><%= f.email_field :email %></td><br />
+        </tr>
+        <br />
+			</tbody>
+		</table>
+		   <div class="actions">
+    <%= f.submit "保存する",class:"btn btn-primary" %>
+  </div>
+  <% end %>
+<%= render "user/users/loadimage" %>

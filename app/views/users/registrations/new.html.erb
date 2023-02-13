@@ -6,7 +6,7 @@
   <div class="field">
     <%= f.label :image,"プロフィール画像",for: "file-input" do%>
     <i class="fa-regular fa-image"></i>
-    <%= f.file_field :images, class: "push", multiple: true, onchange: "loadImage(this);" %>
+    <%= f.file_field :image, class: "push", onchange: "loadImage(this);" %>
     <% end %>
   </div>
 
@@ -29,7 +29,6 @@
     <em>(※英数字を含めた6~30文字以上を入力してください。)</em>
     <br />
     <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
-    <br />
     <%= f.password_field :password_confirmation,autocomplete: "new-password", placeholder: "確認のため、もう一度入力してください", class: 'form-control' %>
   </div>
 

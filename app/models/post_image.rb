@@ -1,6 +1,8 @@
 class PostImage < ApplicationRecord
   belongs_to :user
   has_many :tags
+  has_many_attached :images
+  
   
   
   def get_image(width, height)

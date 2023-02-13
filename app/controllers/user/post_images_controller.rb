@@ -23,7 +23,7 @@ before_action :authenticate_user!
 private
   # ストロングパラメータ
 def post_images_params
-  params.require(:post_images).permit(:email,:name,:image)
+  params.require(:post_images).permit(:title,:text,:image,:latitude,:longitude,:user_id,:tag_id)
 end
 
 

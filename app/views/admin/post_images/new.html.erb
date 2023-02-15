@@ -15,27 +15,22 @@
         <tr>
           <td><%=f.label :"画像"%></td><br>
           <td><%= f.file_field :image %></td>
-           <div id="new-image"></div>
         </tr>
         <tr>
           <td><%=f.label :"本文"%></td><br>
           <td><%= f.text_field :text %></td>
-          <div id="new-image"></div>
         </tr>
-  
-  <div class="form-group">
-    <label class="text-secondary">緯度</label><br>
-    <%= f.text_field :lat,:value =>"緯度", id: :lat %>
-    <label class="text-secondary">経度</label><br>
-    <%= f.text_field :lng,:value =>"経度", id: :lng %>
-  </div>
-  
-  <div class="form-group">
-    <label class="text-secondary">タグ</label><br>
-    <%= f.text_field :tag %>
-  </div>
-  
-  <div class="actions">
+        <tr>
+          <td><%=f.label :"緯度"%></td><br>
+          <td><%= f.text_field :lat,:value =>"緯度", id: :lat %></td>
+          <td><%=f.label :"経度"%></td><br>
+          <td><%= f.text_field :lng,:value =>"経度", id: :lng %></td>
+        </tr>
+        <tr>
+          <td><%=f.label :"タグ"%></td><br>
+          <td><%= f.text_field :tag %></td>
+        </tr>
+      <div class="actions">
      <%= f.submit "投稿",class:"btn btn-primary" %>
   </div>
 </div>

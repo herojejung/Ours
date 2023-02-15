@@ -1,8 +1,9 @@
+<%= javascript_pack_tag 'preview', 'data-turbolinks-track': 'reload' %>
 <%= form_with model: @post_image, url: user_post_images_path do |f| %>
  <h2 class= "container" >
    <i class="fa-regular fa-image">新規投稿</i>
  </h2>
- 
+
 <div class= "flex">
   <table class="user_post_images_info post_form">
 			<thead>
@@ -19,6 +20,7 @@
         <tr>
           <td><i class="fa-regular fa-image"></i><%=f.label :"画像"%></td>
           <td><%= f.file_field :images,multiple: true, accept: "image/*" %></td>
+          <td id="new-image"></td>
         </tr>
         <tr>
           <td><%=f.label :"本文"%></td><br>

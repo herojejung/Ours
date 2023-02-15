@@ -18,7 +18,7 @@
         </tr>
         <tr>
           <td><i class="fa-regular fa-image"></i><%=f.label :"画像"%></td>
-          <td><%= f.file_field :image %></td>
+          <td><%= f.file_field :images,multiple: true, accept: "image/*" %></td>
         </tr>
         <tr>
           <td><%=f.label :"本文"%></td><br>

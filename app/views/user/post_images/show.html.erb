@@ -1,23 +1,27 @@
+<div class="l-contents">
+    <div class="p-article-header js-portrait-floating-sticky-target">
+    	 <div class="p-article-header__container">
+        <div class="p-article-header__thumb">
+        	<
+<%= javascript_include_tag 'preview_js' %>
 <section class="inner">
-  <% if flash[:notice] %>
-    <p class="text-active"><%= flash[:notice] %></p>
-  <% end %>
+	<% if flash[:error] %>
+		<div id="error_explanation">
+			<p><%= flash[:error] %></p>
+		</div>
+	<% end %>
 
-	<table class="customer_info mb3">
-		<thead>
-			<th></th>
-			<th></th>
-			<th></th>
-		</thead>
-		<tbody>
-		  <tr>
-		    <td>
-		        <%= @post_image.user.name%>
-		        <%= image_tag @post_image.user.get_image(50,50) %>
+	<div class="content">
+		<div class="flex">
+			<%= image_tag @post_image.user.get_image(50,50) %>
+			<p><%= @post_image.user.name %></p>
+		<div class="post_info">
+		  <p><%= @post_image.title%></p>
+		        
 		    </td>
 		  </tr>
 		  <tr>
-		  	<td><%= @post_image.title%></td>
+		  	<td></td>
 		  </tr>
 		  <tr>
 			<td>

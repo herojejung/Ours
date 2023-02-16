@@ -1,8 +1,7 @@
 class PostImage < ApplicationRecord
-  belongs_to :user
-  has_many :tags
-  has_many_attached :images
-  
+  belongs_to :user, dependent: :destroy
+  has_many_attached :images, dependent: :destroy
+  accepts_nested_attributes_for :images
   
   
   def get_image(width, height)

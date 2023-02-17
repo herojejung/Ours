@@ -1,49 +1,10 @@
 <%= javascript_pack_tag 'preview', 'data-turbolinks-track': 'reload' %>
 
-<div class="content-box">
-  <div class="content-block">
-    <h1 class="re-content-title">
-      <i class="fa-regular fa-image">新規投稿</i>
-    <% if flash[:error] %>
-		<div id="error_explanation">
-			<p><%= flash[:error] %></p>
-		</div>
-	<% end %>
-	</h1>
-</div>
+<section class="inner">
+  <i class="fa-thin fa-square-plus"></i>
+	<h2 class="section-ttl">新規投稿</h2>
+  <%= render 'form', post_image: @post_image,submit: '投稿' %>
+</section>
 
-<div class="row">
-    <div class="col-sm-10 px-sm-0 mx-auto mb-5">
-  <%= form_with model: @post_image, url: user_post_images_path do |f| %>
-  <table>
-    <tr>
-      <div id="new-image"></div>
-      <div class="form-item">
-        <i class="fa-regular fa-image"></i>
-          <%=f.label :"画像"%>
-          <%= f.file_field :images,multiple: true, accept: "image/*" %>
-      </div>
-    </tr>
-    <tr>
-      <div class="form-item">
-        <%=f.label :"タイトル"%>
-        <%= f.text_field :title %>
-      </div>
-    </tr>
-    <tr>
-      <div class="form-item">
-        <%=f.label :"本文"%>
-        <%= f.text_area :text %>
-      </div>
-    </tr>
-    <tr>
-      <div class="re-button-box">
-        <%= f.submit "投稿",class:"btn btn-primary" %>
-      </div>
-    </tr>
-    <% end %>
-  </table>
-</div>
-</div>
-</div>
+
 

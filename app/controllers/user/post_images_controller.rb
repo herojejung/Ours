@@ -20,7 +20,7 @@ before_action :authenticate_user!
   def show
     @post_image = PostImage.find(params[:id])
     @user = current_user
-    @post_images = PostImage.all
+    @postimages = PostImage.all
   end
   
   def edit

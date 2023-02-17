@@ -1,0 +1,22 @@
+<%= javascript_pack_tag 'preview', 'data-turbolinks-track': 'reload' %>
+
+<%= form_with model: @post_image, url: {controller: 'post_images', action: 'new',action: 'edit'} do |f| %>
+	<%= render 'layouts/error_messages', model: f.object %>
+	
+	<div class="field">
+		<i class="fa-regular fa-image"></i>
+    <%=f.label :"画像"%>
+    <%= f.file_field :images,multiple: true, accept: "image/*" %>
+  </div>
+	
+	<div class="field">
+    <%=f.label :"タイトル"%>
+    <%= f.text_field :title %>
+	</div>
+	
+	<div class="field">
+    <%=f.label :"本文"%>
+    <%= f.text_area :text %>
+    <%= f.submit "投稿",class:"btn btn-primary" %>
+	</div>
+<% end %>

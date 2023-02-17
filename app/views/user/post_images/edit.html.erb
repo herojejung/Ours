@@ -1,2 +1,8 @@
-<h1>User::Posts#edit</h1>
-<p>Find me in app/views/user/posts/edit.html.erb</p>
+<%= javascript_pack_tag 'preview', 'data-turbolinks-track': 'reload' %>
+
+<section class="inner">
+  <i class="fa-solid fa-pen-to-square"></i>
+	<h2 class="section-ttl">投稿編集</h2>
+  <%= render 'form', post_image: @post_image submit: '編集を保存する' %>
+</section>
+

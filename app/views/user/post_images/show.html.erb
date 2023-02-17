@@ -1,43 +1,48 @@
 <%= javascript_pack_tag 'preview', 'data-turbolinks-track': 'reload' %>
-<div class="l-contents">
-    <div class="p-article-header js-portrait-floating-sticky-target">
-    	 <div class="p-article-header__container">
-        <div class="p-article-header__thumb">
-        	<p>タグ</p>
-        </div>
-       </div>
+<div class="container">
+	<div class="row">
+		<div>
+        <p>タグ</p>
      </div>
+<div>
+	<% if user_signed_in? %>  <!--未ログインでは投稿の操作は不可能にする-->
+    <% if @post_image.user_id == current_user.id %> <!--ログインユーザーは自分の投稿以外は削除できないようにする-->        
 <section class="inner">
 	<% if flash[:error] %>
 		<div id="error_explanation">
 			<p><%= flash[:error] %></p>
 		</div>
 	<% end %>
-	<div class="content">
-		<div class="flex">
-			<% if @user.image.attached? %>
-    	<% @user.image.each do |img| %>
-      <%= image_tag img.variant(resize_to_limit: [100, 100]) %>
-    <% end %>
-  	<% end %>
+	<% end %>
+	<% end %>
+</section>
     </div>
-
-		<div class="flex">
-			<%= image_tag @post_image.user.get_image(50,50) %>
-			<p><%= @post_image.user.name %></p>
-		</div>
-
-		<div class="flex">
+  </div>
+ 
+<div class="row">
+    <div class="col-8">
+			<% if @post_image.images.attached? %>
+    	<% @post_image.images.each do |image| %>
+      <%= image_tag @post_image.images.variant(resize_to_limit: [100, 100]) %>
+    	<% end %>
+  		<% end %>
+ 		</div>
+ 		
+			<div class= "post-image">
+				<%= image_tag @post_image.user.get_image(50,50) %>
+				<p><%= @post_image.user.name %></p>
+			</div>
+			
+		<div class="post-title">
 		  <p><%= @post_image.title%></p>
 		</div>
 
-		<div class="flex">
+		<div class="post-text">
 		  <p><%= @post_image.text%></p>
 		</div>
 
-		<div class="flex">
+		<div class="post-date">
 		  <p><%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
 		</div>
 	</div>
-	</section>
 </div>

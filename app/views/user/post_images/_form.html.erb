@@ -1,7 +1,5 @@
-<%= javascript_pack_tag 'preview', 'data-turbolinks-track': 'reload' %>
-
-<%= form_with model: @post_image, url: {controller: 'post_images', action: 'new',action: 'edit'} do |f| %>
-	<%= render 'layouts/error_messages', model: f.object %>
+<%= form_with model: post_image do |f| %>
+	<%= render 'layouts/error_messages', resource: post_image %>
 	
 	<div class="field">
 		<i class="fa-regular fa-image"></i>

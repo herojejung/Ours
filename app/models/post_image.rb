@@ -3,6 +3,9 @@ class PostImage < ApplicationRecord
   has_many_attached :images
   #accepts_nested_attributes_for :images
   
+  validates :title, presence: true
+  validates :text, presence: true
+  validates :image, presence: true
   
   def get_image(width, height)
     unless images.attached?

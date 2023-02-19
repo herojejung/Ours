@@ -42,7 +42,7 @@
               <%= link_to user_root_path do%>
               <i class="fa-solid fa-house">HOME</i>
             <% end %>
-              <%= link_to destroy_user_session_path, method: :delete do %>
+              <%= link_to destroy_user_session_path, method: :get do %>
               <i class="fa-solid fa-arrow-right-from-bracket">ログアウト</i>
               <% end %>
                <%= link_to user_user_path(current_user.id) do %>

@@ -11,7 +11,7 @@ end
 def update
   @user = current_user
 if @user.update(user_params)
-  redirect_to controller: :users, action: :show
+  redirect_to user_user_path
 else
   render "new"
 end

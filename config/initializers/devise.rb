@@ -22,7 +22,7 @@ Devise.setup do |config|
   #既定値はtrueで, リセットされた後に自動的にサインインする。
   config.sign_in_after_reset_password = true
 #（略）
-  
+
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
@@ -280,7 +280,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :get
+  config.sign_out_via = :delete
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
@@ -324,5 +324,5 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
   config.scoped_views = true
   config.authentication_keys = [:name]
-  
+
 end

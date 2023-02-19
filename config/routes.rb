@@ -19,7 +19,7 @@ devise_for :admins, skip: [:registrations, :passwords], controllers: {
     root to: 'homes#index'
     get '/users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     patch '/users/withdrawal' => 'users#withdrawal', as: 'withdrawal'
-    resources :users, only:[:show,:edit,:update,:index,:destroy]
+    resources :users
     resources :comments, only:[:destroy,:create]
     resources :likes, only:[:index,:create,:destroy,:show]
     resources :post_images

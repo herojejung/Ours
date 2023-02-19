@@ -1,41 +1,31 @@
+<%= javascript_pack_tag 'preview', 'data-turbolinks-track': 'reload' %>
+<%= render "loadimage" %>
+<section class="inner">
+<i class="fa-solid fa-pen-to-square" style= "font-size: 25px; ">投稿編集</i>
+</section></br>
+
 <%= form_with model: @user, url: user_user_path do |f| %>
 	<%= render "users/shared/error_messages", resource: f.object %>
 
-		<table class="user_info user_form">
-			<thead>
-				<tr>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-			  <tr>
-			   <td><%= f.label :image,"プロフィール画像",for: "file-input" do%>
-        <i class="fa-regular fa-image"></i>
-        </td>
-        <td><%= f.file_field :image, class: "push" %></td>
-          <% end %>
-          <td>
-			     <div id="images" style="display: none;">
-           <p id="preview"></p>
-          <br />
-        </td>
-        </tr>
-				<tr>
-          <td><%= f.label :"ユーザーネーム" %></td>
-          <td><%= f.text_field :name %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :"メールアドレス" %></td>
-          <td><%= f.email_field :email %></td><br />
-        </tr>
-        <br />
-			</tbody>
-		</table>
-		   <div class="actions">
+<img id="preview" src="#" alt="Image Preview" style="display:none;">
+  <div class="field">
+    <%= f.label :image,"プロフィール画像",for: "file-input" do%>
+    <i class="fa-regular fa-image"></i>
+    <%= f.file_field :image, class: "push", onchange: "previewImage(this);" %>
+    <% end %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :"ユーザーネーム" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"メールアドレス" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+  </div>
+
+  <div class="actions">
     <%= f.submit "保存する",class:"btn btn-primary" %>
   </div>
-  <% end %>
-<%= render "user/users/loadimage" %>
+<% end %>

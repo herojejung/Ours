@@ -24,10 +24,10 @@ div >:li {
 }
 
 .box {
-  width: 60%;
+  width: 70%;
   height: 55px;
   background: #ccc;
-  margin-left: 20%;
+  margin-left: 230px;
 }
 .header-sub {
   letter-spacing: 1em;

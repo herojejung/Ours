@@ -8,9 +8,9 @@ before_action :authenticate_user!
   def create
     @post_image = PostImage.new(post_image_params)
     @post_image.user_id = current_user.id
-    if @post_images.save
-        flash[:succsess] = "You have created post successfully."
-        redirect_to user_post_image_path(@post_image.id)
+    if @post_image.save!
+      flash[:succsess] = "投稿が完了しました."
+      redirect_to user_post_image_path(@post_image.id)
     else
       @user = current_user
       render :new
@@ -22,13 +22,13 @@ before_action :authenticate_user!
     @user = current_user
     @postimages = PostImage.all
   end
-  
+
   def edit
   end
-  
+
   def update
   end
-  
+
   def destroy
   end
 

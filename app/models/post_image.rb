@@ -2,11 +2,11 @@ class PostImage < ApplicationRecord
   belongs_to :user
   has_many_attached :images
   #accepts_nested_attributes_for :images
-  
+
   validates :title, presence: true
   validates :text, presence: true
-  validates :image, presence: true
-  
+  validates :images, presence: true
+
   def get_image(width, height)
     unless images.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')

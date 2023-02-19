@@ -1,18 +1,19 @@
-<%= form_with model: @post_image, url: user_post_images_path do |f| %>
-	<%= render 'users/shared/error_messages', resource: f.object %>
-	
+<%= request_path = request.path_info %>
+<%= form_with model: post_image, url: request_path.include?("new") ? user_post_images_path : user_post_image_path do |f| %>
+<%= render 'users/shared/error_messages', resource: f.object %>
+
 	<div id="new-image"></div>
 	<div class="field">
 		<i class="fa-regular fa-image"></i>
     <%=f.label :"画像"%>
     <%= f.file_field :images,multiple: true, accept: "images/*" %>
   </div>
-	
+
 	<div class="field">
     <%=f.label :"タイトル"%>
     <%= f.text_field :title %>
 	</div>
-	
+
 	<div class="field">
     <%=f.label :"本文"%>
     <%= f.text_area :text %>

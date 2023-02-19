@@ -22,7 +22,7 @@ devise_for :admins, skip: [:registrations, :passwords], controllers: {
     resources :users, only:[:show,:edit,:update,:index,:destroy]
     resources :comments, only:[:destroy,:create]
     resources :likes, only:[:index,:create,:destroy,:show]
-    resources :post_images, only:[:index,:edit,:new,:create,:show,:destroy]
+    resources :post_images
   end
 
 namespace :admin do

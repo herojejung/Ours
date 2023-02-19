@@ -24,11 +24,16 @@ before_action :authenticate_user!
   end
 
   def edit
+    @post_image = PostImage.find(params[:id])
   end
 
   def update
+    @post_image = PostImage.find(params[:id])
+  if @post_image.update(post_image_params)
+    redirect_to user_post_image_path
   end
-
+  end
+  
   def destroy
   end
 

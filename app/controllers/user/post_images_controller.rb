@@ -8,8 +8,8 @@ before_action :authenticate_user!
   def create
     @post_image = PostImage.new(post_image_params)
     @post_image.user_id = current_user.id
-    if @post_image.save
-        flash[:succsess] = "You have created book successfully."
+    if @post_images.save
+        flash[:succsess] = "You have created post successfully."
         redirect_to user_post_image_path(@post_image.id)
     else
       @user = current_user

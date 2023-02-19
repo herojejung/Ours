@@ -1,9 +1,9 @@
 <%= render 'user/homes/header' %>
 <%= javascript_pack_tag 'preview', 'data-turbolinks-track': 'reload' %>
 <section class="inner">
-  <i class="fa-thin fa-square-plus"></i>
+  <i class="fa-light fa-square-plus"></i>
 	<h2 class="section-ttl">新規投稿</h2>
-  <%= render 'form', post_image: @post_image, submit: '投稿' %>
+  <%= render 'user/post_images/form', post_image: @post_image, submit: '投稿' %>
 </section>
 
 

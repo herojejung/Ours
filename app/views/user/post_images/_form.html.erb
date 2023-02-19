@@ -1,6 +1,7 @@
-<%= form_with model: post_image do |f| %>
-	<%= render 'layouts/error_messages', resource: post_image %>
+<%= form_with model: @post_image, url: user_post_images_path do |f| %>
+	<%= render 'users/shared/error_messages', resource: f.object %>
 	
+	<div id="new-image"></div>
 	<div class="field">
 		<i class="fa-regular fa-image"></i>
     <%=f.label :"画像"%>

@@ -1,13 +1,1 @@
-<div class ="header-sub">
-<li class="nav-item" style = "list-style: none;">
-  <%= link_to new_user_post_image_path do %>
-<i class="fa-regular fa-square-plus">新規投稿</i>
-<% end %>
-  <%= link_to user_post_images_path do %>
-<i class="fa-solid fa-house">投稿一覧</i>
-<% end %>
-  <%= link_to user_user_path(current_user) do %>
-<i class="fa-solid fa-user">マイページ</i>
-<% end %>
-</li>
-</div>
+<%= render 'user/homes/header' %>

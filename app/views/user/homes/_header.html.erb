@@ -5,7 +5,7 @@
         <%= link_to new_user_post_image_path, data: {"turbolinks" => false} do %>
           <i class="fa-solid fa-square-plus" style="color: black;">新規投稿</i>
         <% end %>
-        <%= link_to user_post_images_path do %>
+        <%= link_to user_root_path do %>
           <i class="fa-solid fa-house" style="color: black;">投稿一覧</i>
         <% end %>
         <% if current_user %>

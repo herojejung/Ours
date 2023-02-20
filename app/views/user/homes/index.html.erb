@@ -1,1 +1,16 @@
 <%= render 'user/homes/header' %>
+ <div class ="container">
+    <div class ="row">
+        <div class="col-sm" style= "padding-left: 100px;">
+        <div class= "user_top">
+      <% @homes.each do |home| %>
+      <% if home.post_images.any? %>
+      <%= image_tag url_for(home.post_images.last.images.first) %>
+      <% end %>
+    <p><%= home.title %></p>
+    <p><%= home.text %></p>
+      <% end %>
+    </div>
+   </div>
+  </div>
+</div>

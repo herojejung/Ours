@@ -1,15 +1,16 @@
 <%= render 'user/homes/header' %>
  <div class ="container">
     <div class ="row">
-      <div class="col-sm" style= "padding-left: 100px;">
-        <div class= "user_top">
-          <% @homes.each do |home| %>
-          <% if home.post_images.any? %>
-          <%= image_tag url_for(home.post_images.last.images.first) %>
+      <div class="col-sm">
+        <ul>
+          <% if @post_images %>
+          <% @post_images.each do |post_image| %>
+          <li><%= image_tag(post_image.images.first) %></li>
+          <li><%= post_image.title %></li>
+          <li><%= post_image.text %></li>
           <% end %>
-          <p><%= home.title %></p>
-          <p><%= home.text %></p>
-         <% end %>
+          <% end %>
+        </ul>
         </div>
       </div>
      </div>

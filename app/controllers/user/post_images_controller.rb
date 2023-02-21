@@ -16,6 +16,10 @@ before_action :authenticate_user!
       render :new
     end
   end
+  
+  def index
+
+  end
 
   def show
     @post_image = PostImage.find(params[:id])

@@ -16,7 +16,7 @@ before_action :authenticate_user!
       render :new
     end
   end
-  
+
   def index
 
   end
@@ -37,8 +37,13 @@ before_action :authenticate_user!
     redirect_to user_post_image_path
   end
   end
-  
+
   def destroy
+    @post_image = PostImage.find(params[:id])
+    @post_image.user_id  = current_user.id
+  if @post_image.destroy
+    redirect_to user_root_path
+  end
   end
 
 private

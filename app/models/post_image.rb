@@ -1,5 +1,5 @@
 class PostImage < ApplicationRecord
-  belongs_to :home
+  belongs_to :home, optional: true
   belongs_to :user
   has_many_attached :images
   #accepts_nested_attributes_for :images

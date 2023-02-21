@@ -17,7 +17,7 @@ devise_for :admins, skip: [:registrations, :passwords], controllers: {
 }
 
   namespace :user do
-    root to: 'homes#index'
+    root to: 'homes#top'
     get '/users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     patch '/users/withdrawal' => 'users#withdrawal', as: 'withdrawal'
     resources :users

@@ -17,6 +17,13 @@
 	<div class="field">
     <%=f.label :"本文"%>
     <%= f.text_area :text %>
-    <%= f.submit "投稿",class:"btn btn-primary" %>
 	</div>
+
+	<div class="actions">
+    <% if @post_image.new_record? %>
+      <%= f.submit "投稿する",class:"btn btn-primary" %>
+    <% else %>
+      <%= f.submit "保存する",class:"btn btn-primary" %>
+    <% end %>
+  </div>
 <% end %>

@@ -8,7 +8,7 @@ before_action :authenticate_user!
   def create
     @post_image = PostImage.new(post_image_params)
     @post_image.user_id = current_user.id
-    if @post_image.save!
+    if @post_image.save
       flash[:succsess] = "投稿が完了しました."
       redirect_to user_post_image_path(@post_image.id)
     else

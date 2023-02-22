@@ -1,10 +1,6 @@
 <%= javascript_pack_tag 'preview', 'data-turbolinks-track': 'reload' %>
 <div class="container">
 	<div class="row">
-		<div class= "tag">
-			
-		</div>
-	</div>
 
 <% if user_signed_in? %>  <!--未ログインでは投稿の操作は不可能にする-->
   <% if @post_image.user_id == current_user.id %> <!--ログインユーザーは自分の投稿以外は削除できないようにする-->
@@ -17,6 +13,13 @@
 	<% end %>
 	<% end %>
 </section>
+
+	<ul class= "tag">
+		<% @post_image.tags.each do |tag| %>
+   <li class="tag" style= "list-style: none;">#<%= tag.name %></li>
+  	<% end %>
+  </ul>
+	</div>
 
   <div class="col-8">
     <div class= "user-image">

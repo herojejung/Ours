@@ -18,10 +18,10 @@
     <%=f.label :"本文"%>
     <%= f.text_area :text %>
 	</div>
-	
+
 	<div class="field">
-    <%= form.label :tag_names, 'タグ' %>
-    <%= form.text_field :tag_names %>
+    <%= f.label :tag_names, 'タグ' %>
+    <%= f.text_field :tag_names, multiple: true %>
   </div>
 
 	<div class="actions">

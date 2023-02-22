@@ -1,19 +1,20 @@
 class PostImage < ApplicationRecord
   belongs_to :home, optional: true
   belongs_to :user
-  has_many_attached :images
   has_many :tag_post_images
   has_many :tags, through: :tag_post_images
+  has_many_attached :images
   #accepts_nested_attributes_for :images
 
   attr_accessor :tag_names
 
-  after_save do
-    post_image_tags.destroy_all
-    tag_names.split(',').map do |name|
-    tag = Tag.find_or_create_by(name: name.strip)
-    PostImageTag.create(post_image: self, tag: tag)
-  end
+  before_save do
+    if tag_names.present?
+      self.tags = tag_names.split(",").map do |name|
+      Tag.where(name: name.strip).first_or_create!
+    end
+    end
+    end
 
   validates :title, presence: true
   validates :text, presence: true

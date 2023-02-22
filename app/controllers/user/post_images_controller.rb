@@ -29,6 +29,7 @@ before_action :correct_user, only: [:edit, :update, :destroy]
 
   def show
     @post_image = PostImage.find(params[:id])
+    @tags = @post_image.tags
     @user = current_user
     @postimages = PostImage.all
   end

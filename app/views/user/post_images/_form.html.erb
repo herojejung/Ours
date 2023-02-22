@@ -18,6 +18,11 @@
     <%=f.label :"本文"%>
     <%= f.text_area :text %>
 	</div>
+	
+	<div class="field">
+    <%= form.label :tag_names, 'タグ' %>
+    <%= form.text_field :tag_names %>
+  </div>
 
 	<div class="actions">
     <% if @post_image.new_record? %>

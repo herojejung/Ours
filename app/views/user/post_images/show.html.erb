@@ -49,10 +49,12 @@
   <p><%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
 </div>
 
-<%= form_with(model: [ @post_image, Comment.new ], local: true) do |f| %>
-  <%= f.text_area :content %>
-  <%= f.submit "コメントする" %>
-<% end %>
+<div class="post-comment">
+  <%= form_with model: @comment, url: user_post_images_path, local: true do |f| %>
+    <%= f.text_area :content %>
+  <%= f.submit "コメントする", class: "btn btn-primary"%>
+  <% end %>
+</div>
 
 <li class="nav-item" style= "list-style: none;">
   <%= link_to "編集", edit_user_post_image_path(@post_image), class: "btn btn-success" %>

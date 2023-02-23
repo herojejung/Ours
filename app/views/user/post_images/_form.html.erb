@@ -2,33 +2,33 @@
 <%= form_with model: post_image, url: post_image.new_record? ? user_post_images_path : user_post_image_path(post_image) do |f| %>
 <%= render 'users/shared/error_messages', resource: f.object %>
 
-	<div id="new-image"></div>
+<div id="new-image"></div>
 	<div class="field">
 		<i class="fa-regular fa-image"></i>
     <%=f.label :"画像"%>
     <%= f.file_field :images,multiple: true, accept: "images/*", data: {"turbolinks" => false}%>
   </div>
 
-	<div class="field">
-    <%=f.label :"タイトル"%>
-    <%= f.text_field :title %>
-	</div>
+<div class="field">
+  <%=f.label :"タイトル"%>
+  <%= f.text_field :title %>
+</div>
 
-	<div class="field">
-    <%=f.label :"本文"%>
-    <%= f.text_area :text %>
-	</div>
+<div class="field">
+  <%=f.label :"本文"%>
+  <%= f.text_area :text %>
+</div>
 
-	<div class="field">
-    <%= f.label :tag_names, 'タグ' %>
-    <%= f.text_field :tag_names, multiple: true %>
-  </div>
+<div class="field">
+  <%= f.label :tag_names, "タグ" %>
+  <%= f.text_area :tag_names, value: @post_image.tag_names.present? ? @post_image.tag_names.split(",").join("#,#") : "", multiple: true %>
+</div>
 
-	<div class="actions">
-    <% if @post_image.new_record? %>
-      <%= f.submit "投稿する",class:"btn btn-primary" %>
-    <% else %>
-      <%= f.submit "保存する",class:"btn btn-primary" %>
-    <% end %>
-  </div>
+<div class="actions">
+  <% if @post_image.new_record? %>
+    <%= f.submit "投稿する",class:"btn btn-primary" %>
+  <% else %>
+    <%= f.submit "保存する",class:"btn btn-primary" %>
+  <% end %>
+</div>
 <% end %>

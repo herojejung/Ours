@@ -9,11 +9,9 @@ before_action :correct_user, only: [:edit, :update, :destroy]
   def create
     @post_image = PostImage.new(post_image_params)
     @post_image.user_id = current_user.id
-    tag_names = params[:post_image][:tag_names].split(",")
-    tag_names.each do |tag_name|
-      tag = Tag.find_or_create_by(name: tag_name)
-      @post_image.tags << tag
-    end
+    tag_list = params[:post_image][:tag_list] # 追加
+    # tag_listの中身が空でない場合は、post_imageにタグを追加する
+    @post_image.tag_list.add(tag_list.split(",")) if tag_list.present? # 追加
     if @post_image.save
       flash[:succsess] = "投稿が完了しました."
       redirect_to user_post_image_path(@post_image.id)
@@ -36,14 +34,21 @@ before_action :correct_user, only: [:edit, :update, :destroy]
 
   def edit
     @post_image = PostImage.find(params[:id])
+    @post_image.tag_names = @post_image.tags.map(&:name).join("#,#")
   end
 
-  def update
-    @post_image = PostImage.find(params[:id])
+def update
+  @post_image = PostImage.find(params[:id])
+  @post_image.tag_names = params[:post_image][:tag_names]
+  tag_names = params[:post_image][:tag_names].split("#,#")
+  tag_names.each do |tag_name|
+    tag = Tag.find_or_create_by(name: tag_name)
+    @post_image.tags << tag
+  end
   if @post_image.update(post_image_params)
     redirect_to user_post_image_path
   end
-  end
+end
 
   def destroy
     @post_image = PostImage.find(params[:id])

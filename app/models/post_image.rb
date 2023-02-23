@@ -5,17 +5,18 @@ class PostImage < ApplicationRecord
   has_many :tags, through: :tag_post_images
   has_many_attached :images
   #accepts_nested_attributes_for :images
+  acts_as_taggable_on :tags
 
   attr_accessor :tag_names
 
   before_save do
-    if tag_names.present?
-      self.tags = tag_names.split(",").map do |name|
-      Tag.where(name: name.strip).first_or_create!
-    end
-    end
-    end
-
+  if tag_names.present?
+    self.tags = tag_names.map do |name|
+    Tag.where(name: name.strip).first_or_create!
+  end
+  end
+  end
+  
   validates :title, presence: true
   validates :text, presence: true
   validates :images, presence: true

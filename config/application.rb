@@ -1,7 +1,7 @@
 require_relative "boot"
 
 require "rails/all"
-
+require 'acts-as-taggable-on'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)

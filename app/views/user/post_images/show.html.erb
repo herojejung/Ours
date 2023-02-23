@@ -15,11 +15,13 @@
 </section>
 
 <ul class="tag">
-  <% @post_image.tag_list.each do |tag| %>
-    <li class= "tag-name" style= "list-style: none;"><% "##{tag}" %></li>
+  <% @post_image.tags.each do |tag| %>
+    <li class="tag-name" style= "list-style: none;">
+      <%= "#" + tag.name + " " %>
+    </li>
   <% end %>
 </ul>
-
+</div>
 
 <div class="col-8">
   <div class= "user-image">
@@ -46,6 +48,11 @@
 <div class="post-date">
   <p><%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
 </div>
+
+<%= form_with(model: [ @post_image, Comment.new ], local: true) do |f| %>
+  <%= f.text_area :content %>
+  <%= f.submit "コメントする" %>
+<% end %>
 
 <li class="nav-item" style= "list-style: none;">
   <%= link_to "編集", edit_user_post_image_path(@post_image), class: "btn btn-success" %>

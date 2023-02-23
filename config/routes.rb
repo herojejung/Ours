@@ -24,7 +24,6 @@ devise_for :admins, skip: [:registrations, :passwords], controllers: {
     resources :comments, only:[:destroy,:create]
     resources :likes, only:[:index,:create,:destroy,:show]
     resources :post_images
-    resources :tag
   end
 
 namespace :admin do

@@ -11,17 +11,17 @@
 
 <div class="field">
   <%=f.label :"タイトル"%>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, class: "form-control" %>
 </div>
 
 <div class="field">
   <%=f.label :"本文"%>
-  <%= f.text_area :text %>
+  <%= f.text_area :text, class: "form-control" %>
 </div>
 
 <div class="field">
-  <%= f.label :tag_names, "タグ" %>
-  <%= f.text_area :tag_names, value: @post_image.tag_names.present? ? @post_image.tag_names.split(",").join("#,#") : "", multiple: true %>
+  <%= f.label :tag_list, "タグ" %>
+  <%= f.text_area :tag_list, value: @post_image.tag_list.join(','), placeholder: ",で区切ってタグ名を入力してください", class: "form-control" %>
 </div>
 
 <div class="actions">

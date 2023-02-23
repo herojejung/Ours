@@ -1,11 +1,12 @@
 class PostImage < ApplicationRecord
   belongs_to :home, optional: true
   belongs_to :user
-  has_many :tag_post_images
-  has_many :tags, through: :tag_post_images
   has_many_attached :images
+  has_many :comments
   #accepts_nested_attributes_for :images
   acts_as_taggable_on :tags
+  
+  accepts_nested_attributes_for :comments, allow_destroy: true
 
   attr_accessor :tag_names
 

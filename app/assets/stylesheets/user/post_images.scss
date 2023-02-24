@@ -1,3 +1,93 @@
-// Place all the styles related to the user/posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.post-image-show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post-image-show-row {
+  width: 50%;
+}
+
+.col-9 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 400px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+  border-bottom: 1px solid #000011;
+}
+
+.user-image {
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-name {
+  padding-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.user-image img {
+  margin-bottom: 5px;
+  height: 90px;
+}
+
+.tag {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+}
+
+.tag-name {
+  margin-right: 10px;
+  width: 100px;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; /* 追加 */
+  margin-top: 20px; /* 追加 */
+}
+
+.flex img {
+  width: 400px;
+  height: 200px;
+}
+
+.post-title {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 50px;
+  padding-right: 70%;
+  border-bottom: 1px solid #000011;
+}
+
+.post-text {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.post-date {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.post-comment {
+  margin-top: 20px;
+}
+
+.comment {
+  margin-top: 10px;
+  font-size: 16px;
+}

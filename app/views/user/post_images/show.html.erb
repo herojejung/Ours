@@ -1,6 +1,6 @@
 <%= javascript_pack_tag 'preview', 'data-turbolinks-track': 'reload' %>
-<div class="container">
-	<div class="row">
+<div class="container post-image-show">
+	<div class="row post-image-show-row">
 
 <% if user_signed_in? %>  <!--未ログインでは投稿の操作は不可能にする-->
   <% if @post_image.user_id == current_user.id %> <!--ログインユーザーは自分の投稿以外は削除できないようにする-->
@@ -14,6 +14,16 @@
 	<% end %>
 </section>
 
+<div class="user-info">
+  <div class= "user-image">
+    <%= link_to user_user_path(@user) do%>
+     <%= image_tag current_user.image.variant(resize_to_limit: [100,100]) , class: "rounded-circle" %>
+     <% end %>
+     <div class= "user-name">
+     <%= @post_image.user.name %>
+     </div>
+  </div>
+
 <ul class="tag">
   <% @post_image.tags.each do |tag| %>
     <li class="tag-name" style= "list-style: none;">
@@ -23,22 +33,17 @@
 </ul>
 </div>
 
-<div class="col-8">
-  <div class= "user-image">
-   <%= image_tag current_user.image.variant(resize_to_limit: [50,50]) %>
-   <p><%= @post_image.user.name %></p>
-  </div>
+<div class="col-9">
+<div class="post-title">
+  <p><%= @post_image.title%></p>
+</div>
 
 <div class="flex">
   <% if @post_image.images.attached? %>
   	<% @post_image.images.each do |image| %>
-  	<%= image_tag image.variant(resize_to_limit: [100, 100]) %>
+  	<%= image_tag image.variant(resize_to_limit: [400, 400])%>
    	<% end %>
   <% end %>
-</div>
-
-<div class="post-title">
-  <p><%= @post_image.title%></p>
 </div>
 
 <div class="post-text">
@@ -50,9 +55,18 @@
 </div>
 
 <div class="post-comment">
-  <%= form_with model: @comment, url: user_post_images_path, local: true do |f| %>
+  <%= form_with(model: [ @post_image, @comment ], url: user_post_image_comments_path(@post_image),local: true) do |f| %>
     <%= f.text_area :content %>
   <%= f.submit "コメントする", class: "btn btn-primary"%>
+  <% end %>
+</div>
+
+<div class="comments">
+  <% @post_image.comments.each do |comment| %>
+    <div class="comment">
+      <p><%= comment.user.name %></p>
+      <p><%= comment.content %></p>
+    </div>
   <% end %>
 </div>
 

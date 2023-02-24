@@ -14,7 +14,7 @@
 		  <tr>
 		  	<td></td>
 		  	<% if @user.image.present? %>
-  			<td><%= image_tag @user.image %></td>
+  			<td><%= image_tag @user.image, class: "rounded-circle" %></td>
 			<% end %>
 
 			<td><%= link_to "ユーザー情報を編集する", edit_user_user_path, class: "btn btn-success ml2" %></td>

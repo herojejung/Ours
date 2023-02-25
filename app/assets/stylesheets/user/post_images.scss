@@ -11,16 +11,19 @@
 .col-9 {
   display: flex;
   align-items: center;
+  justify-content: center; /* 中央揃えにする */
   flex-direction: column;
-  width: 400px;
+  width: 800px;
+  margin-left: 85px;
 }
 
 .user-info {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 10px;
-  border-bottom: 1px solid #000011;
+  margin-top: 0px;
+  border-bottom: 2px solid #ccc;
+  width: 100%; /* 幅を100%にする */
 }
 
 .user-image {
@@ -34,6 +37,7 @@
   padding-top: 10px;
   margin-bottom: 10px;
   font-weight: bold;
+  font-size: 12px;
 }
 
 .user-image img {
@@ -54,33 +58,51 @@
 
 .flex {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  align-items: center; /* 追加 */
-  margin-top: 20px; /* 追加 */
+  margin-top: 30px;
+  flex-direction: row;
+}
+
+.flex .prev-btn, .flex .next-btn {
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle; /* 垂直方向の中央揃え */
+}
+
+.flex .prev-btn {
+  margin-right: 0px; /* 右側のマージンを0にする */
 }
 
 .flex img {
-  width: 400px;
-  height: 200px;
+  display: block;
+  width: 500px;
+  height: 300px;
 }
 
-.post-title {
-  font-size: 15px;
+.flex img:first-child {
+  display: block;
+}
+
+.post-title-show {
+  font-size: 20px;
   font-weight: bold;
   margin-top: 50px;
-  padding-right: 70%;
-  border-bottom: 1px solid #000011;
+  border-bottom: 2px solid #000011;
+  text-align: center;
+  width: 150%;
 }
 
-.post-text {
+.post-text-show {
   font-size: 18px;
-  margin-top: 10px;
+  margin-top: 50px;
+  border: 3px solid #ccc;
+  padding: 20px;
 }
 
 .post-date {
   font-size: 16px;
   margin-top: 10px;
+  margin-left: 60%;
 }
 
 .post-comment {

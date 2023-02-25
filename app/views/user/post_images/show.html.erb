@@ -1,3 +1,4 @@
+<%= javascript_pack_tag 'prevImage', 'data-turbolinks-track': 'reload' %>
 <%= javascript_pack_tag 'preview', 'data-turbolinks-track': 'reload' %>
 <div class="container post-image-show">
 	<div class="row post-image-show-row">
@@ -34,7 +35,7 @@
 </div>
 
 <div class="col-9">
-<div class="post-title">
+<div class="post-title-show">
   <p><%= @post_image.title%></p>
 </div>
 
@@ -46,7 +47,10 @@
   <% end %>
 </div>
 
-<div class="post-text">
+<button class="prev-btn">前の画像</button>
+<button class="next-btn">次の画像</button>
+
+<div class="post-text-show">
   <p><%= @post_image.text%></p>
 </div>
 

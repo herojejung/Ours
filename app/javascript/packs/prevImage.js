@@ -1,7 +1,6 @@
 // 1. 画像要素を取得する。
 const images = document.getElementsByClassName('flex')[0].getElementsByTagName('img');
 
-
 // 2. 画像要素を配列に格納する。
 const imageArray = Array.from(images);
 
@@ -27,10 +26,20 @@ function prevImage() {
 }
 
 // 6. 次の画像を表示するためのイベントリスナーを追加する。
-document.querySelector('.next-btn').addEventListener('click', nextImage);
+document.querySelector('.next-btn').addEventListener('click', () => {
+  nextImage();
+  if (currentIndex === 0) {
+    showImage(currentIndex);
+  }
+});
 
 // 7. 前の画像を表示するためのイベントリスナーを追加する。
-document.querySelector('.prev-btn').addEventListener('click', prevImage);
+document.querySelector('.prev-btn').addEventListener('click', () => {
+  prevImage();
+  if (currentIndex === 0) {
+    showImage(currentIndex);
+  }
+});
 
 // 画像を表示する関数
 function showImage(index) {
@@ -44,16 +53,20 @@ function showImage(index) {
 }
 
 // すべての画像を非表示にする
-imageArray.forEach((image) => {
-  image.style.display = 'none';
+showImage(currentIndex);
+
+// currentIndexを0に設定する
+currentIndex = 0;
+
+// リロード時にcurrentIndexを0にリセットする
+window.addEventListener('load', () => {
+  currentIndex = 0;
 });
 
-
 // 最初の画像を表示する
-if (imageArray.length > 1) {
-  showImage(currentIndex);
-} else {
+if (imageArray.length === 1) {
   document.querySelector('.prev-btn').style.display = 'none';
   document.querySelector('.next-btn').style.display = 'none';
-  imageArray[0].style.display = 'block';
+} else {
+  showImage(currentIndex);
 }

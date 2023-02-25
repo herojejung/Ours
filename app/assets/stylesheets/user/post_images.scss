@@ -93,9 +93,9 @@
 }
 
 .post-text-show {
-  font-size: 18px;
+  font-size: 12px;
   margin-top: 50px;
-  border: 3px solid #ccc;
+  border: 1.5px solid #ccc;
   padding: 20px;
 }
 
@@ -112,4 +112,15 @@
 .comment {
   margin-top: 10px;
   font-size: 16px;
+  display: flex; /* コメントの要素を水平に配置するために追加 */
+  align-items: center; /* コメントの要素を垂直方向に中央揃えするために追加 */
+}
+
+.comment p:first-child {
+  margin-right: 10px; /* コメントのユーザー名とコメントのテキストの間に余白を追加するために追加 */
+}
+
+.fa-sharp {
+  margin: 10px;
+  padding-bottom: 15px;
 }

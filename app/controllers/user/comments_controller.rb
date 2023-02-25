@@ -13,6 +13,10 @@ end
 end
 
 def destroy
+  @comment = Comment.find(params[:id])
+  @post_image = @comment.post_image
+  @comment.destroy
+  redirect_to user_post_image_path(@post_image), notice: 'コメントが削除されました'
 end
 
 private

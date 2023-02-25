@@ -1,9 +1,10 @@
 <%= javascript_pack_tag 'prevImage', 'data-turbolinks-track': 'reload' %>
 <%= javascript_pack_tag 'preview', 'data-turbolinks-track': 'reload' %>
+
 <div class="container post-image-show">
 	<div class="row post-image-show-row">
 
-<% if user_signed_in? %>  <!--未ログインでは投稿の操作は不可能にする-->
+  <% if user_signed_in? %>  <!--未ログインでは投稿の操作は不可能にする-->
   <% if @post_image.user_id == current_user.id %> <!--ログインユーザーは自分の投稿以外は削除できないようにする-->
 <section class="inner">
 	<% if flash[:error] %>
@@ -35,8 +36,15 @@
 </div>
 
 <div class="col-9">
-<div class="post-title-show">
+  <div class="post-title-show">
   <p><%= @post_image.title%></p>
+  <% if @post_image.user_id == current_user.id %>
+  <li class="post-edit-show" style= "list-style: none;">
+  <%= link_to edit_user_post_image_path(@post_image) do %>
+  <i class="fa-solid fa-pen-to-square" style= "color: black;"></i>
+  <% end %>
+  <% end %>
+  </li>
 </div>
 
 <div class="flex">
@@ -47,8 +55,8 @@
   <% end %>
 </div>
 
-<button class="prev-btn">前の画像</button>
-<button class="next-btn">次の画像</button>
+<button class="prev-btn">&lt;</button>
+<button class="next-btn">&gt;</button>
 
 <div class="post-text-show">
   <p><%= @post_image.text%></p>
@@ -78,10 +86,6 @@
   <%= f.submit "コメントする", class: "btn btn-primary"%>
   <% end %>
 </div>
-
-<li class="nav-item" style= "list-style: none;">
-  <%= link_to "編集", edit_user_post_image_path(@post_image), class: "btn btn-success" %>
-</li>
 </div>
 </div>
 </div>

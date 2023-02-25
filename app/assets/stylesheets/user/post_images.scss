@@ -70,7 +70,7 @@
 }
 
 .flex .prev-btn {
-  margin-right: 0px; /* 右側のマージンを0にする */
+  margin-left: 100px; /* 右側のマージンを0にする */
 }
 
 .flex img {
@@ -90,6 +90,19 @@
   border-bottom: 2px solid #000011;
   text-align: center;
   width: 150%;
+  white-space: nowrap;
+}
+
+.post-edit-show {
+  position: absolute; /* 要素の位置を固定する */
+  right: 0; /* 要素を右側に寄せる */
+  top: 0; /* 要素を上端に寄せる */
+  padding: 50px 10px 0px 90px;
+  width: 70px;
+}
+
+.post-title-show p {
+display: inline; /* p要素をインライン要素にする */
 }
 
 .post-text-show {

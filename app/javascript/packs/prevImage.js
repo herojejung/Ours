@@ -26,7 +26,7 @@ function prevImage() {
 }
 
 // 6. 次の画像を表示するためのイベントリスナーを追加する。
-document.querySelector('.next-btn').addEventListener('click', () => {
+document.querySelector('.prev-btn').addEventListener('click', () => {
   nextImage();
   if (currentIndex === 0) {
     showImage(currentIndex);
@@ -34,7 +34,7 @@ document.querySelector('.next-btn').addEventListener('click', () => {
 });
 
 // 7. 前の画像を表示するためのイベントリスナーを追加する。
-document.querySelector('.prev-btn').addEventListener('click', () => {
+document.querySelector('.next-btn').addEventListener('click', () => {
   prevImage();
   if (currentIndex === 0) {
     showImage(currentIndex);

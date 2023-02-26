@@ -48,15 +48,22 @@
 </div>
 
 <div class="flex">
+  <li id="btnPrev" class="prev-btn" style= "list-style: none;">
+    <button class="c-button-trigger button" type="button">
+      <span class="c-icon--line-arrow-left" aria-hidden="true">&lt;</span>
+    </button>
+  </li>
   <% if @post_image.images.attached? %>
-  	<% @post_image.images.each do |image| %>
-  	<%= image_tag image.variant(resize_to_limit: [400, 400])%>
-   	<% end %>
+    <% @post_image.images.each do |image| %>
+      <%= image_tag image.variant(resize_to_limit: [400, 400]) %>
+    <% end %>
   <% end %>
+  <li id="btnNext" class="next-btn" style= "list-style: none;">
+    <button class="c-button-trigger button" type="button">
+      <span class="c-icon--line-arrow-right" aria-hidden="true">&gt;</span>
+    </button>
+  </li>
 </div>
-
-<button class="prev-btn">&lt;</button>
-<button class="next-btn">&gt;</button>
 
 <div class="post-text-show">
   <p><%= @post_image.text%></p>

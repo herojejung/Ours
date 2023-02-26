@@ -61,26 +61,52 @@
   justify-content: center;
   margin-top: 30px;
   flex-direction: row;
-}
-
-.flex .prev-btn, .flex .next-btn {
-  display: inline-block;
-  margin-right: 10px;
-  vertical-align: middle; /* 垂直方向の中央揃え */
-}
-
-.flex .prev-btn {
-  margin-left: 100px; /* 右側のマージンを0にする */
+  align-items: center; /* 新しく追加 */
 }
 
 .flex img {
   display: block;
-  width: 500px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
 }
 
-.flex img:first-child {
-  display: block;
+.flex .prev-btn {
+  margin-right: 10px;
+}
+
+.flex .next-btn {
+  margin-left: 10px;
+}
+
+.flex .prev-btn button,
+.flex .next-btn button {
+  display: flex;
+  align-items: center; /* 新しく追加 */
+  justify-content: center; /* 新しく追加 */
+  width: 50px;
+  height: 50px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.flex .prev-btn button:hover,
+.flex .next-btn button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.flex .prev-btn .c-icon--line-arrow-left,
+.flex .next-btn .c-icon--line-arrow-right {
+  font-size: 24px;
+  color: #000;
+}
+
+.flex .prev-btn .c-icon--line-arrow-left:hover,
+.flex .next-btn .c-icon--line-arrow-right:hover {
+  color: #fff;
 }
 
 .post-title-show {

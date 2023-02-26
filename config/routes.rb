@@ -27,8 +27,6 @@ devise_for :admins, skip: [:registrations, :passwords], controllers: {
   end
 end
   
-  
-
 namespace :admin do
   root to: 'homes#top'
   get "destroy/admin/session" => "admin#sign_out"

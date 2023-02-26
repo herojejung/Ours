@@ -5,10 +5,12 @@ class PostImage < ApplicationRecord
   has_many :comments
   #accepts_nested_attributes_for :images
   acts_as_taggable_on :tags
-  
+
   accepts_nested_attributes_for :comments, allow_destroy: true
 
   attr_accessor :tag_names
+
+
 
   before_save do
   if tag_names.present?
@@ -17,7 +19,7 @@ class PostImage < ApplicationRecord
   end
   end
   end
-  
+
   validates :title, presence: true
   validates :text, presence: true
   validates :images, presence: true

@@ -25,6 +25,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <div class = "p-2 bd-highlight">
+            <%= search_form_for @q do |f| %>
+      <%= f.search_field :title_or_text_cont %>
+      <%= f.submit "Search" %>
+      <% end %>
     <ul class="navbar-nav ml-auto">
           <% if admin_signed_in? %>
             <li class="nav-item" style = "list-style: none;">

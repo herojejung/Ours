@@ -25,13 +25,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <div class = "p-2 bd-highlight">
-        <div class="search">
-          <%= search_form_for @q, url: user_root_path do |f| %>
-            <%= f.search_field :title_or_text_cont %>
-            <input name="search" placeholder="search🔍">
+          <div class="search">
+            <%= search_form_for @q, url: user_root_path do |f| %>
+            <%= f.search_field :title_or_text_cont, placeholder: "🔍タグ、ワードで探す", onkeypress: "if (event.keyCode === 13) { this.form.submit(); }" %>
             <% end %>
-        </div>
-      </div>
+          </div>
     <ul class="navbar-nav ml-auto">
           <% if admin_signed_in? %>
             <li class="nav-item" style = "list-style: none;">

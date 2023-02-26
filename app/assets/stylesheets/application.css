@@ -41,4 +41,14 @@ div >:li {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  bottom: 12px; /* 例えば、30px上に移動する場合 */
 }
+
+.search input[type="search"] {
+  border-radius: 25px;
+  background-color: #f0f0f0;
+  padding: 3px;
+  width: 300px; /* 好みの幅に変更してください */
+}
+
+

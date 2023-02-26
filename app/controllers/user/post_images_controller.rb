@@ -9,14 +9,14 @@ before_action :correct_user, only: [:edit, :update, :destroy]
   def create
     @post_image = PostImage.new(post_image_params)
     @post_image.user_id = current_user.id
-    @post_image.tag_list.add(params[:post_image][:tag_list].split(","))
-    if @post_image.save
-      flash[:succsess] = "投稿が完了しました."
+    @post_image.tag_list.add(params[:post_image][:tag_list], parse: true)
+  if @post_image.save
+      flash[:success] = "投稿が完了しました。"
       redirect_to user_post_image_path(@post_image.id)
-    else
+  else
       @user = current_user
       render :new
-    end
+  end
   end
 
   def index

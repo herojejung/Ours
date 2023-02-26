@@ -27,7 +27,8 @@
         <div class = "p-2 bd-highlight">
           <div class="search">
             <%= search_form_for @q, url: user_root_path do |f| %>
-            <%= f.search_field :title_or_text_cont, placeholder: "🔍タグ、ワードで探す", onkeypress: "if (event.keyCode === 13) { this.form.submit(); }" %>
+            <%= f.search_field :title_or_text_cont, placeholder: "🔍 タイトル・本文から検索", onkeypress: "if (event.keyCode === 13) { this.form.submit(); }" %>
+            <%= f.search_field :tagged_with, placeholder: "🔍 タグから検索", onkeypress: "if (event.keyCode === 13) { this.form.submit(); }" %>
             <% end %>
           </div>
     <ul class="navbar-nav ml-auto">

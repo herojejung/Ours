@@ -24,52 +24,55 @@
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <div class = "p-2 bd-highlight">
-            <%= search_form_for @q do |f| %>
-      <%= f.search_field :title_or_text_cont %>
-      <%= f.submit "Search" %>
-      <% end %>
+        <div class = "p-2 bd-highlight">
+        <div class="search">
+          <%= search_form_for @q, url: user_root_path do |f| %>
+            <%= f.search_field :title_or_text_cont %>
+            <input name="search" placeholder="search🔍">
+            <% end %>
+        </div>
+      </div>
     <ul class="navbar-nav ml-auto">
           <% if admin_signed_in? %>
             <li class="nav-item" style = "list-style: none;">
               <%= link_to admin_root_path do%>
-                <i class="fa-solid fa-camera">投稿一覧</i>
+                <i class="fa-solid fa-camera" style= "color: white">投稿一覧</i>
               <% end %>
               <li class="nav-item" style = "list-style: none;">
               <%= link_to admin_users_path do %>
-                <i class="fa-regular fa-circle-user">会員一覧</i>
+                <i class="fa-regular fa-circle-user" style= "color: white">会員一覧</i>
               <% end %>
               <li class="nav-item" style = "list-style: none;">
               <%= link_to destroy_admin_session_path, method: :delete do %>
-              <i class="fa-solid fa-arrow-right-from-bracket">ログアウト</i>
+              <i class="fa-solid fa-arrow-right-from-bracket" style= "color: white">ログアウト</i>
               <% end %>
             </li>
           <% elsif user_signed_in? %>
             <li class="nav-item"style = "list-style: none;">
               <%= link_to user_root_path do%>
-              <i class="fa-solid fa-house">HOME</i>
+              <i class="fa-solid fa-house" style= "color: white">HOME</i>
             <% end %>
               <%= link_to destroy_user_session_path, method: :delete do %>
-              <i class="fa-solid fa-arrow-right-from-bracket">ログアウト</i>
+              <i class="fa-solid fa-arrow-right-from-bracket" style= "color: white">ログアウト</i>
               <% end %>
                <%= link_to user_user_path(current_user.id) do %>
-               <i class="fa-solid fa-circle-user">マイページ</i>
+               <i class="fa-solid fa-circle-user" style= "color: white">マイページ</i>
                <% end %>
             </li>
           <% else %>
             <li class="nav-item" style = "list-style: none;">
               <%= link_to new_user_registration_path do %>
-              <i class="fa-solid fa-user-plus">新規登録</i>
+              <i class="fa-solid fa-user-plus" style= "color: white">新規登録</i>
               <% end %>
               <%= link_to new_user_session_path do%>
-              <i class="fa-solid fa-arrow-right-to-bracket">ログイン</i>
+              <i class="fa-solid fa-arrow-right-to-bracket" style= "color: white">ログイン</i>
               <% end %>
             </li>
           <% end %>
         </ul>
       </div>
      </div>
-     </div
+     </div>
     </nav>
   </header>
       <p class="notice"><%= notice %></p>

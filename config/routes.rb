@@ -22,11 +22,10 @@ devise_for :admins, skip: [:registrations, :passwords], controllers: {
     patch '/users/withdrawal' => 'users#withdrawal', as: 'withdrawal'
     resources :users
     resources :likes, only:[:index,:create,:destroy,:show]
-    resources :post_images do
+    resources :post_images
     resources :comments, only: [:create, :destroy]
   end
-end
-  
+
 namespace :admin do
   root to: 'homes#top'
   get "destroy/admin/session" => "admin#sign_out"

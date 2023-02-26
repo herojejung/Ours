@@ -29,9 +29,16 @@ div >:li {
   background: #ccc;
   margin-left: 230px;
 }
+
 .header-sub {
   letter-spacing: 1em;
   line-height: 60px;
   text-align: center;
   margin-left: 20%;
+}
+
+.search {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }

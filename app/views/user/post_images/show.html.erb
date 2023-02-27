@@ -65,11 +65,12 @@
   </li>
 </div>
 
-<div class= "post-likes">
-  <%= form_with(model: [ @post_image, @post_image.likes.build ], local: true) do |form| %>
+<div class="post-likes">
+  <%= form_with(model: [@post_image, @post_image.likes.build], url: user_post_image_likes_path(@post_image), local: true) do |form| %>
     <%= form.submit "いいね！" %>
   <% end %>
 </div>
+
 
 <div class="post-text-show">
   <p><%= @post_image.text%></p>

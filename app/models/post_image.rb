@@ -3,6 +3,8 @@ class PostImage < ApplicationRecord
   belongs_to :user
   has_many_attached :images
   has_many :comments
+  has_many :likes
+  has_many :liked_users, through: :likes, source: :user
   #accepts_nested_attributes_for :images
   acts_as_taggable_on :tags
 
@@ -10,6 +12,13 @@ class PostImage < ApplicationRecord
 
   attr_accessor :tag_names
 
+def self.search(query)
+  if query.present?
+    joins(:tags).where("title LIKE :query OR text LIKE :query OR tags.name LIKE :query", query: "#{query}").distinct
+  else
+    all
+  end
+end
 
 
   before_save do

@@ -19,10 +19,6 @@ before_action :correct_user, only: [:edit, :update, :destroy]
   end
   end
 
-  def index
-
-  end
-
   def show
     @post_image = PostImage.find(params[:id])
     @tags = @post_image.tags
@@ -30,6 +26,7 @@ before_action :correct_user, only: [:edit, :update, :destroy]
     @postimages = PostImage.all
     @comment = Comment.new
     @comments = @post_image.comments
+    @q = PostImage.ransack(params[:q])
   end
 
   def edit

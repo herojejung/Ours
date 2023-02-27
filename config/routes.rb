@@ -21,10 +21,11 @@ devise_for :admins, skip: [:registrations, :passwords], controllers: {
     get '/users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     patch '/users/withdrawal' => 'users#withdrawal', as: 'withdrawal'
     resources :users
-    resources :likes, only:[:index,:create,:destroy,:show]
-    resources :post_images
-    resources :comments, only: [:create, :destroy]
+    resources :post_images do
+    resources :comments
+    resources :likes, only:[:create,:destroy]
   end
+end
 
 namespace :admin do
   root to: 'homes#top'

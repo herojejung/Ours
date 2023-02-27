@@ -21,6 +21,7 @@ div {
 div >:li {
   margin-right: auto;
   font-size: 20px;
+  padding-left: 100px;
 }
 
 .box {
@@ -48,7 +49,7 @@ div >:li {
   border-radius: 25px;
   background-color: #f0f0f0;
   padding: 3px;
-  width: 300px; /* 好みの幅に変更してください */
+  width: 500px; /* 好みの幅に変更してください */
 }
 
 

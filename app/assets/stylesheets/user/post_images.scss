@@ -1,165 +1,89 @@
-.post-image-show {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.post-image-show-row {
-  width: 50%;
-}
-
-.col-9 {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* 中央揃えにする */
-  flex-direction: column;
-  width: 800px;
-  margin-left: 85px;
-}
-
-.user-info {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 0px;
-  border-bottom: 2px solid #ccc;
-  width: 100%; /* 幅を100%にする */
-}
-
-.user-image {
-  margin-right: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.user-name {
-  padding-top: 10px;
-  margin-bottom: 10px;
-  font-weight: bold;
-  font-size: 12px;
-}
-
-.user-image img {
-  margin-bottom: 5px;
-  height: 90px;
-}
-
-.tag {
+.container {
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: 30px;
-}
-
-.tag-name {
-  margin-right: 10px;
-  width: 100px;
+  align-items: center;
+  height: 100%;
 }
 
 .flex {
   display: flex;
-  justify-content: center;
-  margin-top: 30px;
-  flex-direction: row;
-  align-items: center; /* 新しく追加 */
+  justify-content: center; /* 中央寄せにする */
+  align-items: center;
+  flex-wrap: wrap;
+  width: 50%; /* 左側50%にする */
 }
 
 .flex img {
-  display: block;
-  width: 400px;
-  height: 400px;
-  object-fit: contain;
+  width: 300px;
+  height: 300px;
 }
 
-.flex .prev-btn {
-  margin-right: 10px;
-}
-
-.flex .next-btn {
-  margin-left: 10px;
-}
-
-.flex .prev-btn button,
-.flex .next-btn button {
+.post-image-show {
   display: flex;
-  align-items: center; /* 新しく追加 */
-  justify-content: center; /* 新しく追加 */
-  width: 50px;
-  height: 50px;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  cursor: pointer;
-  padding: 0;
+  flex-direction: row;
 }
 
-.flex .prev-btn button:hover,
-.flex .next-btn button:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+.post-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 200px;
 }
 
-.flex .prev-btn .c-icon--line-arrow-left,
-.flex .next-btn .c-icon--line-arrow-right {
-  font-size: 24px;
-  color: #000;
-}
-
-.flex .prev-btn .c-icon--line-arrow-left:hover,
-.flex .next-btn .c-icon--line-arrow-right:hover {
-  color: #fff;
-}
-
-.post-title-show {
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 50px;
-  border-bottom: 2px solid #000011;
-  text-align: center;
-  width: 150%;
-  white-space: nowrap;
-}
-
-.post-edit-show {
-  position: absolute; /* 要素の位置を固定する */
-  right: 0; /* 要素を右側に寄せる */
-  top: 0; /* 要素を上端に寄せる */
-  padding: 50px 10px 0px 90px;
-  width: 70px;
-}
-
-.post-title-show p {
-display: inline; /* p要素をインライン要素にする */
-}
-
-.post-text-show {
-  font-size: 12px;
-  margin-top: 50px;
-  border: 1.5px solid #ccc;
-  padding: 20px;
-}
-
-.post-date {
-  font-size: 16px;
-  margin-top: 10px;
-  margin-left: 60%;
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .post-comment {
-  margin-top: 20px;
+  margin-top: 10px; /* 余白を持たせるため */
 }
 
-.comment {
-  margin-top: 10px;
-  font-size: 16px;
-  display: flex; /* コメントの要素を水平に配置するために追加 */
-  align-items: center; /* コメントの要素を垂直方向に中央揃えするために追加 */
+.container img {
+  max-width: 100%;
+  height: auto;
 }
 
-.comment p:first-child {
-  margin-right: 10px; /* コメントのユーザー名とコメントのテキストの間に余白を追加するために追加 */
+.user-image {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.fa-sharp {
-  margin: 10px;
-  padding-bottom: 15px;
+.user-image img {
+  margin-right: 10px;
+}
+
+.tag {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.tag li {
+  margin-right: 5px;
+  color: #385185;
+}
+
+.post-likes {
+  margin-top: 20px; /* 上部に20pxの余白を追加 */
+}
+
+.post-likes .like-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.post-likes .like-icon-wrapper .like-count {
+  margin-left: 5px;
+}
+
+.post-text-show {
+  margin-bottom: 10px;
+}
+
+.comments {
+  margin-bottom: 10px;
 }

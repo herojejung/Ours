@@ -1,10 +1,10 @@
 <%= javascript_pack_tag 'prevImage', 'data-turbolinks-track': 'reload' %>
 <%= javascript_pack_tag 'preview', 'data-turbolinks-track': 'reload' %>
 
-<div class="container post-image-show">
-	<div class="row post-image-show-row">
 
-  <% if user_signed_in? %>  <!--未ログインでは投稿の操作は不可能にする-->
+<div class="container post-image-show">
+  <div class="row post-image-show-row">
+      <% if user_signed_in? %>  <!--未ログインでは投稿の操作は不可能にする-->
   <% if @post_image.user_id == current_user.id %> <!--ログインユーザーは自分の投稿以外は削除できないようにする-->
 <section class="inner">
 	<% if flash[:error] %>
@@ -15,62 +15,79 @@
 	<% end %>
 	<% end %>
 </section>
+    <div class="col-6">
+      <div class="flex">
+        <li id="btnPrev" class="prev-btn" style="list-style: none;">
+          <button class="c-button-trigger button" type="button">
+            <span class="c-icon--line-arrow-left" aria-hidden="true">&lt;</span>
+          </button>
+        </li>
+        <% if @post_image.images.attached? %>
+          <% @post_image.images.each do |image| %>
+            <%= image_tag image.variant(resize_to_limit: [500, 300]) %>
+          <% end %>
+        <% end %>
+        <li id="btnNext" class="next-btn" style="list-style: none;">
+          <button class="c-button-trigger button" type="button">
+            <span class="c-icon--line-arrow-right" aria-hidden="true">&gt;</span>
+          </button>
+        </li>
+      </div>
+    </div>
 
-<div class="user-info">
-  <div class= "user-image">
-    <%= link_to user_user_path(@user) do%>
-     <%= image_tag current_user.image.variant(resize_to_limit: [100,100]) , class: "rounded-circle" %>
-     <% end %>
-     <div class= "user-name">
-     <%= @post_image.user.name %>
-     </div>
-  </div>
+    <div class="col-6">
+      <div class="post-info-container">
+      <div class="user-info">
+        <div class="user-image">
+          <%= link_to user_user_path(@user) do%>
+            <%= image_tag current_user.image.variant(resize_to_limit: [100,100]), class: "rounded-circle" %>
+          <% end %>
+          <div class="user-name">
+            <%= @post_image.user.name %>
+          </div>
+        </div>
 
-<ul class="tag">
-  <% @post_image.tags.each do |tag| %>
-    <li class="tag-name" style= "list-style: none;">
-      <%= "#" + tag.name + " " %>
-    </li>
-  <% end %>
-</ul>
-</div>
+        <ul class="tag">
+          <% @post_image.tags.each do |tag| %>
+            <li class="tag-name" style="list-style: none;">
+              <%= "#" + tag.name + " " %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
 
-<div class="col-9">
-  <div class="post-title-show">
-  <p><%= @post_image.title%></p>
-  <% if @post_image.user_id == current_user.id %>
-  <li class="post-edit-show" style= "list-style: none;">
-  <%= link_to edit_user_post_image_path(@post_image) do %>
-  <i class="fa-solid fa-pen-to-square" style= "color: black;"></i>
-  <% end %>
-  <% end %>
-  </li>
-</div>
+      <div class="post-title-show">
+        <p><%= @post_image.title%></p>
+        <% if @post_image.user_id == current_user.id %>
+          <li class="post-edit-show" style="list-style: none;">
+            <%= link_to edit_user_post_image_path(@post_image) do %>
+              <i class="fa-solid fa-pen-to-square" style="color: black;"></i>
+            <% end %>
+          </li>
+        <% end %>
+      </div>
 
-<div class="flex">
-  <li id="btnPrev" class="prev-btn" style= "list-style: none;">
-    <button class="c-button-trigger button" type="button">
-      <span class="c-icon--line-arrow-left" aria-hidden="true">&lt;</span>
-    </button>
-  </li>
-  <% if @post_image.images.attached? %>
-    <% @post_image.images.each do |image| %>
-      <%= image_tag image.variant(resize_to_limit: [400, 400]) %>
+      <div class="post-likes">
+        <% if @post_image.likes.exists?(user_id: current_user.id) %>
+          <%= form_with(model: [@post_image.likes.find_by(user_id: current_user.id)], url: user_post_image_like_path(@post_image, @post_image.likes.find_by(user_id: current_user.id)), method: :delete, local: true) do |f| %>
+            <div class="like-icon-wrapper">
+              <%= f.button type: :submit, class: "icon-button", style: "border: none;" do %>
+                <i class="fa-solid fa-heart"></i>
+              <% end %>
+              <span class="like-count"><%= @post_image.likes.count %>いいね</span>
+            </div>
+          <% end %>
+        <% else %>
+          <%= form_with(model: [@post_image, @post_image.likes.build], url: user_post_image_likes_path(@post_image), local: true) do |f| %>
+            <div class="like-icon-wrapper">
+              <%= f.button type: :submit, class: "icon-button", style: "border: none;" do %>
+          <i class="fa-solid fa-heart"></i>
+        <% end %>
+        <span class="like-count"><%= @post_image.likes.count %>いいね</span>
+      </div>
     <% end %>
   <% end %>
-  <li id="btnNext" class="next-btn" style= "list-style: none;">
-    <button class="c-button-trigger button" type="button">
-      <span class="c-icon--line-arrow-right" aria-hidden="true">&gt;</span>
-    </button>
-  </li>
 </div>
-
-<div class="post-likes">
-  <%= form_with(model: [@post_image, @post_image.likes.build], url: user_post_image_likes_path(@post_image), local: true) do |form| %>
-    <%= form.submit "いいね！" %>
-  <% end %>
-</div>
-
 
 <div class="post-text-show">
   <p><%= @post_image.text%></p>
@@ -99,6 +116,7 @@
     <%= f.text_area :content %>
   <%= f.submit "コメントする", class: "btn btn-primary"%>
   <% end %>
+</div>
 </div>
 </div>
 </div>

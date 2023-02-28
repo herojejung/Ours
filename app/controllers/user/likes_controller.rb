@@ -9,7 +9,11 @@ class User::LikesController < ApplicationController
   end
 
   def destroy
+    @post_image = PostImage.find(params[:post_image_id])
+    current_user.likes.find_by(post_image: @post_image).destroy
+    redirect_back(fallback_location: user_root_path)
   end
+
 
   def show
   end

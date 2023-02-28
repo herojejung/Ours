@@ -4,6 +4,7 @@ before_action :correct_user, only: [:edit, :update, :destroy]
 
   def new
     @post_image = PostImage.new
+    @q = PostImage.ransack(params[:q])
   end
 
   def create
@@ -28,6 +29,7 @@ before_action :correct_user, only: [:edit, :update, :destroy]
     @comments = @post_image.comments
     @q = PostImage.ransack(params[:q])
   end
+
 
   def edit
     @post_image = PostImage.find(params[:id])

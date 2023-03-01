@@ -18,6 +18,15 @@ div {
   justify-content: flex-start;
 }
 
+header {
+  background-color: #00BB00;
+}
+
+.header-content{
+  font-weight: bold;
+  color: white;
+}
+
 div >:li {
   margin-right: auto;
   font-size: 20px;

@@ -130,8 +130,12 @@
 <div class="post-comment">
   <%= form_with(model: [ @post_image, @comment ], url: user_post_image_comments_path(@post_image),local: true) do |f| %>
     <%= f.text_area :content %>
-  <%= f.submit "コメントする", class: "btn btn-primary"%>
+  <div class="comment-icon-wrapper">
+  <%= f.button type: :submit, class: "icon-button", style: "border: none;" do %>
+  <i class="fa-solid fa-paper-plane"></i>
   <% end %>
+  <% end %>
+</div>
 </div>
 </div>
 </div>

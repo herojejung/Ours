@@ -4,7 +4,6 @@
   align-items: center;
   height: 100%;
 }
-
 .flex {
   display: flex;
   justify-content: center;
@@ -12,7 +11,6 @@
   flex-wrap: wrap;
   margin-left: 100px;
 }
-
 .post-title-show p {
   font-weight: bold;
   font-size: 24px;
@@ -22,13 +20,11 @@
   top: 120px; /* adjust the top value as needed */
   left: 150px; /* adjust the left value as needed */
 }
-
 .image-container {
   position: absolute;
   max-width: 800px;
   right: 65%;
 }
-
 button {
   padding: 0;
   cursor: pointer;
@@ -39,8 +35,6 @@ button {
   height: 40px;
   border-radius: 50%;
 }
-
-
 .image-wrapper {
   position: absolute;
   left: 50%;
@@ -49,7 +43,6 @@ button {
   bottom: auto; /* remove the bottom value */
   margin-top: -100px; /* half of the image height */
 }
-
 .left-icon, .right-icon {
   color: white;
   font-size: 32px;
@@ -59,7 +52,6 @@ button {
   justify-content: center;
   align-items: center;
 }
-
 .prev-btn {
   position: absolute;
   transform: rotate(180deg);
@@ -68,7 +60,6 @@ button {
   z-index: 2;
   margin-right: 300px;
 }
-
 .next-btn {
   position: absolute;
   transform: rotate(180deg);
@@ -77,45 +68,37 @@ button {
   z-index: 2;
   margin-left: 300px;
 }
-
 .image-wrapper img {
   width: 300px;
   height: 300px;
   object-fit: cover;
   margin-left: 150px;
 }
-
 .image-wrapper.active .icon-wrapper {
   display: flex;
 }
-
 .prev-btn .left-icon {
   position: absolute;
   left: 0;
 }
-
 .next-btn .right-icon {
   position: absolute;
   right: 0;
 }
-
 .post-image-show {
   display: flex;
   flex-direction: row;
   margin-bottom: 50px;
 }
-
 .post-info-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-left: 250px;
 }
-
 .user-info-container {
   margin-right: 100px;
 }
-
 .user-info {
   border-bottom: 1px solid #DDDDDD;
   display: flex;
@@ -123,49 +106,39 @@ button {
   align-items: center;
   padding: 10px 0;
 }
-
 .user-info .user-name {
   flex-grow: 3;
 }
-
-
 .post-comment {
   margin-top: 10px; /* 余白を持たせるため */
 }
-
 .user-image {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
-
 .user-name {
   font-weight: bold;
   font-size: 15px;
   padding-left: 10px;
 }
-
 .user-image img {
   margin-right: 10px;
   width: 90px;
   height: 80px;
 }
-
 .post-likes {
   margin-top: 20px; /* 上部に20pxの余白を追加 */
 }
-
 .post-likes .like-icon-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 10px;
 }
-
 .post-likes .like-icon-wrapper .like-count {
   margin-left: 5px;
 }
-
 .post-text-show {
   position: relative;
   padding-top: 20px;
@@ -174,7 +147,6 @@ button {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .tag {
   position: relative;
   display: flex;
@@ -183,12 +155,10 @@ button {
   margin-right: 20px;
   margin-left: -40px; /* adjust the left value as needed */
 }
-
 .tag li {
   margin-right: 5px;
   color: #385185;
 }
-
 .post-date {
   position: fixed;
   right: 25%;
@@ -200,9 +170,9 @@ button {
 .like-count {
   display: flex;
   align-items: center;
-  margin-right: 5px;
+  width: 100px;
+  margin-right: 40%;
   margin-bottom: 4px;
-
 }
 
 button.like-btn {
@@ -232,3 +202,9 @@ button.like-btn i {
 .comments {
   margin-bottom: 10px;
 }
+
+.comment-icon-wrapper .icon-button {
+  background-color: #00CC00;
+  border: none;
+}
+

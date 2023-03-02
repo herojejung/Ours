@@ -19,15 +19,18 @@ before_action :correct_user, only: [:edit, :update, :destroy]
       render :new
   end
   end
-  
-  def index
-    if params[:tag].present?
-      @post_images = PostImage.tagged_with(params[:tag]).order(created_at: :desc)
-      @related_posts = @post_images.first.related_posts if @post_images.present?
-    else
-      @post_images = PostImage.order(created_at: :desc)
-    end
+
+def index
+  if params[:tag].present?
+    @post_images = PostImage.tagged_with(params[:tag]).order(created_at: :desc)
+    @related_posts = @post_images.first.related_posts if @post_images.present?
+  else
+    @post_images = PostImage.order(created_at: :desc)
   end
+  @q = @post_images.ransack(params[:q])
+  @post_images = @q.result(distinct: true)
+end
+
 
   def show
     @post_image = PostImage.find(params[:id])

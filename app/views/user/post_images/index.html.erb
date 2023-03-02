@@ -22,7 +22,17 @@
             </div>
           </li>
         <% end %>
-        <%= paginate @post_images %>
+
+<div class="pagination-container">
+  <div class="pagination">
+    <ul>
+      <% if @related_posts.present? %>
+        <%= paginate @related_posts %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
       </ul>
     </div>
   </div>

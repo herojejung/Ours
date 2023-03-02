@@ -49,8 +49,6 @@
       </div>
     </div>
 
-
-
     <div class="col-6">
       <div class="post-info-container">
       <div class="user-info-container">
@@ -80,7 +78,7 @@
 <ul class="tag" style="margin-top: 10px;">
   <% @post_image.tags.each do |tag| %>
     <li class="tag-name" style="list-style: none;">
-      <%= "#" + tag.name + " " %>
+      <%= link_to "#" + tag.name, user_post_images_path(tag: tag.name) %>
     </li>
   <% end %>
 </ul>

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <ul class="user-item">
+        <% @liked_post_images.each do |post_image| %>
+          <li class="user-item" style= "list-style: none;">
+            <div class="user-image">
+              <%= link_to user_post_image_path(post_image.id) do%>
+              <%= image_tag(post_image.images.first) %>
+              <% end %>
+            </div>
+            <div class="post-details">
+              <div class="post-title-and-text">
+                <div class="post-title">
+                  <h4><%= post_image.title %></h4>
+                </div>
+                <div class="post-text">
+                  <p><%= post_image.text %></p>
+                </div>
+              </div>
+            </div>
+          </li>
+        <% end %>
+        <%= paginate @liked_post_images %>
+      </ul>
+    </div>
+  </div>
+</div>

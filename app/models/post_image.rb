@@ -20,6 +20,10 @@ def self.search(query)
   end
 end
 
+  def related_posts
+    PostImage.tagged_with(tag_names, any: true)
+  end
+
 
   before_save do
   if tag_names.present?

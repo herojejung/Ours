@@ -22,9 +22,10 @@ header {
   background-color: #00BB00;
 }
 
-.header-content{
-  font-weight: bold;
+.custom-color {
   color: white;
+  font-weight: bold;
+  font-size: 100px;
 }
 
 div >:li {
@@ -36,7 +37,7 @@ div >:li {
 .box {
   width: 70%;
   height: 55px;
-  background: #ccc;
+  background: #00BB00;
   margin-left: 230px;
 }
 
@@ -45,6 +46,10 @@ div >:li {
   line-height: 60px;
   text-align: center;
   margin-left: 20%;
+}
+
+.nav-item a {
+  color: white;
 }
 
 .search {
@@ -56,7 +61,7 @@ div >:li {
 
 .search input[type="search"] {
   border-radius: 25px;
-  background-color: #f0f0f0;
+  background-color: white;
   padding: 3px;
   width: 500px; /* 好みの幅に変更してください */
 }

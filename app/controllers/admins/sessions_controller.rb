@@ -1,10 +1,7 @@
 class Admins::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_ransack_variable, only: [:new]
-  # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+
 
   def create
     self.resource = warden.authenticate!(auth_options)
@@ -13,8 +10,12 @@ class Admins::SessionsController < Devise::SessionsController
     yield resource if block_given?
     respond_with resource, location: after_sign_in_path_for(resource)
   end
-
+  
   protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password])
+  end
 
   def after_sign_in_path_for(resource)
     admin_root_path
@@ -25,7 +26,7 @@ class Admins::SessionsController < Devise::SessionsController
   end
 
   def set_ransack_variable
-    # Admins::SessionsControllerでは検索フォームが不要のため、空の検索オブジェクトを代入する
+# Admins::SessionsControllerでは検索フォームが不要のため、空の検索オブジェクトを代入する
     @q = PostImage.none.ransack
   end
 end

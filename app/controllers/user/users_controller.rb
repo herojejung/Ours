@@ -3,16 +3,17 @@ class User::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @q = @user.articles.ransack(params[:q])
+    @q = @user.articles.ransack(params[:q], search_key: :article_search)
   end
 
   def edit
     @user = User.find(params[:id])
+    @q = current_user.articles.ransack(params[:q], search_key: :article_search)
   end
 
   def index
-    @q = current_user.articles.ransack(params[:q])
-    @post_images = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(4)
+    @q = current_user.articles.ransack(params[:q], search_key: :article_search) # 変更箇所
+    @post_images = @q.result(distinct: true).where(user: current_user).order(created_at: :desc).page(params[:page]).per(4)
     @liked_post_images = current_user.post_images.order(created_at: :desc).page(params[:page]).per(4)
   end
 

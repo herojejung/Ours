@@ -16,6 +16,15 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   #validates :password, length: {minimum: 6, maximum: 30 }, format: { with: VALID_PASSWORD_REGEX }
 
+  def self.title_or_text_or_tags_name_cont(search)
+    where('title LIKE ? OR text LIKE ? OR tags.name LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%").references(:tags)
+  end
+
+  ransacker :title_or_text_or_tags_name_cont do
+    Arel.sql("LOWER(title) LIKE '%#{query.downcase}%' OR LOWER(text) LIKE '%#{query.downcase}%' OR LOWER(tags.name) LIKE '%#{query.downcase}%'")
+  end
+
+
   def self.guest
     find_or_create_by!(name: 'ゲスト', email: 'guest@example.com') do |user|
       user.password = SecureRandom.alphanumeric

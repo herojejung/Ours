@@ -13,7 +13,7 @@ devise_scope :user do
 end
 
 devise_for :admins, skip: [:registrations, :passwords], controllers: {
-  sessions: "admin/sessions"
+  sessions: "admins/sessions"
 }
 
   namespace :user do

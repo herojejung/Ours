@@ -32,6 +32,7 @@ namespace :admin do
   get "destroy/admin/session" => "admin#sign_out"
   resources :users, only:[:show,:edit,:update,:index]
   resources :post_images, only:[:edit,:destroy,:show]
+   resources :homes, only:[:edit,:destroy,:show]
 end
 
 end

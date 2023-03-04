@@ -1,6 +1,6 @@
 class Admin::HomesController < ApplicationController
+  before_action :authenticate_admin!
   def top
-    @q = PostImage.ransack(params[:q])
-    @post_images = @q.result(distinct: true)
+    @post_images = PostImage.all.order(created_at: :desc).page(params[:page]).per(5)
   end
 end

@@ -27,8 +27,8 @@ def index
   else
     @post_images = PostImage.order(created_at: :desc)
   end
-  @q = @post_images.ransack(params[:q])
-  @post_images = @q.result(distinct: true)
+    @q = @post_images.ransack(params[:q])
+    @post_images = @q.result(distinct: true)
 end
 
 

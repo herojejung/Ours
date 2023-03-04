@@ -30,9 +30,12 @@ end
 namespace :admin do
   root to: 'homes#top'
   get "destroy/admin/session" => "admin#sign_out"
-  resources :users, only:[:show,:edit,:update,:index]
-  resources :post_images, only:[:edit,:destroy,:show]
-   resources :homes, only:[:edit,:destroy,:show]
+  resources :users, only:[:index,:show,:destroy]
+  resources :post_images do
+  resources :comments
+  resources :likes, only:[:create,:destroy]
+  resources :homes
 end
 
+end
 end

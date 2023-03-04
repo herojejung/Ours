@@ -1,0 +1,93 @@
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh; /* 画面の高さに合わせる */
+}
+
+h3 {
+  position: absolute;
+  left: 300px;
+  top: 130px;
+  bottom: 73%;
+  border-bottom: 1px solid #DDDDDD;
+  width: 50%;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  margin-left: 4rem; /* 右に2rem移動 */
+  display: flex; /* flexboxを使用 */
+  flex-wrap: wrap; /* 折り返しを設定 */
+}
+
+.form-group label[for=file-input] {
+  margin-top: 1rem;
+}
+
+.form-group input[type="file"] {
+  width: 70%; /* ボックスの幅を調整 */
+  margin-left: 20rem; /* ボックスを右側に移動 */
+}
+
+.fa-image {
+  font-size: 2.5rem;
+  padding-left: 1.5rem;
+  padding-bottom: 5px;
+  padding-top: 40px;
+}
+
+.preview-image {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-top: 8rem;
+  border-radius: 50%; /* 丸くする */
+  overflow: hidden; /* 丸くしたときに画像がはみ出ないようにする */
+  width: 100px; /* 幅を設定 */
+  height: 90px; /* 高さを設定 */
+}
+
+.form-group label {
+  width: 20%; /* labelの幅を調整 */
+  text-align: left; /* labelを左寄せ */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="file"] {
+  width: 80%; /* fieldの幅を調整 */
+}
+/* プロフィール画像に余白を追加 */
+
+.push {
+  margin-top: 1rem;
+}
+
+.password-fields {
+  display: flex; /* flexboxを使用 */
+  flex-wrap: wrap; /* 折り返しを設定 */
+  width: 100%;
+}
+
+.password-fields > div {
+  width: 91%; /* fieldの幅を80%にする */
+  margin-bottom: 1rem;
+  margin-left: 0.6rem;
+}
+
+.password-fields label {
+  width: 18%; /* labelをフル幅にする */
+  text-align: left; /* labelを左寄せ */
+}
+
+.confirmation-fields {
+  padding-left: 7rem;
+  width: 91%;
+}
+
+.confirmation-fields input[type="password"] {
+  width: 98%;
+}

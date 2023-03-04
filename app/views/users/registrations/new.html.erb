@@ -1,38 +1,40 @@
 <%= javascript_pack_tag 'preview', 'data-turbolinks-track': 'reload' %>
-<h2>新規登録</h2>
+<div class="registration-form">
+  <h3>新規登録</h3>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
 
-<img id="preview" src="#" alt="Image Preview" style="display:none;">
-  <div class="field">
-    <%= f.label :image,"プロフィール画像",for: "file-input" do%>
+<div class="form-group">
+  <%= f.label :image, "プロフィール画像", for: "file-input" do %>
     <i class="fa-regular fa-image"></i>
-    <%= f.file_field :image, class: "push", onchange: "previewImage(this);" %>
-    <% end %>
+  <% end %>
+  <div class="preview-image">
+    <img id="preview" src="#" alt="Image Preview" style="display:none;">
   </div>
-  
-  <div class="field">
-    <%= f.label :"ユーザーネーム" %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
-  </div><br />
+  <%= f.file_field :image, class: "push", onchange: "previewImage(this);" %>
+</div>
 
-  <div class="field">
-    <%= f.label :"メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
-  </div><br />
-
-  <div class="field">
-    <%= f.label :"パスワード" %>
-    <em>(※英数字を含めた6~30文字以上を入力してください。)</em>
-    <br />
-    <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
-    <%= f.password_field :password_confirmation,autocomplete: "new-password", placeholder: "確認のため、もう一度入力してください", class: 'form-control' %>
+    <div class="form-group">
+      <%= f.label :"ユーザーネーム" %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :"メールアドレス" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+    </div>
+    <div class="form-group password-fields">
+    <div>
+      <%= f.label :"パスワード" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: "英数字を含めた6~30文字以上を入力してください。" %>
+    </div>
+    <div class="form-group confirmation-fields">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認のため、もう一度入力してください", class: 'form-control' %>
+    </div>
   </div>
-
-   <br />
-  <div class="actions">
-    <%= f.submit "新規登録を行う",class:"btn btn-primary" %>
-  </div>
-<% end %>
-<%= render "loadimage" %>
+    <div class="actions">
+      <%= f.submit "新規登録を行う",class:"btn btn-primary" %>
+    </div>
+  <% end %>
+  <%= render "loadimage" %>
+</div>

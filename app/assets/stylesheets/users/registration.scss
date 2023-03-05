@@ -17,37 +17,38 @@ h3 {
 
 .form-group {
   margin-bottom: 1rem;
-  margin-left: 4rem; /* 右に2rem移動 */
-  display: flex; /* flexboxを使用 */
-  flex-wrap: wrap; /* 折り返しを設定 */
+  margin-left: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1rem; /* 余白を追加 */
 }
 
 .form-group label[for=file-input] {
-  margin-top: 1rem;
+  margin-top: 0rem; /* ラベルを下に移動 */
+  width: 100%;
 }
 
-.form-group input[type="file"] {
-  width: 70%; /* ボックスの幅を調整 */
-  margin-left: 20rem; /* ボックスを右側に移動 */
+.push-container {
+  display: flex;
+  align-items: center;
 }
 
-.fa-image {
-  font-size: 2.5rem;
-  padding-left: 1.5rem;
-  padding-bottom: 5px;
-  padding-top: 40px;
+.push {
+  flex: 1;
+  margin-right: 16px; /* 適宜調整 */
 }
 
 .preview-image {
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 10px;
-  margin-top: 8rem;
-  border-radius: 50%; /* 丸くする */
-  overflow: hidden; /* 丸くしたときに画像がはみ出ないようにする */
-  width: 100px; /* 幅を設定 */
-  height: 90px; /* 高さを設定 */
+  flex: 1;
 }
+
+.preview-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
 
 .form-group label {
   width: 20%; /* labelの幅を調整 */
@@ -58,13 +59,9 @@ h3 {
 .form-group input[type="email"],
 .form-group input[type="password"],
 .form-group input[type="file"] {
-  width: 80%; /* fieldの幅を調整 */
+  width: 60%; /* fieldの幅を調整 */
 }
 /* プロフィール画像に余白を追加 */
-
-.push {
-  margin-top: 1rem;
-}
 
 .password-fields {
   display: flex; /* flexboxを使用 */

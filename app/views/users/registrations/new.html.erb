@@ -6,14 +6,17 @@
 
 
 <div class="form-group">
-  <%= f.label :image, "プロフィール画像", for: "file-input" do %>
-    <i class="fa-regular fa-image"></i>
-  <% end %>
+  <i class="fa-regular fa-image">
+  <%= f.label :image, "プロフィール画像", for: "file-input"%>
+  </i>
+<div class="push-container">
+  <img id="preview" src="#" alt="Image Preview" style="display:none;">
   <div class="preview-image">
-    <img id="preview" src="#" alt="Image Preview" style="display:none;">
+    <%= f.file_field :image, class: "push", onchange: "previewImage(this);" %>
   </div>
-  <%= f.file_field :image, class: "push", onchange: "previewImage(this);" %>
 </div>
+</div>
+
 
     <div class="form-group">
       <%= f.label :"ユーザーネーム" %><br />

@@ -8,83 +8,93 @@
 
 h3 {
   position: absolute;
-  left: 300px;
+  left: 380px;
   top: 130px;
-  bottom: 73%;
   border-bottom: 1px solid #DDDDDD;
+  bottom: 73%;
   width: 50%;
+  font-weight: bold;
+  margin-bottom: 3rem; /* スペースを追加 */
+}
+
+.space {
+  margin-top: 50px;
 }
 
 .form-group {
-  margin-bottom: 1rem;
   margin-left: 4rem;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 1rem; /* 余白を追加 */
 }
 
 .form-group label[for=file-input] {
-  margin-top: 0rem; /* ラベルを下に移動 */
+  margin-top: 2rem; /* ラベルを下に移動 */
   width: 100%;
+  text-align: left; /* labelを左寄せ */
+  display: block;
 }
 
-.push-container {
-  display: flex;
-  align-items: center;
+#preview {
+  width: 100px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 320px;
 }
 
 .push {
   flex: 1;
-  margin-right: 16px; /* 適宜調整 */
+  margin-left: 1rem; /* 適宜調整 */
 }
 
 .preview-image {
-  flex: 1;
+  position: absolute;
+  left: 50%;
+  bottom: 58%;
 }
 
-.preview-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 50%;
-  overflow: hidden;
+.preview-image label {
+  margin-top: 1rem;
 }
-
 
 .form-group label {
   width: 20%; /* labelの幅を調整 */
   text-align: left; /* labelを左寄せ */
+  margin-right: 2rem; /* 右にスペースを追加 */
 }
 
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="password"],
 .form-group input[type="file"] {
-  width: 60%; /* fieldの幅を調整 */
+  width: 75%; /* fieldの幅を調整 */
+   /* 左にスペースを追加 */
+  margin-bottom: 1rem;
+  margin-left: 1rem;
 }
-/* プロフィール画像に余白を追加 */
+
 
 .password-fields {
-  display: flex; /* flexboxを使用 */
-  flex-wrap: wrap; /* 折り返しを設定 */
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
 }
 
 .password-fields > div {
-  width: 91%; /* fieldの幅を80%にする */
-  margin-bottom: 1rem;
-  margin-left: 0.6rem;
+  width: 90%;
+  margin-right: 1rem;
 }
 
 .password-fields label {
-  width: 18%; /* labelをフル幅にする */
-  text-align: left; /* labelを左寄せ */
+  width: 20%;
+  text-align: left;
+  margin-right: 2rem;
 }
 
 .confirmation-fields {
-  padding-left: 7rem;
-  width: 91%;
+  width: 60%;
+  margin-left: 22%;
 }
 
 .confirmation-fields input[type="password"] {
-  width: 98%;
+  width: 87%;
+  margin-bottom: 1rem;
 }

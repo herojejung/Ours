@@ -14,7 +14,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-height: 20vh;
+height: 17vh;
 }
 
 .field-session {
@@ -32,8 +32,8 @@ height: 20vh;
 }
 
 .field-session input {
-  width: 30%;
-  margin-right: 25%;
+  width: 18%;
+  margin-right: 40%;
 }
 
 .actions-session {
@@ -41,7 +41,7 @@ height: 20vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 35px;
   margin-right: 100px;
 }
 
@@ -66,21 +66,24 @@ height: 20vh;
   box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
 }
 
-.btn-dark {
-  background-color: #343a40;
-  border-color: #343a40;
+.btn-orange {
+  background-color: orange !important;
+  color: #FFF;
+  border: none;
+  padding: 20px 30px;
+  font-size: 19px;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
-.btn-dark:hover {
-  background-color: #23272b;
-  border-color: #1d2124;
+.btn-orange:hover {
+  background-color: darkorange;
 }
 
-.btn-dark:active {
-  background-color: #1d2124;
-  border-color: #171a1d;
+.btn-orange:active {
+  background-color: orange;
 }
 
-.btn-dark:focus {
-  box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);
+.btn-orange:focus {
+  box-shadow: 0 0 0 2px rgba(255, 165, 0, 0.5);
 }

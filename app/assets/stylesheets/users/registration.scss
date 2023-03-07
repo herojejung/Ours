@@ -8,12 +8,11 @@
 
 h3 {
   position: absolute;
-  left: 380px;
+  left: 400px;
   top: 130px;
   border-bottom: 1px solid #DDDDDD;
   bottom: 73%;
   width: 50%;
-  font-weight: bold;
   margin-bottom: 3rem; /* スペースを追加 */
 }
 
@@ -97,4 +96,13 @@ h3 {
 .confirmation-fields input[type="password"] {
   width: 87%;
   margin-bottom: 1rem;
+}
+
+.btn-success {
+  width: 150px;
+}
+
+.actions-registration {
+  position: absolute;
+  left: 45%;
 }

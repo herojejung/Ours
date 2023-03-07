@@ -11,6 +11,13 @@
   <% end %>
 <% end %>
 
+<% @post_image.comments.each do |comment| %>
+  <div>
+    <%= comment.content %>
+    <%= link_to 'コメント削除', admin_post_image_comment_path(@post_image, comment), method: :delete, data: { confirm: '本当に削除しますか?' } %>
+  </div>
+<% end %>
+
 <p>作成日時: <%= @post_image.created_at %></p>
 <p>更新日時: <%= @post_image.updated_at %></p>
 

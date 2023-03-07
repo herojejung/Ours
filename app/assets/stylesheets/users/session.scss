@@ -1,0 +1,86 @@
+h3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #DDDDDD;
+  width: 44%;
+  padding-right: 35%;
+
+}
+
+.form-session {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 20vh;
+}
+
+.field-session {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.field-session label {
+  margin-left: 35%;
+  width: 130px;
+}
+
+.field-session input {
+  width: 30%;
+  margin-right: 25%;
+}
+
+.actions-session {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-right: 100px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  width: 130px;
+  height: -10px;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.btn-primary:active {
+  background-color: #0062cc;
+  border-color: #005cbf;
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+.btn-dark {
+  background-color: #343a40;
+  border-color: #343a40;
+}
+
+.btn-dark:hover {
+  background-color: #23272b;
+  border-color: #1d2124;
+}
+
+.btn-dark:active {
+  background-color: #1d2124;
+  border-color: #171a1d;
+}
+
+.btn-dark:focus {
+  box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);
+}

@@ -1,0 +1,12 @@
+<%= form_with(model: [:admin, @category], local: true) do |form| %>
+  <%= form.label :"カテゴリー" %>
+  <%= form.text_field :name %>
+
+  <%= form.fields_for :sub_categories do |sub_category_form| %>
+    <%= sub_category_form.label :name, "サブカテゴリー" %>
+    <%= sub_category_form.text_field :name %>
+    <%= sub_category_form.check_box :_destroy %>
+  <% end %>
+
+  <%= form.submit "登録する" %>
+<% end %>

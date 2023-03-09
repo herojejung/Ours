@@ -36,6 +36,8 @@ namespace :admin do
   resources :likes, only:[:create,:destroy]
   resources :homes
 end
-
+  resources :categories
+  resources :sub_categories
 end
+
 end

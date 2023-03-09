@@ -11,6 +11,9 @@ class PostImage < ApplicationRecord
   accepts_nested_attributes_for :comments, allow_destroy: true
 
   attr_accessor :tag_names
+  
+  enum category: { category1: 0, category2: 1, category3: 2 }
+  enum subcategory: { subcategory1: 0, subcategory2: 1, subcategory3: 2 }
 
 def self.search(query)
   if query.present?

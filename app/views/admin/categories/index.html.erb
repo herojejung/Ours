@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <tr>
+      <th>カテゴリー名</th>
+      <th>サブカテゴリー数</th>
+      <th>サブカテゴリー名</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= category.sub_categories.count %></td>
+<td>
+  <% category.sub_categories.each do |sub_category| %>
+    <%= sub_category.name %>
+    <% if !sub_category.last? %>, <% end %>
+  <% end %>
+</td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>

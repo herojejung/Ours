@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_01_220852) do
+ActiveRecord::Schema.define(version: 2023_03_09_013941) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -62,6 +62,12 @@ ActiveRecord::Schema.define(version: 2023_03_01_220852) do
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "post_image_id", null: false
@@ -100,6 +106,14 @@ ActiveRecord::Schema.define(version: 2023_03_01_220852) do
     t.float "longitude"
     t.integer "post_image_id"
     t.index ["user_id"], name: "index_post_images_on_user_id"
+  end
+
+  create_table "sub_categories", force: :cascade do |t|
+    t.string "name"
+    t.integer "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_sub_categories_on_category_id"
   end
 
   create_table "tag_post_images", force: :cascade do |t|
@@ -164,6 +178,7 @@ ActiveRecord::Schema.define(version: 2023_03_01_220852) do
   add_foreign_key "likes", "post_images"
   add_foreign_key "likes", "users"
   add_foreign_key "post_images", "users"
+  add_foreign_key "sub_categories", "categories"
   add_foreign_key "tag_post_images", "post_images"
   add_foreign_key "taggings", "tags"
 end

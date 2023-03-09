@@ -1,9 +1,9 @@
 <%= form_with(model: [:admin, @sub_category], local: true) do |form| %>
-  <%= form.label :name, "サブカテゴリー" %>
-  <%= form.text_field :name %>
-
   <%= form.label :category_id, "カテゴリー" %>
   <%= form.collection_select :category_id, Category.all, :id, :name %>
+
+  <%= form.label :name, "サブカテゴリー" %>
+  <%= form.text_field :name %>
 
   <%= form.submit "登録する" %>
 <% end %>

@@ -1,0 +1,15 @@
+<%= form_with(model: [:admin, @sub_category], local: true, id: "new_sub_category", data: { categories: @categories.to_json }) do |f| %>
+  <%= f.label :name, "サブカテゴリー" %>
+  <%= f.text_field :name, id: "sub_category_name" %>
+
+  <%= f.label :category_id, "カテゴリー" %>
+  <%= f.collection_select :category_id, Category.all, :id, :name %>
+
+  <div id="sub-category-fields"></div>
+
+  <%= link_to "削除する", admin_sub_category_path(@sub_category), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
+
+  <%= f.submit "保存する" %>
+<% end %>
+
+<%= link_to "サブカテゴリーを追加する", "#", id: "add-sub-category", class: "btn btn-primary" %>

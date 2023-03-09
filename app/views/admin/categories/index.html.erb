@@ -9,11 +9,17 @@
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= category.name %></td>
+        <td>
+          <%= link_to edit_admin_category_path(category) do %>
+          <%= category.name %>
+          <% end %>
+        </td>
         <td><%= category.sub_categories.count %></td>
         <td>
           <% category.sub_categories.each do |sub_category| %>
+          <%= link_to edit_admin_sub_category_path(sub_category) do %>
           <%= sub_category.name %>
+        <% end %>
         <% end %>
       </td>
     </tr>

@@ -12,14 +12,34 @@ class Admin::SubCategoriesController < ApplicationController
   end
 
   def create
-    @sub_category = SubCategory.new(sub_category_params)
-    if @sub_category.save
-      flash[:success] = "サブカテゴリーを登録しました。"
-      redirect_to admin_categories_path
-    else
-      @categories = Category.all
-      render :new
+    sub_category_params[:sub_categories].each do |sub_category_param|
+      @sub_category = SubCategory.new(sub_category_param)
+      unless @sub_category.save
+        @categories = Category.all
+        render :new and return
+      end
     end
+    flash[:success] = "サブカテゴリーを登録しました。"
+    redirect_to admin_categories_path
+  end
+
+  def edit
+    @sub_category = SubCategory.find(params[:id])
+    @categories = Category.all
+  end
+
+  def update
+    @sub_category = SubCategory.find(params[:id])
+  if @sub_category.update(sub_category_params)
+    redirect_to admin_categories_path
+  end
+  end
+
+  def destroy
+    @sub_category = SubCategory.find(params[:id])
+    @sub_category.destroy
+    flash[:success] = "サブカテゴリーを削除しました。"
+    redirect_to admin_categories_path
   end
 
   private

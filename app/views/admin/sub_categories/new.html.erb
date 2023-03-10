@@ -5,5 +5,23 @@
   <%= form.label :name, "サブカテゴリー" %>
   <%= form.text_field :name %>
 
-  <%= form.submit "登録する" %>
+  <template id="sub-category-template">
+    <div class="sub-category-fields">
+      <%= form.hidden_field :authenticity_token, value: form_authenticity_token %>
+      <%= form.text_field :name, class: "name-input", disabled: true %>
+      <%= form.select :category_id, Category.all.map { |c| [c.name, c.id] }, {}, { class: "category-select", disabled: true } %>
+      <button type="button" class="edit-button">編集</button>
+      <button type="button" class="delete-button">削除</button>
+    </div>
+  </template>
+
+  <div id="sub-categories">
+    <% @sub_categories.each do |sub_category| %>
+      <%= render "sub_category_fields", sub_category: sub_category %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "保存" %>
+  </div>
 <% end %>

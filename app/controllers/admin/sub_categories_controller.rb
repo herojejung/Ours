@@ -9,18 +9,24 @@ class Admin::SubCategoriesController < ApplicationController
   def new
     @sub_category = SubCategory.new
     @categories = Category.all
+    @sub_categories = SubCategory.all # 追加する
   end
 
   def create
-    sub_category_params[:sub_categories].each do |sub_category_param|
+    if sub_category_params[:sub_categories].present?
+      sub_category_params[:sub_categories].each do |sub_category_param|
       @sub_category = SubCategory.new(sub_category_param)
-      unless @sub_category.save
-        @categories = Category.all
-        render :new and return
-      end
+    unless @sub_category.save
+      @categories = Category.all
+      render :new and return
     end
-    flash[:success] = "サブカテゴリーを登録しました。"
-    redirect_to admin_categories_path
+    end
+      flash[:success] = "サブカテゴリーを登録しました。"
+      redirect_to admin_categories_path
+    else
+      flash[:error] = "サブカテゴリーがありません。"
+      redirect_to new_admin_sub_category_path
+    end
   end
 
   def edit
@@ -47,4 +53,6 @@ class Admin::SubCategoriesController < ApplicationController
   def sub_category_params
     params.require(:sub_category).permit(:name, :category_id)
   end
+
+
 end

@@ -1,15 +1,22 @@
-<%= form_with(model: [:admin, @sub_category], local: true, id: "new_sub_category", data: { categories: @categories.to_json }) do |f| %>
-  <%= f.label :name, "サブカテゴリー" %>
-  <%= f.text_field :name, id: "sub_category_name" %>
+<%= form_with(model: [:sub_category, @sub_category], local: true, url: admin_sub_categories_path) do |form| %>
 
-  <%= f.label :category_id, "カテゴリー" %>
-  <%= f.collection_select :category_id, Category.all, :id, :name %>
+  <%= form.fields_for :sub_category do |sc| %>
+    <%= sc.text_field :name %>
+    <%= sc.select :category_id, Category.all.map { |c| [c.name, c.id] } %>
+  <% end %>
 
-  <div id="sub-category-fields"></div>
+  <div class="sub-category-field">
+    <%= render "sub_category_fields", form: form, sub_category: @sub_category %>
+  </div>
 
-  <%= link_to "削除する", admin_sub_category_path(@sub_category), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
+  <div id="sub-categories">
+    <% @sub_categories.each do |sub_category| %>
+      <%= render "sub_category_fields", form: form, sub_category: sub_category %>
+    <% end %>
+  </div>
 
-  <%= f.submit "保存する" %>
+  <div class="actions">
+    <%= link_to "削除する", admin_sub_category_path(@sub_category), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger remove_sub_category_fields" %>
+    <%= form.submit "保存" %>
+  </div>
 <% end %>
-
-<%= link_to "サブカテゴリーを追加する", "#", id: "add-sub-category", class: "btn btn-primary" %>

@@ -32,12 +32,13 @@ namespace :admin do
   get "destroy/admin/session" => "admin#sign_out"
   resources :users, only:[:index,:show,:destroy]
   resources :post_images do
-  resources :comments
-  resources :likes, only:[:create,:destroy]
-  resources :homes
-end
-  resources :categories
-  resources :sub_categories
+    resources :comments
+    resources :likes, only:[:create,:destroy]
+    resources :homes
+  end
+  resources :categories do
+    resources :sub_categories, only:[:create,:update,:destroy]
+  end
 end
 
 end

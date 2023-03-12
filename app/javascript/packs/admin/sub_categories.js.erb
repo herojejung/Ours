@@ -2,13 +2,14 @@ const categories = <%= raw Category.all.to_json %>;
 
 const buildSubCategoryFields = (name, category_id) => `
   <div class="sub-category-field">
-    <input type="text" name="sub_category[][name]" value="${name}" />
-    <select name="sub_category[][category_id]">
+    <input type="text" name="sub_category[name]" value="${name}" />
+    <select name="sub_category[category_id]">
       ${categories.map(category => `<option value="${category.id}" ${isSelected(category_id, category)}>${category.name}</option>`).join('')}
     </select>
     <button type="button" class="delete-sub-category">削除</button>
   </div>
 `;
+
 
 const initSubCategoryFields = () => {
   subCategories.forEach(subCategory => {
@@ -18,7 +19,7 @@ const initSubCategoryFields = () => {
 };
 
 const initSubCategoryFields = () => {
-addSubCategoryField(); 
+addSubCategoryField();
 const subCategoryFields = document.querySelectorAll('.sub-category-field');
 subCategoryFields.forEach((subCategoryField, index) => {
 const nameInput = subCategoryField.querySelector('input[name$="[name][]"]');

@@ -1,7 +1,0 @@
-<div class="sub-category-field">
-  <%= form.fields_for :sub_category, sub_category do |sc| %>
-    <%= sc.text_field :name %>
-    <%= sc.select :category_id, Category.all.map { |c| [c.name, c.id] } %>
-  <% end %>
-  <button type="button" class="delete-sub-category">削除</button>
-</div>

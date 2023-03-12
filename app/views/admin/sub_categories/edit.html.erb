@@ -1,19 +1,9 @@
-<%= form_with(model: [:sub_category, @sub_category], local: true, url: admin_sub_categories_path) do |form| %>
+<%= form_with(model: [:sub_category, @sub_category], local: true, url: admin_sub_category_path(@sub_category)) do |form| %>
 
   <%= form.fields_for :sub_category do |sc| %>
     <%= sc.text_field :name %>
     <%= sc.select :category_id, Category.all.map { |c| [c.name, c.id] } %>
   <% end %>
-
-  <div class="sub-category-field">
-    <%= render "sub_category_fields", form: form, sub_category: @sub_category %>
-  </div>
-
-  <div id="sub-categories">
-    <% @sub_categories.each do |sub_category| %>
-      <%= render "sub_category_fields", form: form, sub_category: sub_category %>
-    <% end %>
-  </div>
 
   <div class="actions">
     <%= link_to "削除する", admin_sub_category_path(@sub_category), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger remove_sub_category_fields" %>

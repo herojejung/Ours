@@ -1,0 +1,5 @@
+<div class="nested-fields">
+  <%= f.text_field :name %>
+  <%= f.select :category_id, Category.all.map { |c| [c.name, c.id] } %>
+  <%= link_to_remove_association "Remove Sub Category", f ,class: "btn btn-danger btn-sm" %>
+</div>

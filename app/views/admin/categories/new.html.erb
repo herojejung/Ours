@@ -1,8 +1,1 @@
-<%= form_with(model: [:admin, @category], local: true) do |form| %>
-  <%= form.label :"カテゴリー" %>
-  <%= form.text_field :name %>
-
-
-
-  <%= form.submit "登録する" %>
-<% end %>
+<%= render partial: 'admin/categories/form', locals: {category: @category} %>

@@ -13,10 +13,12 @@
  *= require_tree .
  *= require_self
  */
-div {
-  display: flex;
-  justify-content: flex-start;
-}
+
+/* TODO: 後で調整する */
+/*div {*/
+/*  display: flex;*/
+/*  justify-content: flex-start;*/
+/*}*/
 
 header {
   background-color: #00BB00;

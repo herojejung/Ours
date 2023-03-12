@@ -10,4 +10,7 @@ class User::HomesController < ApplicationController
     end
     @tags = PostImage.tag_counts_on(:tags)
   end
+
+  private
+
 end

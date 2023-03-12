@@ -26,28 +26,14 @@ ActiveStorage.start()
 //= require bootstrap
 //= require_tree .
 
-$(document).on('turbolinks:load', function() {
+$(document).ready(function(){
+  // カテゴリーにカーソルが乗ったらドロップダウンメニューを表示する
   $('.js-toolTipHover').hover(
-    function(){
-      var category_list = JSON.parse($(this).attr('data-category'));
-      var tooltip = $(this).find('.tooltip');
-      tooltip.empty();
-      $.each(category_list, function(i, category){
-        var html = '<div class="sub-category-list">';
-        html += '<div class="sub-category-title">' + category.name + '</div>';
-        html += '<ul>';
-        $.each(category.sub_categories, function(i, sub_category){
-          html += '<li><a href="' + sub_category.path + '">' + sub_category.name + '</a></li>';
-        });
-        html += '</ul>';
-        html += '</div>';
-        tooltip.append(html);
-      });
-      tooltip.removeClass('hidden');
+    function() {
+      $(this).children('.dropdown-menu').addClass('show');
     },
-    function(){
-      var tooltip = $(this).find('.tooltip');
-      tooltip.addClass('hidden');
+    function() {
+      $(this).children('.dropdown-menu').removeClass('show');
     }
   );
 });

@@ -38,13 +38,9 @@
             <% end %>
           </div>
         <!-- カテゴリーリンクにjs-toolTipHoverを付与 -->
-        <div class="category-item js-toolTipHover" data-category="<%= j Category.all.to_json %>">
-          <%= link_to "カテゴリー", user_categories_path %>
-          <div class="tooltip hidden"></div>
-        </div>
-        <!-- サブカテゴリーを表示する要素 -->
-        <div id="sub-categories" class="hidden"></div>
-
+<div class="category-item">
+  <%= link_to "カテゴリー",  user_categories_path %>
+</div>
 
         <ul class="navbar-nav ml-auto">
           <% if admin_signed_in? %>

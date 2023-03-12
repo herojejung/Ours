@@ -25,6 +25,9 @@ devise_for :admins, skip: [:registrations, :passwords], controllers: {
     resources :comments
     resources :likes, only:[:create,:destroy]
   end
+   resources :categories do
+     resources :sub_categories, only:[:create,:update,:destroy]
+  end
 end
 
 namespace :admin do

@@ -15,10 +15,12 @@
  */
 
 /* TODO: 後で調整する */
-/*div {*/
-/*  display: flex;*/
-/*  justify-content: flex-start;*/
-/*}*/
+
+/*.header-sub {
+
+}*/
+
+
 
 header {
   background-color: #00BB00;
@@ -44,6 +46,8 @@ div >:li {
 }
 
 .header-sub {
+  display: flex;
+  justify-content: flex-start;
   letter-spacing: 1em;
   line-height: 60px;
   text-align: center;
@@ -54,9 +58,19 @@ div >:li {
   color: white;
 }
 
+.category-item {
+  position: absolute;
+  left: 58%;
+}
+
+.category-item a {
+  color: white;
+  font-weight: bold;
+}
+
 .search {
   position: absolute;
-  left: 50%;
+  left: 40%;
   transform: translateX(-50%);
   bottom: 12px; /* 例えば、30px上に移動する場合 */
 }

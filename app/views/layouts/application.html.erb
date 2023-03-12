@@ -37,7 +37,16 @@
             <% end %>
             <% end %>
           </div>
-    <ul class="navbar-nav ml-auto">
+        <!-- カテゴリーリンクにjs-toolTipHoverを付与 -->
+        <div class="category-item js-toolTipHover" data-category="<%= j Category.all.to_json %>">
+          <%= link_to "カテゴリー", user_categories_path %>
+          <div class="tooltip hidden"></div>
+        </div>
+        <!-- サブカテゴリーを表示する要素 -->
+        <div id="sub-categories" class="hidden"></div>
+
+
+        <ul class="navbar-nav ml-auto">
           <% if admin_signed_in? %>
             <li class="nav-item" style = "list-style: none;">
               <%= link_to admin_root_path do%>
@@ -65,6 +74,10 @@
                <% end %>
             </li>
           <% else %>
+            <li class="nav-item"style = "list-style: none;">
+              <%= link_to  user_categories_path do %>
+              <i class="fa-regular fa-book-open">カテゴリー</i>
+            <% end %>
             <li class="nav-item" style = "list-style: none;">
               <%= link_to new_user_registration_path do %>
               <i class="fa-solid fa-user-plus" style= "color: white">新規登録</i>

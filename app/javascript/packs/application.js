@@ -26,6 +26,8 @@ ActiveStorage.start()
 //= require bootstrap
 //= require_tree .
 
+require("packs/dropdown")
+
 
 
 

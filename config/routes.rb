@@ -43,4 +43,6 @@ namespace :admin do
   end
 end
 
+get '/font-awesome/css/font-awesome.css', to: 'controller#action'
+
 end

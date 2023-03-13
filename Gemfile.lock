@@ -93,6 +93,8 @@ GEM
       devise (>= 4.8.0)
     erubi (1.11.0)
     ffi (1.15.5)
+    font-awesome-rails (4.7.0.8)
+      railties (>= 3.2, < 8.0)
     geocoder (1.8.1)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -280,6 +282,7 @@ DEPENDENCIES
   cocoon
   devise
   devise-i18n
+  font-awesome-rails
   geocoder
   gretel
   image_processing (~> 1.2)

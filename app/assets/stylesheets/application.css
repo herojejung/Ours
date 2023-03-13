@@ -12,7 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ 
  */
+
 
 /* TODO: 後で調整する */
 
@@ -45,6 +47,12 @@ div >:li {
   margin-left: 230px;
 }
 
+.header-content a {
+  position: absolute;
+  top: 16px;
+  font-size: 30px;
+}
+
 .header-sub {
   display: flex;
   justify-content: flex-start;
@@ -58,31 +66,18 @@ div >:li {
   color: white;
 }
 
-.category-item {
+.dropdown {
   position: absolute;
-  left: 58%;
+  right: 64%;
+  top: 20px;
 }
 
-.category-item a {
+.dropdown a {
   color: white;
-  font-weight: bold;
 }
 
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  z-index: 1000;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0 6px 12px rgba(0,0,0,.175);
-}
-
-.category-item:hover .dropdown-menu {
-  display: block;
+.dropdown-menu a {
+  color: #FF5F17;
 }
 
 .search {

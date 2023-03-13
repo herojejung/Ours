@@ -26,17 +26,7 @@ ActiveStorage.start()
 //= require bootstrap
 //= require_tree .
 
-$(document).ready(function(){
-  // カテゴリーにカーソルが乗ったらドロップダウンメニューを表示する
-  $('.js-toolTipHover').hover(
-    function() {
-      $(this).children('.dropdown-menu').addClass('show');
-    },
-    function() {
-      $(this).children('.dropdown-menu').removeClass('show');
-    }
-  );
-});
+
 
 
 

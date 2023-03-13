@@ -12,7 +12,18 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-  </head>
+    <script>
+      $(document).ready(function(){
+        $(".category-item").mouseover(function(){
+          $(this).dropdown("toggle");
+          });
+            $(".dropdown-menu").mouseleave(function(){
+          $(this).dropdown("toggle");
+        });
+      });
+    </script>
+
+</head>
 
 <body>
   <header class="<%= (user_signed_in? ? "user_header" : "" ) %>">
@@ -38,9 +49,15 @@
             <% end %>
           </div>
         <!-- カテゴリーリンクにjs-toolTipHoverを付与 -->
-<div class="category-item">
-  <%= link_to "カテゴリー",  user_categories_path %>
-</div>
+        <div class="dropdown">
+          <%= link_to "カテゴリー", user_categories_path, class: "dropdown-toggle category-item", id: "dropdownMenuButton", data: {toggle: "dropdown"}, aria: {expanded: "false", haspopup: "true"} %>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <% Category.all.each do |category| %>
+              <%= link_to category.name, user_category_path(category) %>
+            <% end %>
+          </div>
+        </div>
+        </ul>
 
         <ul class="navbar-nav ml-auto">
           <% if admin_signed_in? %>

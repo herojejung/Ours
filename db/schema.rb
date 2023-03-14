@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_09_013941) do
+ActiveRecord::Schema.define(version: 2023_03_14_011052) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -105,6 +105,8 @@ ActiveRecord::Schema.define(version: 2023_03_09_013941) do
     t.float "latitude"
     t.float "longitude"
     t.integer "post_image_id"
+    t.integer "category_id"
+    t.integer "sub_category_id"
     t.index ["user_id"], name: "index_post_images_on_user_id"
   end
 
@@ -177,6 +179,8 @@ ActiveRecord::Schema.define(version: 2023_03_09_013941) do
   add_foreign_key "homes", "users"
   add_foreign_key "likes", "post_images"
   add_foreign_key "likes", "users"
+  add_foreign_key "post_images", "categories"
+  add_foreign_key "post_images", "sub_categories"
   add_foreign_key "post_images", "users"
   add_foreign_key "sub_categories", "categories"
   add_foreign_key "tag_post_images", "post_images"

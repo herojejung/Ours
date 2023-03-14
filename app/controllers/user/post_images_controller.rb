@@ -67,7 +67,7 @@ end
 private
   # ストロングパラメータ
 def post_image_params
-  params.require(:post_image).permit(:context,:tag_list,:title,:text,:latitude,:longitude,:user_id,:name,images: [])
+  params.require(:post_image).permit(:context,:tag_list,:title,:text,:latitude,:longitude,:user_id,:name,:category_id,:sub_category_id,images: [])
 end
 
 def correct_user

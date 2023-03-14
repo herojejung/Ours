@@ -18,15 +18,13 @@ devise_for :admins, skip: [:registrations, :passwords], controllers: {
 
   namespace :user do
     root to: 'homes#top'
-    get '/users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
-    patch '/users/withdrawal' => 'users#withdrawal', as: 'withdrawal'
     resources :users
     resources :post_images do
     resources :comments
     resources :likes, only:[:create,:destroy]
   end
    resources :categories
-   resources :sub_categories
+   resources :sub_categories, only: [:index]
   end
 
 namespace :admin do

@@ -7,5 +7,4 @@ before_action :configure_permitted_parameters, if: :devise_controller?
     added_attrs = [:name, :email, :image]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
   end
-  
 end

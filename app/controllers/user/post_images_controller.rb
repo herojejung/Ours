@@ -7,18 +7,21 @@ before_action :correct_user, only: [:edit, :update, :destroy]
     @q = PostImage.ransack(params[:q])
   end
 
-  def create
-    @post_image = PostImage.new(post_image_params)
-    @post_image.user_id = current_user.id
-    @post_image.tag_list.add(params[:post_image][:tag_list], parse: true)
+def create
+  @post_image = PostImage.new(post_image_params)
+  @post_image.user_id = current_user.id
+  category = Category.find_by(id: params[:post_image][:category_id])
+  @post_image.category_id = category.id if category.present?
+  @post_image.tag_list.add(params[:post_image][:tag_list], parse: true)
   if @post_image.save
-      flash[:success] = "投稿が完了しました。"
-      redirect_to user_post_image_path(@post_image.id)
+    flash[:success] = "投稿が完了しました。"
+    redirect_to user_post_image_path(@post_image.id)
   else
-      @user = current_user
-      render :new
+    @user = current_user
+    render :new
   end
-  end
+end
+
 
 def index
   if params[:tag].present?
@@ -67,7 +70,7 @@ end
 private
   # ストロングパラメータ
 def post_image_params
-  params.require(:post_image).permit(:context,:tag_list,:title,:text,:latitude,:longitude,:user_id,:name,:category_id,:sub_category_id,images: [])
+  params.require(:post_image).permit(:context,:tag_list,:title,:text,:latitude,:longitude,:user_id,:name,:category_id,:sub_category_id,:category,:subcategory,images: [])
 end
 
 def correct_user

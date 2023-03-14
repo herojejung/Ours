@@ -9,15 +9,16 @@
     <%= f.file_field :images,multiple: true, accept: "images/*", data: {"turbolinks" => false}%>
   </div>
 
-  <div class="field">
-    <%=f.label :"カテゴリー"%>
-    <%= f.select :category_id, Category.all.collect {|c| [c.name, c.id, { 'data-subcategories': c.sub_categories.pluck(:id).join(',') }]}, {prompt: '選択してください'}, {class: "form-control"} %>
-  </div>
+<div class="field">
+  <%=f.label :"カテゴリー"%>
+  <%= f.select :category_id, Category.all.collect {|c| [c.name, c.id, { 'data-subcategories': c.sub_categories.pluck(:id).join(',') }]}, {prompt: '選択してください'}, {class: "form-control"} %>
+</div>
 
-  <div class="field">
-    <%=f.label :"サブカテゴリー"%>
-    <%= f.select :sub_category_id, options_for_select(SubCategory.all.map {|s| [s.name, s.id, { 'data-category-id': s.category_id }]}, selected: post_image.sub_category_id) %>
-  </div>
+<div class="field" style="display:none;">
+  <%=f.label :"サブカテゴリー"%>
+  <%= f.select :sub_category_id, options_for_select(SubCategory.all.map {|s| [s.name, s.id, { 'data-category-id': s.category_id }]}, selected: post_image.sub_category_id) %>
+</div>
+
 
 <div class="field">
   <%=f.label :"タイトル"%>

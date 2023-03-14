@@ -1,15 +1,38 @@
 /*global $*/
-  $(document).on('change', '#post_image_category', function() {
-    var category_id = $(this).val();
-    var subcategories = $(this).find('option:selected').data('subcategories').split(',');
-    var options = $('#post_image_subcategory option');
+$(document).on('change', '#post_image_category_id', function() {
+  var categoryId = $(this).val();
+  var subcategories = $(this).find(':selected').data('subcategories');
 
-    options.hide();
-    options.filter(function() {
-      return $.inArray($(this).data('categoryId').toString(), subcategories) !== -1;
-    }).show();
+  // サブカテゴリーを更新する
+  updateSubcategories(subcategories);
+});
 
-    if ($.inArray($('#post_image_subcategory').val(), subcategories) === -1) {
-      $('#post_image_subcategory').val('');
-    }
+function updateSubcategories(subcategories) {
+  var select = $('#post_image_sub_category_id');
+  select.empty();
+
+  $.each(subcategories, function(i, subcategoryId) {
+    var option = $('<option>').val(subcategoryId).text($('option[value="' + subcategoryId + '"]', '#post_image_sub_category_id').text());
+    select.append(option);
   });
+}
+
+$(function() {
+  var categoryId = $('#post_image_category_id').val();
+  var subcategories = $('#post_image_category_id :selected').data('subcategories');
+  updateSubcategories(subcategories);
+});
+
+$(function() {
+  var categoryId = $('#post_image_category_id').val();
+  var subcategories = $('#post_image_category_id :selected').data('subcategories');
+  updateSubcategories(subcategories);
+
+$('#post_image_category_id').on('change', function() {
+    var categoryId = $(this).val();
+    var subcategories = $(this).find(':selected').data('subcategories');
+
+    // サブカテゴリーを更新する
+    updateSubcategories(subcategories);
+  });
+});

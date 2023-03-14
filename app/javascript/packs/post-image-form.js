@@ -1,24 +1,25 @@
 /*global $*/
 /* global SubCategory */
+/* global $document */
 
-$(function() {
-  // カテゴリーが変更された時に呼び出される処理
-  $('#post_image_category').on('change', function() {
-    var categoryId = $(this).val();
+$document.addEventListener('turbolinks:load', function () {
+  const categorySelect = document.getElementById('category-select');
+  const subcategorySelect = document.getElementById('post_image_sub_category_id');
 
-    // 選択されたカテゴリーに紐づくサブカテゴリーのみを取得
-    var subCategoryIds = $(this).find(':selected').data('subcategories').split(',');
-    var subCategories = SubCategory.where({id: subCategoryIds}).toJSON();
+  if (categorySelect && subcategorySelect) {
+    categorySelect.addEventListener('change', function () {
+      const selectedCategoryId = this.value;
+      const subcategories = this.options[this.selectedIndex].getAttribute('data-subcategories').split(',');
 
-    // サブカテゴリーの選択肢を動的に生成
-    var options = subCategories.map(function(subCategory) {
-      return $('<option>')
-        .val(subCategory.id)
-        .text(subCategory.name)
-        .data('category-id', subCategory.category_id);
+      subcategorySelect.innerHTML = '';
+
+      subcategories.forEach(function (subcategoryId) {
+        const option = document.createElement('option');
+        option.value = subcategoryId;
+        option.innerText = document.querySelector(`[data-category-id='${selectedCategoryId}'][value='${subcategoryId}']`).innerText;
+        subcategorySelect.appendChild(option);
+      });
     });
-
-    // サブカテゴリーの選択肢を更新
-    $('#post_image_sub_category_id').html(options);
-  });
+  }
 });
+

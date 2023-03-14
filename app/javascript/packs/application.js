@@ -27,7 +27,7 @@ ActiveStorage.start()
 //= require_tree .
 
 require("packs/dropdown")
-require("packs/post-image-category")
+require("packs/post-image-form")
 
 
 

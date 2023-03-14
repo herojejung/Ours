@@ -23,9 +23,9 @@ devise_for :admins, skip: [:registrations, :passwords], controllers: {
     resources :comments
     resources :likes, only:[:create,:destroy]
   end
-   resources :categories
-   resources :sub_categories, only: [:index]
-  end
+    resources :categories
+    resources :sub_categories
+end
 
 namespace :admin do
   root to: 'homes#top'

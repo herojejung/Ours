@@ -1,25 +1,31 @@
 /*global $*/
 /* global SubCategory */
-/* global $document */
 
-$document.addEventListener('turbolinks:load', function () {
-  const categorySelect = document.getElementById('category-select');
-  const subcategorySelect = document.getElementById('post_image_sub_category_id');
+/*global $*/
+/* global SubCategory */
 
-  if (categorySelect && subcategorySelect) {
-    categorySelect.addEventListener('change', function () {
-      const selectedCategoryId = this.value;
-      const subcategories = this.options[this.selectedIndex].getAttribute('data-subcategories').split(',');
-
-      subcategorySelect.innerHTML = '';
-
-      subcategories.forEach(function (subcategoryId) {
-        const option = document.createElement('option');
-        option.value = subcategoryId;
-        option.innerText = document.querySelector(`[data-category-id='${selectedCategoryId}'][value='${subcategoryId}']`).innerText;
-        subcategorySelect.appendChild(option);
-      });
+$(function() {
+  // カテゴリーが変更された時に呼び出される処理
+  $('#post_image_category').on('change', function() {
+    var categoryId = $(this).val();
+    // 選択されたカテゴリーに紐づくサブカテゴリーのみを取得
+    $.ajax({
+      url: '/user/sub_categories',
+      data: { category_id: categoryId },
+      dataType: 'json',
+      success: function(subCategories) {
+        // サブカテゴリーの選択肢を動的に生成
+        var options = subCategories.map(function(subCategory) {
+          return $('<option>')
+            .val(subCategory.id)
+            .text(subCategory.name)
+            .data('category-id', subCategory.category_id);
+        });
+        // サブカテゴリーの選択肢を更新
+        $('#post_image_subcategory').html(options);
+      }
     });
-  }
+  });
 });
+
 

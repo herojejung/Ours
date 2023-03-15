@@ -15,7 +15,7 @@
 </div>
 
 <div class="field">
-  <%= f.select :sub_category_id, options_for_select(SubCategory.all.map {|s| [s.name, s.id, { 'data-category-id': s.category_id }]}, selected: post_image.sub_category_id) %>
+  <%= f.select :sub_category_id, options_for_select(@sub_categories.collect{ |s| [s.name, s.id] }, post_image.sub_category_id), {}, { class: "form-control" } %>
 </div>
 
 
@@ -42,26 +42,3 @@
   <% end %>
 </div>
 <% end %>
-
-<script>
-  $(document).on('turbolinks:load', function() {
-    $('#category-select').change(function() {
-      var categoryId = $(this).val();
-      $.ajax({
-        url: '/user/sub_categories',
-        data: { category_id: categoryId },
-        dataType: 'json',
-        success: function(data) {
-          var subCategorySelect = $('#sub-category-select');
-          subCategorySelect.empty();
-          $.each(data, function(index, subCategory) {
-            subCategorySelect.append($('<option>').attr('value', subCategory.id).text(subCategory.name));
-          });
-        },
-        error: function(xhr, textStatus, errorThrown) {
-          console.log('Error:', errorThrown);
-        }
-      });
-    });
-  });
-</script>

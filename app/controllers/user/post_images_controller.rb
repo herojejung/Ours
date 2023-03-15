@@ -1,10 +1,12 @@
 class User::PostImagesController < ApplicationController
 before_action :authenticate_user!
 before_action :correct_user, only: [:edit, :update, :destroy]
+  
   def new
     @post_image = PostImage.new
     @q = PostImage.ransack(params[:q])
   end
+  
 def create
   @post_image = PostImage.new(post_image_params)
   @post_image.user_id = current_user.id

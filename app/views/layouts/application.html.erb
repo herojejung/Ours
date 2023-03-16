@@ -39,15 +39,17 @@
             <% end %>
           </div>
         <!-- カテゴリーリンクにjs-toolTipHoverを付与 -->
-        <div class="dropdown">
-          <%= link_to "カテゴリー", user_categories_path, class: "dropdown-toggle category-item", id: "dropdownMenuButton", data: {toggle: "dropdown"}, aria: {expanded: "false", haspopup: "true"} %>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <% Category.all.each do |category| %>
-              <%= link_to category.name, user_category_path(category) %>
-            <% end %>
-          </div>
-        </div>
-        </ul>
+<div class="dropdown">
+  <a class="dropdown-toggle category-item" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    カテゴリー
+  </a>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <% Category.all.each do |category| %>
+      <%= link_to category.name, user_sub_categories_path(category_id: category.id), class: "dropdown-item" %>
+    <% end %>
+  </div>
+</div>
+
 
         <ul class="navbar-nav ml-auto">
           <% if admin_signed_in? %>
@@ -77,10 +79,6 @@
                <% end %>
             </li>
           <% else %>
-            <li class="nav-item"style = "list-style: none;">
-              <%= link_to  user_categories_path do %>
-              <i class="fa-regular fa-book-open">カテゴリー</i>
-            <% end %>
             <li class="nav-item" style = "list-style: none;">
               <%= link_to new_user_registration_path do %>
               <i class="fa-solid fa-user-plus" style= "color: white">新規登録</i>

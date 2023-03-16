@@ -15,9 +15,8 @@
 </div>
 
 <div class="field">
-  <%= f.select :sub_category_id, options_for_select(@sub_categories.collect{ |s| [s.name, s.id] }, post_image.sub_category_id), {}, { class: "form-control" } %>
+  <%= f.select :sub_category_id, options_for_select(SubCategory.all.map {|s| [s.name, s.id, { 'data-category-id': s.category_id }]}, selected: post_image.sub_category_id) %>
 </div>
-
 
 <div class="field">
   <%=f.label :"タイトル"%>

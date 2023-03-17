@@ -12,7 +12,7 @@
  *
  *= require_tree .
  *= require_self
- 
+
  */
 
 
@@ -41,10 +41,10 @@ div >:li {
 }
 
 .box {
-  width: 70%;
+  width: 50%;
   height: 55px;
   background: #00BB00;
-  margin-left: 230px;
+  margin-left: 370px;
 }
 
 .header-content a {
@@ -59,7 +59,7 @@ div >:li {
   letter-spacing: 1em;
   line-height: 60px;
   text-align: center;
-  margin-left: 20%;
+  margin-left: 7%;
 }
 
 .nav-item a {
@@ -93,5 +93,14 @@ div >:li {
   padding: 3px;
   width: 500px; /* 好みの幅に変更してください */
 }
+
+.tag-container {
+  position: absolute;
+  top: 35%;
+  left: 10%;
+  width: 200px;
+  padding: 20px;
+}
+
 
 

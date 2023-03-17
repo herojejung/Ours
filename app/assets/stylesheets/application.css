@@ -102,5 +102,11 @@ div >:li {
   padding: 20px;
 }
 
-
+.post-container {
+  position: absolute;
+  top: 34%;
+  right: 10%;
+  width: 200px;
+  padding: 20px;
+}
 

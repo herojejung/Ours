@@ -2,6 +2,8 @@
 <%= form_with model: post_image, url: post_image.new_record? ? user_post_images_path : user_post_image_path(post_image), id: 'post-image-form' do |f| %>
 <%= render 'users/shared/error_messages', resource: f.object %>
 
+
+
 <div id="new-image"></div>
 	<div class="field">
 		<i class="fa-regular fa-image"></i>

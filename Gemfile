@@ -68,3 +68,6 @@ gem 'cocoon'
 gem 'jquery-rails'
 gem 'popper_js', '~> 2.9'
 gem 'font-awesome-rails'
+# gem "gmaps4rails"
+# gem "gon"
+# gem "dotenv-rails"

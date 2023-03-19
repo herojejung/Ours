@@ -28,6 +28,12 @@ header {
   background-color: #00BB00;
 }
 
+.navbar-nav.ml-auto > li {
+  margin-left: 80px;
+  display: inline-block;
+}
+
+
 .custom-color {
   color: white;
   font-weight: bold;
@@ -49,8 +55,9 @@ div >:li {
 
 .header-content a {
   position: absolute;
-  top: 16px;
-  font-size: 30px;
+  bottom: 1px;
+  font-size: 33px;
+  left: 10%;
 }
 
 .header-sub {
@@ -68,8 +75,8 @@ div >:li {
 
 .dropdown {
   position: absolute;
-  right: 64%;
-  top: 20px;
+  right: 16%;
+  top: 1px;
 }
 
 .dropdown a {
@@ -91,7 +98,7 @@ div >:li {
   border-radius: 25px;
   background-color: white;
   padding: 3px;
-  width: 500px; /* 好みの幅に変更してください */
+  width: 350px; /* 好みの幅に変更してください */
 }
 
 .tag-container {

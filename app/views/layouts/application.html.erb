@@ -37,7 +37,8 @@
             <% end %>
             <% end %>
           </div>
-        <!-- カテゴリーリンクにjs-toolTipHoverを付与 -->
+        <ul class="navbar-nav ml-auto">
+                  <!-- カテゴリーリンクにjs-toolTipHoverを付与 -->
 <div class="dropdown">
   <a class="dropdown-toggle category-item" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     カテゴリー
@@ -48,9 +49,6 @@
     <% end %>
   </div>
 </div>
-
-
-        <ul class="navbar-nav ml-auto">
           <% if admin_signed_in? %>
             <li class="nav-item" style = "list-style: none;">
               <%= link_to admin_root_path do%>

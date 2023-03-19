@@ -29,4 +29,13 @@ class Admins::SessionsController < Devise::SessionsController
 # Admins::SessionsControllerでは検索フォームが不要のため、空の検索オブジェクトを代入する
     @q = PostImage.none.ransack
   end
+  
+  def admin_state
+  return unless params[:admin]
+  @admin = Admin.find_by(email: params[:admin][:email])
+  return if !@admin
+  if !@admin.valid_password?(params[:admin][:password])
+    redirect_to new_admin_session_path
+  end
+  end
 end

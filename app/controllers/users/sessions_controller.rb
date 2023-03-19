@@ -5,8 +5,6 @@ class Users::SessionsController < Devise::SessionsController
   before_action :set_ransack_variable, only: [:new]
 
 
-  private
-
 def sign_in_params
   if params[:user].present?
     params.require(:user).permit(:email, :password, :name)
@@ -46,15 +44,6 @@ def user_state
   elsif @user.is_deleted == true
     sign_in @user
     redirect_to user_root_path
-  end
-end
-
-def admin_state
-  return unless params[:admin]
-  @admin = Admin.find_by(email: params[:admin][:email])
-  return if !@admin
-  if !@admin.valid_password?(params[:admin][:password])
-    redirect_to new_admin_session_path
   end
 end
 

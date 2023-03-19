@@ -5,7 +5,7 @@
 
 
 import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
+//import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
@@ -17,8 +17,10 @@ import '@fortawesome/fontawesome-free/js/all'
 require("@nathanvda/cocoon")
 
 Rails.start()
-Turbolinks.start()
+//Turbolinks.start()
 ActiveStorage.start()
+
+
 
 /*global $*/
 //= require jquery3
@@ -41,9 +43,9 @@ ActiveStorage.start()
 //   document.body.appendChild(script);
 // }
 
-require("packs/dropdown")
-require("packs/post-image-form")
-//require("packs/google_maps")
 
+//require("packs/google_maps")
+require("packs/dropdown")
+require("packs/postimageform")
 
 

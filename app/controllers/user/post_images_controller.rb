@@ -5,6 +5,7 @@ before_action :correct_user, only: [:edit, :update, :destroy]
   def new
     @post_image = PostImage.new
     @q = PostImage.ransack(params[:q])
+    @category_id = params[:post_image][:category_id] if params[:post_image]
   end
 
 def create
@@ -34,7 +35,7 @@ end
   def show
     @post_image = PostImage.find(params[:id])
     @tags = @post_image.tags
-    @user = current_user
+    @user = User.find(@post_image.user_id)
     @postimages = PostImage.all
     @comment = Comment.new
     @comments = @post_image.comments

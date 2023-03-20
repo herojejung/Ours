@@ -51,6 +51,17 @@ def set_ransack_variable
     @q = PostImage.none.ransack
 end
 
+def get_image(width, height)
+  if current_user.image.attached?
+    current_user.image.variant(resize_to_limit: [width, height]).processed
+  else
+    file_path = Rails.root.join('app/assets/images/no_image.jpg')
+    current_user.image.attach(io: File.open(file_path), filename: 'no_image.jpg', content_type: 'image/jpg')
+    current_user.image.variant(resize_to_limit: [width, height]).processed
+  end
+end
+
+
 end
 
   # GET /resource/sign_in

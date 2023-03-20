@@ -49,9 +49,13 @@
     <div class="user-info-container">
       <div class="user-info">
         <div class="user-image">
-          <%= link_to user_user_path(@user) do%>
-          <%= image_tag @user.image.variant(resize_to_limit: [100,100]).processed, class: "rounded-circle" %>
-          <% end %>
+          <% if @user.image.attached? %>
+            <%= link_to user_user_path(@user) do%>
+            <%= image_tag @user.image.variant(resize_to_limit: [100,100]).processed, class: "rounded-circle" %>
+        <% end %>
+        <% else %>
+            <%= image_tag "no_image.jpg", class: "rounded-circle" %>
+        <% end %>
         <div class="user-name">
           <%= @post_image.user.name %>
         </div>

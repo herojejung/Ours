@@ -5,15 +5,26 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
    before_action :ensure_normal_user, only: :destroy
    before_action :ensure_normal_user, only: %i[update destroy]
-   
-   
+
+
   def ensure_normal_user
     if resource.email == 'guest@example.com'
       redirect_to user_root_path, alert: 'ゲストユーザーは削除できません。'
     end
   end
-  
-  
+
+def get_image(width, height)
+  if current_user.image.attached?
+    current_user.image.variant(resize_to_limit: [width, height]).processed
+  else
+    file_path = Rails.root.join('app/assets/images/no_image.jpg')
+    current_user.image.attach(io: File.open(file_path), filename: 'no_image.jpg', content_type: 'image/jpg')
+    current_user.image.variant(resize_to_limit: [width, height]).processed
+  end
+end
+
+
+
 
   # GET /resource/sign_up
   # def new

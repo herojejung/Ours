@@ -22,6 +22,7 @@ def create
     render :new
   end
 end
+
 def index
   if params[:tag].present?
     @post_images = PostImage.tagged_with(params[:tag]).order(created_at: :desc)
@@ -32,6 +33,7 @@ def index
     @q = @post_images.ransack(params[:q])
     @post_images = @q.result(distinct: true)
 end
+
   def show
     @post_image = PostImage.find(params[:id])
     @tags = @post_image.tags
@@ -41,10 +43,12 @@ end
     @comments = @post_image.comments
     @q = PostImage.ransack(params[:q])
   end
+  
   def edit
     @post_image = PostImage.find(params[:id])
     @post_image.tag_names = @post_image.tags.map(&:name).join("#,#")
   end
+  
 def update
   @post_image = PostImage.find(params[:id])
   @post_image.tag_list.add(params[:post_image][:tag_list].split(","))
@@ -52,6 +56,7 @@ def update
     redirect_to user_post_image_path
   end
 end
+
   def destroy
     @post_image = PostImage.find(params[:id])
     @post_image.user_id  = current_user.id
@@ -59,6 +64,7 @@ end
     redirect_to user_root_path
   end
   end
+  
 private
   # ストロングパラメータ
 def post_image_params

@@ -23,13 +23,19 @@
 		</thead>
 		<tbody>
 		  <tr>
-		  	<td></td>
-		  	<% if @user.image.present? %>
-  			<td><%= image_tag @user.image, class: "rounded-circle" %></td>
-			<% end %>
+		  	<td>
+			<% if @user.image.attached? %>
+            <%= link_to user_user_path(@user) do%>
+            <%= image_tag @user.image.variant(resize_to_limit: [100,100]).processed, class: "rounded-circle" %>
+        <% end %>
+        <% else %>
+            <%= image_tag "no_image.jpg", class: "rounded-circle" %>
+        <% end %>
 			<td>
+				<% if @user.id == current_user.id %>
 				<%= link_to edit_user_user_path(current_user) do%>
 				<i class="fa-solid fa-pen-to-square">ユーザー情報を編集</i>
+				<% end %>
 				<% end %>
 			</td>
 		  </tr>

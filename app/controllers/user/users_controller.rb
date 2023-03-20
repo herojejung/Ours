@@ -14,7 +14,7 @@ class User::UsersController < ApplicationController
   def index
     @q = current_user.articles.ransack(params[:q], search_key: :article_search) # 変更箇所
     @post_images = @q.result(distinct: true).where(user: current_user).order(created_at: :desc).page(params[:page]).per(4)
-    @liked_post_images = current_user.post_images.order(created_at: :desc).page(params[:page]).per(4)
+    @liked_post_images = PostImage.joins(:likes).where(likes: { user_id: current_user.id }).order(created_at: :desc).page(params[:page]).per(4)
   end
 
   def update

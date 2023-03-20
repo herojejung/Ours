@@ -46,6 +46,6 @@ ActiveStorage.start()
 
 //require("packs/google_maps")
 require("packs/dropdown")
-require("packs/postimageform")
+require("packs/post-image-form")
 
 

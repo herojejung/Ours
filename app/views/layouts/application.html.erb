@@ -12,19 +12,18 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
     <!--<link rel="stylesheet" href="font-awesome/css/font-awesome.css">-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-</head>
-
+  </head>
 <body>
   <header class="<%= (user_signed_in? ? "user_header" : "" ) %>">
    <nav class="navbar navbar-expand-lg navbar-green bg-green">
-      <div class="container">
-         <div class="header-content" style= "color: white;">
+    <div class="container">
+      <div class="header-content" style= "color: white;">
         <%= link_to 'Ours', (admin_signed_in? ? admin_root_path : user_root_path ), :class => "navbar-brand custom-color"%>
         </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <div class = "p-2 bd-highlight">
           <div class="search">
             <% if admin_signed_in? %>
@@ -38,17 +37,16 @@
             <% end %>
           </div>
         <ul class="navbar-nav ml-auto">
-                  <!-- カテゴリーリンクにjs-toolTipHoverを付与 -->
-<div class="dropdown">
-  <a class="dropdown-toggle category-item" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    カテゴリー
-  </a>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <% Category.all.each do |category| %>
-      <%= link_to category.name, user_sub_categories_path(category_id: category.id), class: "dropdown-item" %>
-    <% end %>
-  </div>
-</div>
+      <div class="dropdown">
+        <a class="dropdown-toggle category-item" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          カテゴリー
+        </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <% Category.all.each do |category| %>
+          <%= link_to category.name, user_sub_categories_path(category_id: category.id), class: "dropdown-item" %>
+        <% end %>
+      </div>
+    </div>
           <% if admin_signed_in? %>
             <li class="nav-item" style = "list-style: none;">
               <%= link_to admin_root_path do%>

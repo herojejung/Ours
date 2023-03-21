@@ -37,6 +37,14 @@
             <% end %>
         <% end %>
       </div>
+      <div class="post-category">
+  <% if @post_image.category.present? %>
+    <p>カテゴリー：<%= @post_image.category.name %></p>
+  <% end %>
+  <% if @post_image.sub_category.present? %>
+    <p>サブカテゴリー：<%= @post_image.sub_category.name %></p>
+  <% end %>
+</div>
     <div id="btnNext" class="next-btn">
       <button class="c-button-trigger button" type="button">
       <span class="c-icon--line-arrow-right" aria-hidden="true">&gt;</span>

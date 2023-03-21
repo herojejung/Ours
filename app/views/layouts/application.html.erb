@@ -37,6 +37,7 @@
             <% end %>
           </div>
         <ul class="navbar-nav ml-auto">
+          <% if user_signed_in? %>
       <div class="dropdown">
         <a class="dropdown-toggle category-item" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           カテゴリー
@@ -44,6 +45,7 @@
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <% Category.all.each do |category| %>
           <%= link_to category.name, user_sub_categories_path(category_id: category.id), class: "dropdown-item" %>
+        <% end %>
         <% end %>
       </div>
     </div>

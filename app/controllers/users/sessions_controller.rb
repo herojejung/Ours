@@ -14,17 +14,17 @@ def sign_in_params
 end
 
 def after_sign_in_path_for(resource)
-    user_root_path
+    root_path
 end
 
 def guest_sign_in
     user = User.guest
     sign_in user
-    redirect_to user_root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
 end
 
 def after_sign_out_path_for(resource)
-    user_root_path
+    root_path
 end
 
 protected
@@ -43,7 +43,7 @@ def user_state
     redirect_to new_user_registration_path
   elsif @user.is_deleted == true
     sign_in @user
-    redirect_to user_root_path
+    redirect_to root_path
   end
 end
 

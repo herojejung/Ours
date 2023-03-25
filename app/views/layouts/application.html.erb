@@ -18,7 +18,7 @@
    <nav class="navbar navbar-expand-lg navbar-green bg-green">
     <div class="container">
       <div class="header-content" style= "color: white;">
-        <%= link_to 'Ours', (admin_signed_in? ? admin_root_path : user_root_path ), :class => "navbar-brand custom-color"%>
+        <%= link_to 'Ours', (admin_signed_in? ? admin_root_path : root_path ), :class => "navbar-brand custom-color"%>
         </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,7 @@
               <%= f.search_field :title_or_text_or_tags_name_cont, placeholder: "🔍 ワード・タグ名から検索", onkeypress: "if (event.keyCode === 13) { this.form.submit(); }" %>
             <% end %>
             <% else %>
-              <%= search_form_for @q.presence || PostImage.none.ransack, url: user_root_path do |f| %>
+              <%= search_form_for @q.presence || PostImage.none.ransack, url: root_path do |f| %>
               <%= f.search_field :title_or_text_or_tags_name_cont, placeholder: "🔍 ワード・タグ名から検索", onkeypress: "if (event.keyCode === 13) { this.form.submit(); }" %>
             <% end %>
             <% end %>
@@ -65,7 +65,7 @@
             </li>
           <% elsif user_signed_in? %>
             <li class="nav-item"style = "list-style: none;">
-              <%= link_to user_root_path do%>
+              <%= link_to root_path do%>
               <i class="fa-solid fa-house" style= "color: white">HOME</i>
             <% end %>
               <%= link_to destroy_user_session_path, method: :delete do %>

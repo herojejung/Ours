@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+root 'user/homes#top'
 
 devise_for :users, controllers: {
   registrations: "users/registrations",
@@ -17,7 +18,6 @@ devise_for :admins, skip: [:registrations, :passwords], controllers: {
 }
 
   namespace :user do
-    root to: 'homes#top'
     resources :users
     resources :post_images do
     resources :comments

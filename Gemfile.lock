@@ -282,7 +282,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   cocoon
-  devise
+  devise (~> 4.9)
   devise-i18n
   dotenv-rails
   font-awesome-rails

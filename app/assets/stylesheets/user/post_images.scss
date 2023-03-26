@@ -1,11 +1,11 @@
-.container {
+.container-post-show {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   height: 100%;
 }
 
-.flex {
+.flex-post-show {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +21,7 @@
   margin-right: 10px;
   position: absolute;
   top: 20px; /* adjust the top value as needed */
-  left: 15px; /* adjust the left value as needed */
+  left: 25px; /* adjust the left value as needed */
 }
 
 .image-container {

@@ -1,0 +1,56 @@
+.field {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  margin-left: 25%;
+  width: 100%;
+  max-width: 600px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.inner-form {
+  text-align: center;
+  margin-top: 20px;
+  margin-right: 87px;
+  border-bottom: 2px solid #C0C0C0;
+  width: 50%;
+  margin-left: 25%;
+}
+
+#new-image img {
+  max-width: 100px; /* 好きなサイズに変更してください */
+  max-height: 100px; /* 好きなサイズに変更してください */
+}
+
+label {
+  margin-right: 20px;
+  width: 100px;
+  text-align: right;
+}
+
+select, input[type="text"], textarea {
+  flex: 1;
+}
+
+.field select {
+  width: 40%;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 65px;
+  margin-bottom: 40px;
+}
+
+.edit-action {
+  text-align: center;
+  padding-bottom: 70px;
+}
+
+.edit-action .btn {
+  width: 130px;
+}

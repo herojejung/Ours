@@ -1,12 +1,12 @@
 <%= render 'user/homes/header' %>
 <%= javascript_pack_tag 'preview', 'data-turbolinks-track': 'reload' %>
 
-<section class="inner">
+<section class="inner-form">
 <i class="fa-solid fa-pen-to-square" style= "font-size: 25px; ">投稿編集</i>
 </section>
   <%= render 'user/post_images/form', post_image: @post_image %>
 
-<div class="action">
-  <%= link_to "削除する",  user_post_image_path, method: :delete, class: "btn btn-danger mt-0" %>
+<div class="edit-action">
+  <%= link_to "削除する",  user_post_image_path, method: :delete, class: "btn btn-danger" %>
 </div>
 

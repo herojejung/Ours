@@ -1,3 +1,64 @@
-// Place all the styles related to the user/users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.container-user-show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.users-show {
+  margin-top: 50px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.customer-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.customer-image {
+  margin-top: 100px;
+}
+
+.customer-image img {
+max-width: 150px;
+max-height: 90px;
+border-radius: 50%;
+}
+
+.customer-edit {
+margin-top: 10px;
+}
+
+.customer-name {
+margin-top: 10px;
+text-align: center;
+display: flex; /* 追加 */
+}
+
+.customer-name h5 {
+margin-right: 10px; /* 追加 */
+}
+
+.flex-customer {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 20px;
+margin-bottom: 90px;
+}
+
+.section {
+margin-bottom: 30px;
+}
+
+.sectionHeader {
+text-align: center;
+width: 100%;
+text-overflow: ellipsis;
+white-space: nowrap;
+margin-left: 30px;
+}

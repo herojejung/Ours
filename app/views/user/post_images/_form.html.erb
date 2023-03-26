@@ -1,13 +1,14 @@
 <%#= request_path = request.path_info %>
-<%= form_with model: post_image, url: post_image.new_record? ? user_post_images_path : user_post_image_path(post_image), id: 'post-image-form' do |f| %>
+<%= form_with model: post_image, url: post_image.new_record? ? user_post_images_path : user_post_image_path(post_image), id: 'post-image-form', html: { class: 'form-wrapper' } do |f| %>
 <%= render 'users/shared/error_messages', resource: f.object %>
 
-<div id="new-image"></div>
-	<div class="field">
-		<i class="fa-regular fa-image"></i>
-    <%=f.label :"画像"%>
-    <%= f.file_field :images,multiple: true, accept: "images/*", data: {"turbolinks" => false}%>
-  </div>
+
+<div class="field">
+  <%= f.label :"画像"%>
+  <div id="new-image"></div>
+  <%= f.file_field :images, multiple: true, accept: "images/*", data: {"turbolinks" => false}%>
+</div>
+
 
 <div class="field">
   <%= f.label :"カテゴリー" %>
@@ -15,7 +16,8 @@
 </div>
 
 <div class="field">
-  <%= f.select :sub_category_id, options_for_select(SubCategory.all.map {|s| [s.name, s.id, { 'data-category-id': s.category_id }]},selected: post_image.sub_category_id), { prompt: "選択してください" }%>
+  <%= f.label :"サブカテゴリー" %>
+  <%= f.select :sub_category_id, options_for_select(SubCategory.all.map {|s| [s.name, s.id, { 'data-category-id': s.category_id }]},selected: post_image.sub_category_id), { prompt: "選択してください" }, { class: "form-control"}%>
 </div>
 
 <div class="field">

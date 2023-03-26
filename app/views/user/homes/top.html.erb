@@ -1,32 +1,29 @@
 <%= render 'user/homes/header' %>
 <div class="container">
+  <%= render 'user/homes/tag' %>
+  <%= render 'user/homes/post' %>
   <div class="row">
     <div class="col-sm-12">
       <ul class="home-item">
         <% @post_images.each do |post_image| %>
-          <li class="post-item">
+          <li class="post-item" style="list-style: none;">
             <div class="post-image">
               <%= link_to user_post_image_path(post_image.id) do%>
-              <%= image_tag(post_image.images.first) %>
+              <%= image_tag(post_image.images.first, size: "400x100") %>
               <% end %>
             </div>
-            <div class="post-details">
-              <div class="post-title-and-text">
-                <div class="post-title">
-                  <h4><%= post_image.title %></h4>
-                </div>
+              <div class="post-title">
+              <h5><%= post_image.title.truncate(13, separator: ' ') %></h5>
                 <div class="post-text">
-                  <p><%= post_image.text %></p>
-                </div>
-              </div>
+                <p><%= post_image.text.truncate(15, separator: ' ') %></p>
+            </div>
             </div>
           </li>
         <% end %>
+        <div class="post-page">
         <%= paginate @post_images %>
+        </div>
       </ul>
     </div>
+  </div>
 </div>
-</div>
-<%= render 'user/homes/tag' %>
-<%= render 'user/homes/post' %>
-

@@ -32,5 +32,7 @@ ActiveStorage.start()
 
 require("packs/dropdown")
 require("packs/post-image-form")
+require("packs/preview")
+require("packs/previmage")
 
 

@@ -1,31 +1,20 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
-
- */
-
-
-/* TODO: 後で調整する */
-
-/*.header-sub {
-
-}*/
-
-
+@import 'bootstrap/scss/bootstrap';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import 'user/homes';
+@import 'user/comments';
+@import 'user/likes';
+@import 'user/post_images';
+@import 'user/users';
+@import 'users/registration';
+@import 'users/session';
+//　@import '@fortawesome/fontawesome-free/scss/solid';
+//　@import '@fortawesome/fontawesome-free/scss/regular';
+//　@import '@fortawesome/fontawesome-free/scss/brands';
+//　@import '@fortawesome/fontawesome-free/scss/v4-shims';
 
 header {
   background-color: #00BB00;
+  height: 60px;
 }
 
 .navbar-nav.ml-auto > li {
@@ -33,6 +22,16 @@ header {
   display: inline-block;
 }
 
+.navbar-expand-lg .navbar-collapse {
+  display: flex !important;
+  flex-basis: auto;
+  justify-content: flex-end;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* remove the gap so it doesn't close */
+}
 
 .custom-color {
   color: white;
@@ -50,12 +49,13 @@ div >:li {
   width: 50%;
   height: 55px;
   background: #00BB00;
-  margin-left: 370px;
+  margin-left: 350px;
+  margin-bottom: 40px;
 }
 
 .header-content a {
   position: absolute;
-  bottom: 1px;
+  top: 1px;
   font-size: 33px;
   left: 10%;
 }
@@ -69,18 +69,20 @@ div >:li {
   margin-left: 7%;
 }
 
+.navbar-nav li {
+  position: relative;
+  top: -2%;
+}
+
 .nav-item a {
   color: white;
 }
 
-.dropdown {
-  position: absolute;
-  right: 16%;
-  top: 1px;
-}
 
 .dropdown a {
   color: white;
+  padding-top: 17px;
+  padding-right: 50px;
 }
 
 .dropdown-menu a {
@@ -89,9 +91,9 @@ div >:li {
 
 .search {
   position: absolute;
+  top: 15px;
   left: 40%;
   transform: translateX(-50%);
-  bottom: 12px; /* 例えば、30px上に移動する場合 */
 }
 
 .search input[type="search"] {
@@ -99,22 +101,6 @@ div >:li {
   background-color: white;
   padding: 3px;
   width: 350px; /* 好みの幅に変更してください */
-}
-
-.tag-container {
-  position: absolute;
-  top: 35%;
-  left: 10%;
-  width: 200px;
-  padding: 20px;
-}
-
-.post-container {
-  position: absolute;
-  top: 34%;
-  right: 10%;
-  width: 200px;
-  padding: 20px;
 }
 
 .footer-box {
@@ -135,3 +121,5 @@ div >:li {
 footer {
   font-weight: bold;
 }
+
+

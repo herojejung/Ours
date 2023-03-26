@@ -2,7 +2,7 @@
 <h2>人気の投稿</h2>
 <ol>
 <% @likes_ranking.each do |post| %>
-  <li><%= link_to "#{post.title}", user_post_image_path(post), style: "white-space: nowrap;" %></li>
+  <li><%= link_to "#{post.title.truncate(10)}", user_post_image_path(post), style: "white-space: nowrap;" %></li>
 <% end %>
 </ol>
 </div>

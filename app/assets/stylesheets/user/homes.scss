@@ -1,47 +1,64 @@
-// Place all the styles related to the user/homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
 .home-item {
-  margin-left: 108%;
+  margin-left: 75%;
+  width: 100%;
 }
 
 .post-item {
   display: flex;
   align-items: center;
+  justify-content: center; /* add this line */
   margin-bottom: 20px;
-  padding-top: 50px;
+  padding-top: 20px;
+  margin-left: 40px;
+  width: 100%;
 }
 
 .post-image {
+  /* remove align-items: center; */
   flex-basis: 30%;
   width: 100px;
   height: 100px;
+  margin-left: 20px;
 }
 
-.post-details {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-grow: 2;
-  padding-left: 20px;
+.post-title {
+  margin-left: 20px; /* reduce this value to center the title */
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.post-title-and-text {
-  display: flex;
-  flex-direction: column;
-  width: 200px;
-}
-
-.post-title,
 .post-text {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-grow: 2;
+  /* remove flex-basis: 80%; */
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
+
 
 .post-details h2,
 .post-details p {
   margin: 0;
   width: 100%;
+}
+
+.tag-container {
+  position: absolute;
+  top: 27%;
+  right: 80%;
+  width: 200px;
+  padding: 20px;
+}
+
+.post-container {
+  position: absolute;
+  top: 27%;
+  left: 80%;
+  width: 200px;
+  padding: 20px;
+}
+
+.post-page {
+  margin-bottom: 40px;
+  margin-left: 50px;
 }

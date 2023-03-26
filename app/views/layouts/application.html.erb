@@ -21,81 +21,81 @@
         <%= link_to 'Ours', (admin_signed_in? ? admin_root_path : root_path ), :class => "navbar-brand custom-color"%>
         </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <div class="dropdown">
-              <a class="dropdown-toggle category-item" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">カテゴリー</a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <% Category.all.each do |category| %>
-                  <%= link_to category.name, user_sub_categories_path(category_id: category.id), class: "dropdown-item" %>
-                <% end %>
-            </div>
-          </div>
-        <div class = "p-2 bd-highlight">
-          <div class="search">
-            <% if admin_signed_in? %>
-              <%= search_form_for @q.presence || PostImage.none.ransack, url: admin_root_path do |f| %>
-              <%= f.search_field :title_or_text_or_tags_name_cont, placeholder: "🔍 ワード・タグ名から検索", onkeypress: "if (event.keyCode === 13) { this.form.submit(); }" %>
-            <% end %>
-            <% else %>
-              <%= search_form_for @q.presence || PostImage.none.ransack, url: root_path do |f| %>
-              <%= f.search_field :title_or_text_or_tags_name_cont, placeholder: "🔍 ワード・タグ名から検索", onkeypress: "if (event.keyCode === 13) { this.form.submit(); }" %>
-            <% end %>
-            <% end %>
-          </div>
-        <ul class="navbar-nav ml-auto">
-          <% if admin_signed_in? %>
-            <li class="nav-item" style = "list-style: none;">
-              <%= link_to admin_root_path do%>
-                <i class="fa-solid fa-camera" style= "color: white">投稿一覧</i>
-              <% end %>
-              <li class="nav-item" style = "list-style: none;">
-              <%= link_to admin_users_path do %>
-                <i class="fa-regular fa-circle-user" style= "color: white">会員一覧</i>
-              <% end %>
-              <li class="nav-item" style = "list-style: none;">
-              <%= link_to destroy_admin_session_path, method: :delete do %>
-              <i class="fa-solid fa-arrow-right-from-bracket" style= "color: white">ログアウト</i>
-              <% end %>
-            </li>
-          <% elsif user_signed_in? %>
-            <li class="nav-item"style = "list-style: none;">
-              <%= link_to root_path do%>
-              <i class="fa-solid fa-house" style= "color: white">HOME</i>
-            <% end %>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-              <i class="fa-solid fa-arrow-right-from-bracket" style= "color: white">ログアウト</i>
-              <% end %>
-               <%= link_to user_user_path(current_user.id) do %>
-               <i class="fa-solid fa-circle-user" style= "color: white">マイページ</i>
-               <% end %>
-            </li>
-          <% else %>
-            <li class="nav-item" style = "list-style: none;">
-              <%= link_to new_user_registration_path do %>
-              <i class="fa-solid fa-user-plus" style= "color: white">新規登録</i>
-              <% end %>
-              <%= link_to new_user_session_path do%>
-              <i class="fa-solid fa-arrow-right-to-bracket" style= "color: white">ログイン</i>
-              <% end %>
-            </li>
+    <span class="navbar-toggler-icon"></span>
+  </button>
+<div class="collapse navbar-collapse" id="navbarNavDropdown">
+  <div class="dropdown">
+    <a class="dropdown-toggle category-item" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">カテゴリー</a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <% Category.all.each do |category| %>
+        <%= link_to category.name, user_sub_categories_path(category_id: category.id), class: "dropdown-item" %>
+      <% end %>
+    </div>
+  </div>
+<div class = "p-2 bd-highlight">
+  <div class="search">
+    <% if admin_signed_in? %>
+      <%= search_form_for @q.presence || PostImage.none.ransack, url: admin_root_path do |f| %>
+        <%= f.search_field :title_or_text_or_tags_name_cont, placeholder: "🔍 ワード・タグ名から検索", onkeypress: "if (event.keyCode === 13) { this.form.submit(); }" %>
           <% end %>
-        </ul>
-      </div>
-     </div>
-     </div>
-    </nav>
-  </header>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    <main>
-      <%= yield %>
-    </main>
+            <% else %>
+          <%= search_form_for @q.presence || PostImage.none.ransack, url: root_path do |f| %>
+        <%= f.search_field :title_or_text_or_tags_name_cont, placeholder: "🔍 ワード・タグ名から検索", onkeypress: "if (event.keyCode === 13) { this.form.submit(); }" %>
+      <% end %>
+    <% end %>
+  </div>
+<ul class="navbar-nav ml-auto">
+  <% if admin_signed_in? %>
+    <li class="nav-item" style = "list-style: none;">
+      <%= link_to admin_root_path do%>
+      <i class="fa-solid fa-camera" style= "color: white">投稿一覧</i>
+      <% end %>
+    <li class="nav-item" style = "list-style: none;">
+      <%= link_to admin_users_path do %>
+      <i class="fa-regular fa-circle-user" style= "color: white">会員一覧</i>
+      <% end %>
+    <li class="nav-item" style = "list-style: none;">
+      <%= link_to destroy_admin_session_path, method: :delete do %>
+      <i class="fa-solid fa-arrow-right-from-bracket" style= "color: white">ログアウト</i>
+      <% end %>
+    </li>
+  <% elsif user_signed_in? %>
+    <li class="nav-item"style = "list-style: none;">
+      <%= link_to root_path do%>
+      <i class="fa-solid fa-house" style= "color: white">HOME</i>
+      <% end %>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+      <i class="fa-solid fa-arrow-right-from-bracket" style= "color: white">ログアウト</i>
+      <% end %>
+      <%= link_to user_user_path(current_user.id) do %>
+      <i class="fa-solid fa-circle-user" style= "color: white">マイページ</i>
+      <% end %>
+    </li>
+  <% else %>
+    <li class="nav-item" style = "list-style: none;">
+      <%= link_to new_user_registration_path do %>
+      <i class="fa-solid fa-user-plus" style= "color: white">新規登録</i>
+      <% end %>
+      <%= link_to new_user_session_path do%>
+      <i class="fa-solid fa-arrow-right-to-bracket" style= "color: white">ログイン</i>
+      <% end %>
+      </li>
+      <% end %>
+      </ul>
+    </div>
+    </div>
+    </div>
+  </nav>
+</header>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<main>
+  <%= yield %>
+</main>
 <div class="footer-box">
   <div class="footer-container">
     <footer>&copy; Ours Inc. All Rights Reserved.</footer>
-  </div>
-</div>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,34 +1,72 @@
-.container-post-show {
+.container-postimage-show {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  height: 100%;
 }
 
-.flex-post-show {
+.row-postimage-show {
+  width: 100%;
+  max-width: 1200px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
-  margin-left: 100px;
 }
 
-.post-title-show p {
-  font-weight: bold;
-  font-size: 24px;
-  padding-left: 8px;
-  border-left: 6px solid #000000;
-  margin-right: 10px;
-  position: absolute;
-  top: 20px; /* adjust the top value as needed */
-  left: 25px; /* adjust the left value as needed */
+.flex-postimage-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.image-container {
-  position: absolute;
+.postimage-container {
+  width: 50%;
   max-width: 800px;
-  right: 65%;
-  top: 45%;
+  margin-right: 1200px;
+}
+
+.postimage-title {
+  width: 100%;
+  max-width: 800px;
+  padding-bottom: 5px;
+  margin-left: 330px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.postimage-title p::first-letter {
+  border-left: 6px solid #000000;
+}
+
+.image-wrapper {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 70px;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 300px;
+  height: 300px;
+  display: block;
+  margin-left: 335px;
+}
+
+.postimage-category {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 10px;
+  margin-left: 350px;
+  margin-top: -380px;
+}
+
+.postimage-date {
+  margin-right: 670px;
+  margin-top: 300px;
+  color: #CCCCCC;
 }
 
 button {
@@ -40,15 +78,6 @@ button {
   width: 35px;
   height: 40px;
   border-radius: 50%;
-}
-
-.image-wrapper {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 50%; /* adjust the top value as needed */
-  bottom: auto; /* remove the bottom value */
-  margin-top: -100px; /* half of the image height */
 }
 
 .left-icon, .right-icon {
@@ -64,8 +93,8 @@ button {
 .prev-btn {
   position: absolute;
   transform: rotate(180deg);
-  left: 350px; /* adjust the left value as needed */
-  bottom: 190px;
+  left: 31%; /* adjust the left value as needed */
+  bottom: 38%;
   z-index: 2;
   margin-right: 300px;
 }
@@ -73,21 +102,9 @@ button {
 .next-btn {
   position: absolute;
   transform: rotate(180deg);
-  right: 350px; /* adjust the right value as needed */
-  bottom: 190px;
+  right: 91%; /* adjust the right value as needed */
+  bottom: 38%;
   z-index: 2;
-  margin-left: 300px;
-}
-
-.image-wrapper img {
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
-  margin-left: 150px;
-}
-
-.image-wrapper.active .icon-wrapper {
-  display: flex;
 }
 
 .prev-btn .left-icon {
@@ -107,18 +124,28 @@ button {
   width: 200px;
 }
 
-.post-info-container {
+.postimage-info-container {
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin-left: 250px;
+  align-items: center;
+  margin-bottom: 80px;
 }
 
-.user-info-container {
-  margin-right: 100px;
+.postimage-user-row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.user-info {
+.postimage-user-info {
+  margin-left: 700px;
+  margin-top: -470px;
+}
+
+.user-postimage {
   border-bottom: 1px solid #DDDDDD;
   display: flex;
   justify-content: space-between;
@@ -126,60 +153,49 @@ button {
   padding: 10px 0;
 }
 
-.user-info .user-name {
+.postimage-user-info .postimage-username {
   flex-grow: 3;
   width: 100px;
 }
 
-.post-comment {
-  margin-top: 10px; /* 余白を持たせるため */
-}
 
-.user-image {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.user-name {
+.postimage-username {
   font-weight: bold;
   font-size: 15px;
   padding-left: 10px;
 }
 
-.user-image img {
+.user-postimage img {
   margin-right: 10px;
   width: 90px;
   height: 80px;
 }
 
-.post-likes {
-  margin-top: 20px; /* 上部に20pxの余白を追加 */
+.postimage-text span {
+  display: inline-block;
+  word-wrap: break-word;
+  word-break: keep-all;
+  line-height: 1.5;
+  max-width: 260px;
+  padding-top: 10px;
 }
 
-.post-likes .like-icon-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 10px;
+.postimage-text span:before {
+  content: "";
+  white-space: pre;
 }
 
-.post-likes .like-icon-wrapper .like-count {
-  margin-left: 5px;
+.postimage-text span:after {
+  content: "";
+  white-space: pre;
 }
 
-.post-text-show {
-  position: relative;
-  padding-top: 20px;
-  text-align: left;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: flex;
-  flex-wrap: wrap;
+.postimage-text span:not(:last-child):after {
+  content: "";
 }
 
-.tag {
+
+.postimage-tag {
   margin-top: 10px;
   margin-bottom: 0;
   padding-left: 0;
@@ -187,7 +203,7 @@ button {
   flex-wrap: wrap;
 }
 
-.tag .tag-name {
+.postimage-tag .postimage-tagname {
   margin-right: 3px;
   margin-bottom: 10px;
   list-style: none;
@@ -196,20 +212,28 @@ button {
   box-sizing: border-box;
 }
 
-.post-date {
-  position: fixed;
-  right: 25%;
-  top: 60%;
-  transform: translateY(-50%);
-  color: #CCCCCC;
+.postimage-likes {
+  margin-top: 20px; /* 上部に20pxの余白を追加 */
+  padding-right: 5px;
+}
+
+.postimage-likes .like-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 170px;
+}
+
+.postimage-likes .like-icon-wrapper .like-count {
+  margin-left: -5px;
+  padding: 5px;
 }
 
 .like-count {
   display: flex;
   align-items: center;
   width: 100px;
-  margin-right: 40%;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
 button.like-btn {
@@ -236,7 +260,11 @@ button.like-btn i {
   font-size: 20px;
 }
 
-.comments {
+.like-icon-wrapper .icon-button {
+  margin-left: -8px;
+}
+
+.postimage-comments {
   margin-bottom: 10px;
 }
 
@@ -244,4 +272,5 @@ button.like-btn i {
   background-color: #00CC00;
   border: none;
 }
+
 

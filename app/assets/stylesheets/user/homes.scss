@@ -1,9 +1,9 @@
-.home-item {
+.homes-item {
   margin-left: 75%;
   width: 100%;
 }
 
-.post-item {
+.home-post-item {
   display: flex;
   align-items: center;
   justify-content: center; /* add this line */
@@ -13,22 +13,27 @@
   width: 100%;
 }
 
-.post-image {
+.home-post-image {
   /* remove align-items: center; */
   flex-basis: 30%;
-  width: 100px;
-  height: 100px;
   margin-left: 20px;
 }
 
-.post-title {
+.home-post-image img {
+  /* remove align-items: center; */
+  width: 100px;
+  height: 100px;
+}
+
+
+.home-post-title {
   margin-left: 20px; /* reduce this value to center the title */
   width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.post-text {
+.home-post-text {
   /* remove flex-basis: 80%; */
   width: 100%;
   text-overflow: ellipsis;
@@ -42,7 +47,7 @@
   width: 100%;
 }
 
-.tag-container {
+.home-tag-container {
   position: absolute;
   top: 27%;
   right: 80%;
@@ -50,7 +55,7 @@
   padding: 20px;
 }
 
-.post-container {
+.home-post-container {
   position: absolute;
   top: 27%;
   left: 80%;
@@ -58,7 +63,7 @@
   padding: 20px;
 }
 
-.post-page {
+.home-post-page {
   margin-bottom: 40px;
   margin-left: 50px;
 }

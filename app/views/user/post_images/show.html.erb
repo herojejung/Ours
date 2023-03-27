@@ -1,62 +1,46 @@
 <div class="container-postimage-show">
   <div class="row-postimage-show">
     <% if user_signed_in? %>  <!--未ログインでは投稿の操作は不可能にする-->
-    <% if @post_image.user_id == current_user.id %> <!--ログインユーザーは自分の投稿以外は削除できないようにする-->
-  <section class="inner">
-	  <% if flash[:error] %>
-	<div id="error_explanation">
-	  <p><%= flash[:error] %></p>
-	</div>
+      <% if @post_image.user_id == current_user.id %> <!--ログインユーザーは自分の投稿以外は削除できないようにする-->
+        <section class="inner">
+	    <% if flash[:error] %>
+	  <div id="error_explanation">
+	 <p><%= flash[:error] %></p>
+</div>
+	<% end %>
 	  <% end %>
-	  <% end %>
-	  <% end %>
-  </section>
-
-<div class="flex-postimage-container"></div>
-  <div class="postimage-row">
-      <div class="flex-postimage">
-        <div class="postimage-title">
-          <p><%= @post_image.title %></p>
-        </div>
-      <div id="btnPrev" class="prev-btn">
-    <button class="c-button-trigger button" type="button">
-    <span class="c-icon--line-arrow-left" aria-hidden="true">&lt;</span>
-    </button>
-      </div>
-      <div class="postimage-container">
-          <% if @post_image.images.attached? %>
-            <% @post_image.images.each do |image| %>
-              <div class="image-wrapper">
-                <%= image_tag image.variant(resize_to_limit: [800, 600]) %>
-              <div class="icon-wrapper">
-            <span class="left-icon c-icon--line-arrow-left" aria-hidden="true"></span>
-            <span class="right-icon c-icon--line-arrow-right" aria-hidden="true"></span>
-              </div>
-              </div>
-            <% end %>
-        <% end %>
-        </div>
-      <div class="postimage-category">
-  <% if @post_image.category.present? %>
-    <p>カテゴリー：<%= @post_image.category.name %></p>
-  <% end %>
-  <% if @post_image.sub_category.present? %>
+	    <% end %>
+    </section>
+  <div class="flex-postimage-container"></div>
+<div class="postimage-row">
+<div class="flex-postimage">
+    <div class="postimage-title">
+  <p><%= @post_image.title %></p>
+</div>
+</div>
+  </div>
+    <div class="postimage-category">
+      <% if @post_image.category.present? %>
+        <p>カテゴリー：<%= @post_image.category.name %></p>
+          <% end %>
+        <% if @post_image.sub_category.present? %>
     <p>サブカテゴリー：<%= @post_image.sub_category.name %></p>
   <% end %>
 </div>
-    <div id="btnNext" class="next-btn">
-      <button class="c-button-trigger button" type="button">
-      <span class="c-icon--line-arrow-right" aria-hidden="true">&gt;</span>
-      </button>
+<div class="postimage-container">
+  <% if @post_image.images.attached? %>
+    <% @post_image.images.each do |image| %>
+      <div class="image-wrapper">
+      <%= image_tag image.variant(resize_to_limit: [800, 600]) %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+  <div class="postimage-date">
+    <p><%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
     </div>
   </div>
 </div>
-         <div class="postimage-date">
-  <p><%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
-</div>
-</div>
-</div>
-
   <div class="postimage-info-container">
     <div class="postimage-user-row">
       <div class="postimage-user-info">
@@ -139,5 +123,13 @@
 </div>
 </div>
 </div>
-
-<%= javascript_pack_tag 'prevImage', 'data-turbolinks-track': 'reload' %>
+<script>
+$(function() {
+  $('.postimage-container').slick({
+    autoplay: true,
+    arrows: true,
+    dots: true,
+   });
+});
+</script>
+<%#= javascript_pack_tag 'prevImage', 'data-turbolinks-track': 'reload' %>

@@ -1019,10 +1019,10 @@
   resolved "https://registry.npmjs.org/@rails/ujs/-/ujs-6.1.7.tgz"
   integrity sha512-0e7WQ4LE/+LEfW2zfAw9ppsB6A8RmxbdAUPAF++UT80epY+7emuQDkKXmaK0a9lp6An50RvzezI0cIQjp1A58w==
 
-"@rails/webpacker@5.4.3":
-  version "5.4.3"
-  resolved "https://registry.npmjs.org/@rails/webpacker/-/webpacker-5.4.3.tgz"
-  integrity sha512-tEM8tpUtfx6FxKwcuQ9+v6pzgqM5LeAdhT6IJ4Te3BPKFO1xrGrXugqeRuZ+gE8ASDZRTOK6yuQkapOpuX5JdA==
+"@rails/webpacker@5.4.4":
+  version "5.4.4"
+  resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-5.4.4.tgz#971a41b987c096c908ce4088accd57c1a9a7e2f7"
+  integrity sha512-hp9myb2MChYFPfE5Fd/3gF4q2m4wpxC+WWCkxcg6My3HYCptWuqMVXRwrBZ5EJHYiL/WRyMLvVNWwlFV47xhUw==
   dependencies:
     "@babel/core" "^7.15.0"
     "@babel/plugin-proposal-class-properties" "^7.14.5"
@@ -4008,15 +4008,10 @@ jest-worker@^26.5.0:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jquery@^3.3.1:
+jquery@^3.3.1, jquery@^3.6.4:
   version "3.6.4"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.4.tgz#ba065c188142100be4833699852bf7c24dc0252f"
   integrity sha512-v28EW9DWDFpzcD9O5iyJXg3R3+q+mET5JhnjJzQUZMHOv67bpSIHq81GEYpPNZHG+XXHsfSme3nxp/hndKEcsQ==
-
-jquery@^3.6.3:
-  version "3.6.3"
-  resolved "https://registry.npmjs.org/jquery/-/jquery-3.6.3.tgz"
-  integrity sha512-bZ5Sy3YzKo9Fyc8wH2iIQK4JImJ6R0GWI9kL1/k7Z91ZBNgkRXE6U0JfHIizZbort8ZunhSI3jw9I6253ahKfg==
 
 js-tokens@^4.0.0:
   version "4.0.0"

@@ -1,3 +1,4 @@
+/*global images $*/
 // 1. 画像要素を取得する。
 const images = document.getElementsByClassName('image-wrapper')[0].getElementsByTagName('img');
 // 2. 画像要素を配列に格納する。

@@ -21,46 +21,48 @@
 }
 
 .postimage-container {
-  width: 50%;
-  max-width: 800px;
-  margin-right: 1200px;
+  width: 300px;
+  //max-width: 800px;
+  margin-left: 120px;
 }
 
 .postimage-title {
   width: 100%;
-  max-width: 800px;
+  //max-width: 800px;
   padding-bottom: 5px;
   margin-left: 330px;
   font-size: 24px;
   font-weight: bold;
+  border-left: 6px solid #000000;
+  line-height: 24px;
 }
 
 .postimage-title p::first-letter {
-  border-left: 6px solid #000000;
+
 }
 
 .image-wrapper {
-  width: 100%;
-  max-width: 800px;
+  //width: 600px;
+  //max-width: 800px;
   margin-top: 70px;
   margin-bottom: 10px;
-  position: relative;
-  overflow: hidden;
+  //position: relative;
+  //overflow: hidden;
 }
 
 .image-wrapper img {
-  width: 300px;
+  //width: 300px;
   height: 300px;
   display: block;
-  margin-left: 335px;
+  //margin-left: 335px;
 }
 
 .postimage-category {
   width: 100%;
   max-width: 800px;
   margin-bottom: 10px;
-  margin-left: 350px;
-  margin-top: -380px;
+  margin-right: 370px;
+  //margin-top: -380px;
 }
 
 .postimage-date {
@@ -78,43 +80,6 @@ button {
   width: 35px;
   height: 40px;
   border-radius: 50%;
-}
-
-.left-icon, .right-icon {
-  color: white;
-  font-size: 32px;
-  margin: 0 10px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.prev-btn {
-  position: absolute;
-  transform: rotate(180deg);
-  left: 31%; /* adjust the left value as needed */
-  bottom: 38%;
-  z-index: 2;
-  margin-right: 300px;
-}
-
-.next-btn {
-  position: absolute;
-  transform: rotate(180deg);
-  right: 91%; /* adjust the right value as needed */
-  bottom: 38%;
-  z-index: 2;
-}
-
-.prev-btn .left-icon {
-  position: absolute;
-  left: 0;
-}
-
-.next-btn .right-icon {
-  position: absolute;
-  right: 0;
 }
 
 .post-image-show {
@@ -273,4 +238,22 @@ button.like-btn i {
   border: none;
 }
 
+.slick-dots li button:before{
+	font-size:60px!important;
+}
 
+// .fa-arrow-alt-circle-left {
+//   font-size: 50px;
+//   position: absolute;
+//   z-index: 100;
+//   left: -100px;
+//   top: 300px;
+// }
+
+// .fa-arrow-alt-circle-right {
+//   font-size: 50px;
+//   position: absolute;
+//   z-index: 100;
+//   right: -100px;
+//   top: 300px
+// }

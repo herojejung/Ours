@@ -2,7 +2,7 @@
   <h2>人気のタグ</h2>
   <ol>
     <% @tags_ranking.each do |tag| %>
-      <li><%= link_to "#""#{tag.name.truncate(10)} (#{tag.count})", user_post_images_path(tag: tag.name) %></li>
+      <li><%= link_to "#""#{tag.name} (#{tag.count})", user_post_images_path(tag: tag.name) %></li>
     <% end %>
   </ol>
 </div>

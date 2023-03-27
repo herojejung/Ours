@@ -1,6 +1,6 @@
 .homes-item {
   margin-left: 75%;
-  width: 100%;
+  width: 500px;
 }
 
 .home-post-item {
@@ -10,7 +10,7 @@
   margin-bottom: 20px;
   padding-top: 20px;
   margin-left: 40px;
-  width: 100%;
+  width: 500px;
 }
 
 .home-post-image {
@@ -28,14 +28,14 @@
 
 .home-post-title {
   margin-left: 20px; /* reduce this value to center the title */
-  width: 100%;
+  width: 500px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .home-post-text {
   /* remove flex-basis: 80%; */
-  width: 100%;
+  width: 300px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -44,21 +44,21 @@
 .post-details h2,
 .post-details p {
   margin: 0;
-  width: 100%;
+  width: 500px;
 }
 
 .home-tag-container {
   position: absolute;
-  top: 27%;
-  right: 80%;
+  top: 200px;
+  right: 1120px;
   width: 200px;
   padding: 20px;
 }
 
 .home-post-container {
   position: absolute;
-  top: 27%;
-  left: 80%;
+  top: 200px;
+  left: 1120px;
   width: 200px;
   padding: 20px;
 }

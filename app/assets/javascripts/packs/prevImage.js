@@ -1,5 +1,5 @@
 // 1. 画像要素を取得する。
-const images = document.getElementsByClassName('flex-postimage')[0].getElementsByTagName('img');
+const images = document.getElementsByClassName('image-wrapper')[0].getElementsByTagName('img');
 // 2. 画像要素を配列に格納する。
 const imageArray = Array.from(images);
 // 3. 画像を表示するための変数を用意する。

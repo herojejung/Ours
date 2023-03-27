@@ -11,14 +11,19 @@
 	  <% end %>
 	    <% end %>
     </section>
-  <div class="flex-postimage-container"></div>
-<div class="postimage-row">
 <div class="flex-postimage">
     <div class="postimage-title">
   <p><%= @post_image.title %></p>
 </div>
+ <div class="postimage-container">
+  <% if @post_image.images.attached? %>
+    <% @post_image.images.each do |image| %>
+      <div class="image-wrapper">
+      <%= image_tag image.variant(resize_to_limit: [400, 600]), class: "slick-image" %>
+      </div>
+    <% end %>
+  <% end %>
 </div>
-  </div>
     <div class="postimage-category">
       <% if @post_image.category.present? %>
         <p>カテゴリー：<%= @post_image.category.name %></p>
@@ -27,19 +32,11 @@
     <p>サブカテゴリー：<%= @post_image.sub_category.name %></p>
   <% end %>
 </div>
-<div class="postimage-container">
-  <% if @post_image.images.attached? %>
-    <% @post_image.images.each do |image| %>
-      <div class="image-wrapper">
-      <%= image_tag image.variant(resize_to_limit: [800, 600]) %>
-      </div>
-    <% end %>
-  <% end %>
-</div>
   <div class="postimage-date">
     <p><%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
     </div>
   </div>
+</div>
 </div>
   <div class="postimage-info-container">
     <div class="postimage-user-row">

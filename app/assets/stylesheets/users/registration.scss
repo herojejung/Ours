@@ -6,12 +6,12 @@
   height: 80vh; /* 画面の高さに合わせる */
 }
 
-h3 {
+.registration-title {
   position: absolute;
   left: 400px;
   top: 130px;
+  bottom: 500px;
   border-bottom: 1px solid #DDDDDD;
-  bottom: 73%;
   width: 50%;
   margin-bottom: 3rem; /* スペースを追加 */
 }

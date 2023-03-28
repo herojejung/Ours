@@ -1,12 +1,12 @@
-h3 {
+.user-session-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 12px;
   border-bottom: 1px solid #DDDDDD;
-  width: 44%;
-  padding-right: 35%;
-
+  width: 700px;
+  padding-right: 550px;
 }
 
 .form-session {
@@ -27,7 +27,7 @@ height: 17vh;
 }
 
 .field-session label {
-  margin-left: 35%;
+  margin-left: 460px;
   width: 130px;
 }
 
@@ -70,9 +70,10 @@ height: 17vh;
   background-color: orange !important;
   color: #FFF;
   border: none;
-  padding: 20px 30px;
-  font-size: 19px;
+  padding: 8px 24px;
+  font-size: 15px;
   cursor: pointer;
+  margin-left: 593px;
   border-radius: 4px;
 }
 

@@ -62,3 +62,27 @@ text-overflow: ellipsis;
 white-space: nowrap;
 margin-left: 30px;
 }
+
+.users-likes-theme {
+  width: 260px;
+  margin-bottom: 65px;
+  margin-top: 55px;
+  margin-left: 630px;
+  border-bottom: 2px solid #DDDDDD;
+  position: relative; /* 親要素を基準にするためにposition: relative;を追加 */
+}
+
+.users-likes-theme::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; /* border-bottomの位置を左に移動させる */
+  left: -45px; /* border-bottomの位置を左に移動させる */
+  width: 50px; /* 要素の幅と同じ */
+  height: 2px;
+  background-color: #DDDDDD;
+}
+
+.users-item-like {
+  margin-left: 200px;
+  width: 500px;
+}

@@ -8,11 +8,11 @@
 
 .registration-title {
   position: absolute;
-  left: 400px;
+  left: 520px;
   top: 130px;
-  bottom: 500px;
+  bottom: 480px;
   border-bottom: 1px solid #DDDDDD;
-  width: 50%;
+  width: 420px;
   margin-bottom: 3rem; /* スペースを追加 */
 }
 
@@ -21,22 +21,27 @@
 }
 
 .form-group {
-  margin-left: 4rem;
+  margin-left: 5px;
+}
+
+.push-container {
+  padding-left: 140px;
 }
 
 .form-group label[for=file-input] {
   margin-top: 2rem; /* ラベルを下に移動 */
-  width: 100%;
+  width: 230px;
   text-align: left; /* labelを左寄せ */
   display: block;
 }
+
 
 #preview {
   width: 100px;
   height: 90px;
   border-radius: 50%;
   overflow: hidden;
-  margin-right: 320px;
+  margin-right: 250px;
 }
 
 .push {
@@ -46,8 +51,8 @@
 
 .preview-image {
   position: absolute;
-  left: 50%;
-  bottom: 58%;
+  left: 800px;
+  bottom: 420px;
 }
 
 .preview-image label {
@@ -55,7 +60,7 @@
 }
 
 .form-group label {
-  width: 20%; /* labelの幅を調整 */
+  width: 250px; /* labelの幅を調整 */
   text-align: left; /* labelを左寄せ */
   margin-right: 2rem; /* 右にスペースを追加 */
 }
@@ -64,7 +69,7 @@
 .form-group input[type="email"],
 .form-group input[type="password"],
 .form-group input[type="file"] {
-  width: 75%; /* fieldの幅を調整 */
+  width: 400px; /* fieldの幅を調整 */
    /* 左にスペースを追加 */
   margin-bottom: 1rem;
   margin-left: 1rem;
@@ -74,28 +79,7 @@
 .password-fields {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-}
-
-.password-fields > div {
-  width: 90%;
-  margin-right: 1rem;
-}
-
-.password-fields label {
-  width: 20%;
-  text-align: left;
-  margin-right: 2rem;
-}
-
-.confirmation-fields {
-  width: 60%;
-  margin-left: 22%;
-}
-
-.confirmation-fields input[type="password"] {
-  width: 87%;
-  margin-bottom: 1rem;
+  width: 300px;
 }
 
 .btn-success {
@@ -104,5 +88,6 @@
 
 .actions-registration {
   position: absolute;
-  left: 45%;
+  left: 650px;
+  top: 630px;
 }

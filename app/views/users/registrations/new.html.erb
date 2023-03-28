@@ -7,7 +7,7 @@
 
 
 <div class="form-group-registration">
-  <%= f.label :image, "プロフィール画像", for: "file-input"%>
+  <%= f.label :image, "プロフィール", for: "file-input"%>
 <div class="push-container">
   <img id="preview" src="#" alt="Image Preview" style="display:none;">
   <div class="preview-image">
@@ -25,12 +25,12 @@
       <%= f.label :"メールアドレス" %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: "必ず@◯◯.comで登録してください" %>
     </div>
-    <div class="form-group password-fields">
+    <div class="form-group">
     <div>
       <%= f.label :"パスワード" %>
       <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: "英数字を含めた6~30文字以上を入力してください。" %>
     </div>
-    <div class="form-group confirmation-fields">
+    <div class="form-group-confirmation-fields">
       <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認のため、もう一度入力してください", class: 'form-control' %>
     </div>
   </div>

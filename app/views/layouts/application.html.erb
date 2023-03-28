@@ -37,11 +37,11 @@
   <div class="search">
     <% if admin_signed_in? %>
       <%= search_form_for @q.presence || PostImage.none.ransack, url: admin_root_path do |f| %>
-        <%= f.search_field :title_or_text_or_tags_name_cont, placeholder: "🔍 ワード・タグ名から検索", onkeypress: "if (event.keyCode === 13) { this.form.submit(); }" %>
+        <%= f.search_field :title_or_text_or_tags_name_cont, placeholder: "🔍 ワードで検索", onkeypress: "if (event.keyCode === 13) { this.form.submit(); }" %>
           <% end %>
             <% else %>
           <%= search_form_for @q.presence || PostImage.none.ransack, url: root_path do |f| %>
-        <%= f.search_field :title_or_text_or_tags_name_cont, placeholder: "🔍 ワード・タグ名から検索", onkeypress: "if (event.keyCode === 13) { this.form.submit(); }" %>
+        <%= f.search_field :title_or_text_or_tags_name_cont, placeholder: "🔍 ワードで検索", onkeypress: "if (event.keyCode === 13) { this.form.submit(); }" %>
       <% end %>
     <% end %>
   </div>

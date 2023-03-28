@@ -15,15 +15,30 @@
     <div class="postimage-title">
   <p><%= @post_image.title %></p>
 </div>
- <div class="postimage-container">
-  <% if @post_image.images.attached? %>
-    <% @post_image.images.each do |image| %>
-      <div class="image-wrapper">
-      <%= image_tag image.variant(resize_to_limit: [400, 600]), class: "slick-image" %>
+<% if @post_image.images.attached? %>
+  <% if @post_image.images.length > 1 %>
+    <div class="postimage-container">
+      <% @post_image.images.each do |image| %>
+        <div class="image-wrapper">
+          <%= image_tag image.variant(resize_to_limit: [400, 600]), class: "slick-image" %>
+        </div>
+      <% end %>
       </div>
-    <% end %>
+    <script>
+      $(function() {
+        $('.postimage-container').slick({
+          autoplay: true,
+          arrows: true,
+          dots: true,
+        });
+      });
+    </script>
+  <% else %>
+      <div class="image-single">
+      <%= image_tag @post_image.images[0].variant(resize_to_limit: [400, 600]) %>
+      </div>
   <% end %>
-</div>
+<% end %>
     <div class="postimage-category">
       <% if @post_image.category.present? %>
         <p>カテゴリー：<%= @post_image.category.name %></p>
@@ -120,13 +135,5 @@
 </div>
 </div>
 </div>
-<script>
-$(function() {
-  $('.postimage-container').slick({
-    autoplay: true,
-    arrows: true,
-    dots: true,
-   });
-});
-</script>
+
 <%#= javascript_pack_tag 'prevImage', 'data-turbolinks-track': 'reload' %>

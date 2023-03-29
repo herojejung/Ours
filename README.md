@@ -35,12 +35,22 @@ https://docs.google.com/spreadsheets/d/1Dl7L4Hoy5lQdX-j2Uu6Y9HG9oGZhxcCJlUU3o30R
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery
+- JSライブラリ：jQuery,JavaScript
 - IDE：Cloud9
 
 ## 使用素材
 - 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
 - 使用しない場合は、使用素材の項目をREADMEから削除してください。
+- https://fontawesome.com/icons/house?f=classic&s=solid
+- https://fontawesome.com/icons/image?f=classic&s=solid
+- https://fontawesome.com/icons/heart?f=classic&s=solid
+- https://fontawesome.com/icons/pen-to-square?f=classic&s=solid
+- https://fontawesome.com/icons/arrow-right-from-bracket?f=classic&s=solid
+- https://fontawesome.com/icons/circle-user?f=classic&s=solid
+- https://fontawesome.com/icons/bookmark?f=classic&s=solid
+- https://fontawesome.com/icons/square-plus?f=classic&s=solid
+- https://fontawesome.com/icons/user?f=classic&s=solid
+- https://fontawesome.com/icons/user-plus?f=classic&s=solid
 
 ## ER図
 ```puml

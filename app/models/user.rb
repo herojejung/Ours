@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :likes
   has_many :post_images, through: :likes
   has_many :articles
+  has_many :comments
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i

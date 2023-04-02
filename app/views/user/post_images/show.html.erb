@@ -3,137 +3,141 @@
     <% if user_signed_in? %>  <!--未ログインでは投稿の操作は不可能にする-->
       <% if @post_image.user_id == current_user.id %> <!--ログインユーザーは自分の投稿以外は削除できないようにする-->
         <section class="inner">
-	    <% if flash[:error] %>
-	  <div id="error_explanation">
-	 <p><%= flash[:error] %></p>
-</div>
-	<% end %>
+	        <% if flash[:error] %>
+	      <div id="error_explanation">
+	     <p><%= flash[:error] %></p>
+      </div>
+	   <% end %>
 	  <% end %>
-	    <% end %>
-    </section>
+	 <% end %>
+  </section>
 <div class="flex-postimage">
-    <div class="postimage-title">
-  <p><%= @post_image.title %></p>
-</div>
-<% if @post_image.images.attached? %>
-  <% if @post_image.images.length > 1 %>
-    <div class="postimage-container">
-      <% @post_image.images.each do |image| %>
+  <div class="postimage-title">
+    <p><%= @post_image.title %></p>
+      </div>
+        <% if @post_image.images.attached? %>
+          <% if @post_image.images.length > 1 %>
+            <div class="postimage-container">
+          <% @post_image.images.each do |image| %>
         <div class="image-wrapper">
-          <%= image_tag image.variant(resize_to_limit: [400, 600]), class: "slick-image" %>
-        </div>
-      <% end %>
-      </div>
-    <script>
-      $(function() {
-        $('.postimage-container').slick({
-          autoplay: true,
-          arrows: true,
-          dots: true,
-        });
-      });
-    </script>
+      <%= image_tag image.variant(resize_to_limit: [400, 600]), class: "slick-image" %>
+    </div>
+  <% end %>
+</div>
+<script>
+  $(function() {
+    $('.postimage-container').slick({
+      autoplay: true,
+      arrows: true,
+      dots: true,
+    });
+  });
+</script>
   <% else %>
-      <div class="image-single">
+    <div class="image-single">
       <%= image_tag @post_image.images[0].variant(resize_to_limit: [400, 600]) %>
-      </div>
+    </div>
   <% end %>
 <% end %>
-    <div class="postimage-category">
-      <% if @post_image.category.present? %>
-        <p>カテゴリー：<%= @post_image.category.name %></p>
-          <% end %>
-        <% if @post_image.sub_category.present? %>
+<div class="postimage-category">
+  <% if @post_image.category.present? %>
+    <p>カテゴリー：<%= @post_image.category.name %></p>
+      <% end %>
+      <% if @post_image.sub_category.present? %>
     <p>サブカテゴリー：<%= @post_image.sub_category.name %></p>
   <% end %>
 </div>
-  <div class="postimage-date">
-    <p><%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
+<div class="postimage-date">
+  <p><%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
+    </div>
     </div>
   </div>
 </div>
-</div>
-  <div class="postimage-info-container">
-    <div class="postimage-user-row">
-      <div class="postimage-user-info">
-        <div class="user-postimage">
-          <% if @user.image.attached? %>
-            <%= link_to user_user_path(@user) do%>
+<div class="postimage-info-container">
+  <div class="postimage-user-row">
+    <div class="postimage-user-info">
+      <div class="user-postimage">
+        <% if @user.image.attached? %>
+          <%= link_to user_user_path(@user) do%>
             <%= image_tag @user.image.variant(resize_to_limit: [100,100]).processed, class: "rounded-circle" %>
-        <% end %>
-        <% else %>
-            <%= image_tag "no_image.jpg", class: "rounded-circle" %>
-        <% end %>
-        <div class="postimage-username">
-          <%= @post_image.user.name %>
-        </div>
-      <div class="postimage-edit">
-        <% if @post_image.user_id == current_user.id %>
-        <%= link_to edit_user_post_image_path(@post_image) do %>
-        <i class="fa-solid fa-pen-to-square" style="color: black;"></i>
-        <% end %>
-        <% end %>
-      </div>
-    </div>
+            <% end %>
+          <% else %>
+        <%= image_tag "no_image.jpg", class: "rounded-circle" %>
+      <% end %>
+    <div class="postimage-username">
+  <%= @post_image.user.name %>
+</div>
+<div class="postimage-edit">
+  <% if @post_image.user_id == current_user.id %>
+    <%= link_to edit_user_post_image_path(@post_image) do %>
+      <i class="fa-solid fa-pen-to-square" style="color: black;"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 <div class="postimage-text">
   <p><span><%= @post_image.text %></span></p>
-</div>
-  <ul class="postimage-tag" style="margin-top: 10px;">
-    <% @post_image.tags.each do |tag| %>
-    <li class="postimage-tagname" style="list-style: none;">
-    <%= link_to "#" + tag.name, user_post_images_path(tag: tag.name) %>
+    </div>
+      <ul class="postimage-tag" style="margin-top: 10px;">
+        <% @post_image.tags.each do |tag| %>
+        <li class="postimage-tagname" style="list-style: none;">
+      <%= link_to "#" + tag.name, user_post_images_path(tag: tag.name) %>
     </li>
-    <% end %>
-  </ul>
-
+  <% end %>
+</ul>
 <div class="postimage-likes">
   <% if @post_image.likes.exists?(user_id: current_user.id) %>
-  <%= form_with(model: [@post_image.likes.find_by(user_id: current_user.id)], url: user_post_image_like_path(@post_image, @post_image.likes.find_by(user_id: current_user.id)), method: :delete, local: true) do |f| %>
-    <div class="like-icon-wrapper">
+    <%= form_with(model: [@post_image.likes.find_by(user_id: current_user.id)], url: user_post_image_like_path(@post_image, @post_image.likes.find_by(user_id: current_user.id)), method: :delete, local: true) do |f| %>
+      <div class="like-icon-wrapper">
         <%= f.button type: :submit, class: "icon-button like-btn" do %>
-        <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
         <% end %>
       <span class="like-count"><%= @post_image.likes.count %>いいね</span>
     </div>
-        <% end %>
-        <% else %>
-      <%= form_with(model: [@post_image, @post_image.likes.build], url: user_post_image_likes_path(@post_image), local: true) do |f| %>
-        <div class="like-icon-wrapper">
-          <%= f.button type: :submit, class: "icon-button", style: "border: none;" do %>
-          <i class="fa-solid fa-heart"></i>
-          <% end %>
-        <span class="like-count"><%= @post_image.likes.count %>いいね</span>
-      </div>
-    <% end %>
   <% end %>
+<% else %>
+<%= form_with(model: [@post_image, @post_image.likes.build], url: user_post_image_likes_path(@post_image), local: true) do |f| %>
+  <div class="like-icon-wrapper">
+    <%= f.button type: :submit, class: "icon-button", style: "border: none;" do %>
+      <i class="fa-solid fa-heart"></i>
+        <% end %>
+        <span class="like-count"><%= @post_image.likes.count %>いいね</span>
+
+  <%= link_to user_post_image_comments_path(@post_image) do %>
+  <i class="fa-solid fa-solid fa-comment-dots"></i>
+  <span class="comment-count"><%= @post_image.comments.count %>コメント</span>
+    <% end %>
+    </div>
+  <% end %>
+<% end %>
 </div>
 
 <div class="postimage-comments">
-  <% @post_image.comments.each do |comment| %>
+  <% @post_image.comments.last(2).each do |comment| %>
     <div class="postimage-comment-info">
       <p><%= comment.user.name %></p>
-      <p><%= comment.content %></p>
-      <% if comment.user_id == current_user.id %>
-        <%= link_to user_post_image_comment_path(@post_image, comment), method: :delete, data: { confirm: "このコメントを削除してもよろしいですか？" } do %>
-        <i class="fa-sharp fa-regular fa-trash-can" style="color: black;"></i> <!-- テキストの前にスペースを挿入 -->
+        <p><%= comment.content %></p>
+          <p><%= comment.created_at.strftime('%Y/%m/%d') %></p>
+            <% if comment.user_id == current_user.id %>
+              <%= link_to user_post_image_comment_path(@post_image, comment), method: :delete, data: { confirm: "このコメントを削除してもよろしいですか？" } do %>
+            <i class="fa-sharp fa-regular fa-trash-can" style="color: black;"></i> <!-- テキストの前にスペースを挿入 -->
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-  <% end %>
-</div>
-
+      </div>
+    <% end %>
+  </div>
 <div class="post-comment">
   <%= form_with(model: [ @post_image, @comment ], url: user_post_image_comments_path(@post_image),local: true) do |f| %>
     <%= f.text_area :content %>
-  <div class="comment-icon-wrapper">
-  <%= f.button type: :submit, class: "icon-button", style: "border: none;" do %>
-  <i class="fa-solid fa-paper-plane"></i>
-  <% end %>
-  <% end %>
-</div>
-</div>
-</div>
-</div>
+      <div class="comment-icon-wrapper">
+        <%= f.button type: :submit, class: "icon-button", style: "border: none;" do %>
+          <i class="fa-solid fa-paper-plane"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <%#= javascript_pack_tag 'prevImage', 'data-turbolinks-track': 'reload' %>

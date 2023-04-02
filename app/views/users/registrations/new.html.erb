@@ -17,20 +17,21 @@
 </div>
 
 
-    <div class="form-group">
-      <%= f.label :"ユーザーネーム" %><br />
-      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :"メールアドレス" %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: "必ず@◯◯.comで登録してください" %>
-    </div>
-    <div class="form-group">
-    <div>
-      <%= f.label :"パスワード" %>
+<div class="form-group">
+  <%= f.label :"ユーザーネーム" %><br />
+  <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
+</div>
+<div class="form-group">
+  <%= f.label :"メールアドレス" %><br />
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: "必ず@◯◯.comで登録してください" %>
+</div>
+
+<div class="form-group">
+  <div>
+    <%= f.label :"パスワード" %>
       <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: "英数字を含めた6~30文字以上を入力してください。" %>
-    </div>
-    <div class="form-group-confirmation-fields">
+      </div>
+        <div class="form-group-confirmation-fields">
       <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認のため、もう一度入力してください", class: 'form-control' %>
     </div>
   </div>

@@ -1,25 +1,25 @@
 <div class="users-likes-theme">
   <i class="fa-solid fa-bookmark" style= "font-size: 25px;">いいね一覧</i>
-  </div>
+    </div>
       <ul class="users-item-like">
         <% @liked_post_images.each do |post_image| %>
           <li class="users-item-like" style="list-style: none;">
             <div class="likes-postimage">
               <%= link_to user_post_image_path(post_image.id) do%>
-              <%= image_tag(post_image.images.first, size: "200x200") %>
-              <% end %>
-            </div>
+                <%= image_tag(post_image.images.first, size: "200x200") %>
+                  <% end %>
+                </div>
               <div class="likes-post-title">
-              <h5><%= post_image.title.truncate(13, separator: ' ') %></h5>
-                <div class="likes-post-text">
-                <p><%= post_image.text.truncate(15, separator: ' ') %></p>
-            </div>
-            </div>
-          </li>
-        <% end %>
-        <div class="users-likes-page">
-        <%= paginate @liked_post_images %>
-        </div>
-      </ul>
+            <h5><%= post_image.title.truncate(13, separator: ' ') %></h5>
+          <div class="likes-post-text">
+        <p><%= post_image.text.truncate(15, separator: ' ') %></p>
+      </div>
     </div>
-    </div>
+  </li>
+<% end %>
+  <div class="users-likes-page">
+    <%= paginate @liked_post_images %>
+      </div>
+    </ul>
+  </div>
+</div>

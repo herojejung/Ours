@@ -20,7 +20,7 @@ devise_for :admins, skip: [:registrations, :passwords], controllers: {
   namespace :user do
     resources :users
     resources :post_images do
-    resources :comments
+    resources :comments, only:[:create,:index,:destroy]
     resources :likes, only:[:create,:destroy]
   end
     resources :categories

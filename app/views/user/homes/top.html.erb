@@ -1,27 +1,27 @@
 <%= render 'user/homes/header' %>
-<div class="container">
-  <%= render 'user/homes/tag' %>
-  <%= render 'user/homes/post' %>
-  <div class="row">
-      <ul class="homes-item">
-        <% @post_images.each do |post_image| %>
-          <li class="home-post-item" style="list-style: none;">
-            <div class="home-post-image">
-              <%= link_to user_post_image_path(post_image.id) do%>
-              <%= image_tag(post_image.images.first, size: "100x100") %>
-              <% end %>
-            </div>
-              <div class="home-post-title">
-              <h5><%= post_image.title.truncate(13, separator: ' ') %></h5>
-                <div class="home-post-text">
-                <p><%= post_image.text.truncate(15, separator: ' ') %></p>
-            </div>
-            </div>
-          </li>
-        <% end %>
-        <div class="home-post-page">
-        <%= paginate @post_images %>
-        </div>
-      </ul>
+  <div class="container">
+    <%= render 'user/homes/tag' %>
+      <%= render 'user/homes/post' %>
+        <div class="row">
+          <ul class="homes-item">
+            <% @post_images.each do |post_image| %>
+              <li class="home-post-item" style="list-style: none;">
+                <div class="home-post-image">
+                  <%= link_to user_post_image_path(post_image.id) do%>
+                  <%= image_tag(post_image.images.first, size: "100x100") %>
+                <% end %>
+              </div>
+            <div class="home-post-title">
+          <h5><%= post_image.title.truncate(13, separator: ' ') %></h5>
+        <div class="home-post-text">
+      <p><%= post_image.text.truncate(15, separator: ' ') %></p>
     </div>
+  </div>
+</li>
+<% end %>
+  <div class="home-post-page">
+    <%= paginate @post_images %>
+      </div>
+    </ul>
+  </div>
 </div>

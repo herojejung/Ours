@@ -1,0 +1,56 @@
+<div class="comment-container">
+  <div class="comment-row">
+    <div class="comment-post-title">
+      <p><%= @post_image.title %></p>
+        </div>
+          <% if @post_image.images.attached? %>
+            <% if @post_image.images.length > 1 %>
+            <div class="comment-post-image">
+          <% @post_image.images.each do |image| %>
+        <div class="comment-image-wrapper">
+      <%= image_tag image.variant(resize_to_limit: [400, 600]), class: "slick-image" %>
+    </div>
+  <% end %>
+</div>
+<script>
+  $(function() {
+    $('.commnent-post-image').slick({
+      autoplay: true,
+      arrows: true,
+      dots: true,
+    });
+  });
+</script>
+  <% else %>
+    <div class="comment-post-single">
+      <%= image_tag @post_image.images[0].variant(resize_to_limit: [400, 600]) %>
+    </div>
+  <% end %>
+<% end %>
+<div class="comment-post-category">
+  <% if @post_image.category.present? %>
+    <p>カテゴリー：<%= @post_image.category.name %></p>
+      <% end %>
+      <% if @post_image.sub_category.present? %>
+    <p>サブカテゴリー：<%= @post_image.sub_category.name %></p>
+  <% end %>
+</div>
+<div class="comment-post-date">
+  <p><%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
+    </div>
+      <% if @comments.any? %>
+        <h3 class="commnent-center">コメント一覧</h3>
+        <% @comments.each do |comment| %>
+          <div class="card mt-3">
+            <div class="card-body">
+              <p class="card-text"><%= comment.content %></p>
+              <p class="card-text"><small class="text-muted"><%= comment.user.name %>さん</small></p>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <h3 class="text-center">コメントはまだありません。</h3>
+      <% end %>
+    </div>
+  </div>
+</div>

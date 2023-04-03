@@ -109,8 +109,9 @@ button {
 }
 
 .postimage-user-info {
-  margin-left: 1700px;
+  margin-left: 1900px;
   margin-top: -500px;
+  width: 610px;
 }
 
 .user-postimage {
@@ -119,6 +120,7 @@ button {
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
+  width: 350px;
 }
 
 .postimage-user-info .postimage-username {
@@ -176,31 +178,30 @@ button {
   margin-bottom: 10px;
   list-style: none;
   display: inline-block;
-  width: calc(33.33333% - 10px); /* 3つ並ぶようにする */
+  width: calc(33.33333% - 80px); /* 3つ並ぶようにする */
   box-sizing: border-box;
 }
 
 .postimage-likes {
   margin-top: 20px; /* 上部に20pxの余白を追加 */
-  padding-right: 5px;
+  padding-right: 10px;
 }
 
 .postimage-likes .like-icon-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 170px;
+  margin-right: 350px;
 }
 
 .postimage-likes .like-icon-wrapper .like-count {
-  margin-left: -5px;
   padding: 5px;
 }
 
 .like-count {
   display: flex;
   align-items: center;
-  width: 100px;
+  width: 200px;
   margin-bottom: 5px;
 }
 
@@ -210,7 +211,7 @@ button.like-btn {
   background-color: transparent;
   border: none;
   color: #00CC00;
-  width: 40px;
+  width: 100px;
   height: 40px;
   border-radius: 50%;
 }
@@ -229,8 +230,13 @@ button.like-btn i {
 }
 
 .like-icon-wrapper .icon-button {
-  margin-left: -8px;
+  margin-left: -65px;
 }
+
+i.fa-solid.fa-heart {
+  font-size: 20px;
+}
+
 
 .postimage-comments {
   margin-bottom: 10px;
@@ -246,9 +252,13 @@ button.like-btn i {
 }
 
 .comment-count {
-  width: 200px;
   font-family: Helvetica;
   color: #000;
+  padding-left: 10px;
+}
+
+.comment-count a {
+  color: #FF6928;
 }
 
 // .fa-arrow-alt-circle-left {

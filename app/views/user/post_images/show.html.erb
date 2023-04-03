@@ -90,9 +90,17 @@
     <%= form_with(model: [@post_image.likes.find_by(user_id: current_user.id)], url: user_post_image_like_path(@post_image, @post_image.likes.find_by(user_id: current_user.id)), method: :delete, local: true) do |f| %>
       <div class="like-icon-wrapper">
         <%= f.button type: :submit, class: "icon-button like-btn" do %>
+          <span class="like-count">
           <i class="fa-solid fa-heart"></i>
-        <% end %>
-      <span class="like-count"><%= @post_image.likes.count %>いいね</span>
+      <%= @post_image.likes.count %>いいね
+      <% end %>
+      </span>
+      <span class="comment-count">
+  <%= link_to user_post_image_comments_path(@post_image) do %>
+  <i class="fa-solid fa-solid fa-comment-dots"></i>
+  <%= @post_image.comments.count %>コメント
+    <% end %>
+    </span>
     </div>
   <% end %>
 <% else %>
@@ -102,11 +110,12 @@
       <i class="fa-solid fa-heart"></i>
         <% end %>
         <span class="like-count"><%= @post_image.likes.count %>いいね</span>
-
+<span class="comment-count">
   <%= link_to user_post_image_comments_path(@post_image) do %>
   <i class="fa-solid fa-solid fa-comment-dots"></i>
-  <span class="comment-count"><%= @post_image.comments.count %>コメント</span>
+  <%= @post_image.comments.count %>コメント</span>
     <% end %>
+    </span>
     </div>
   <% end %>
 <% end %>

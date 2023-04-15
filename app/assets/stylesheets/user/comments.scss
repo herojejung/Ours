@@ -1,3 +1,65 @@
-// Place all the styles related to the user/comments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.comment-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.comment-row {
+  width: 100%;
+  max-width: 600px; /* 任意の幅に設定してください */
+}
+
+.comment-post-title {
+  /* タイトルのスタイルを指定 */
+}
+
+.comment-post-category {
+  /* カテゴリーのスタイルを指定 */
+}
+
+.comment-post-image {
+  /* 画像のスタイルを指定 */
+}
+
+.comment-post-single {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.slick-img {
+  width: 250px;
+	height: 250px;
+	object-fit: cover;
+}
+
+.comment-img{
+	width: 250px;
+	height: 250px;
+	object-fit: cover;
+}
+
+.comment-post-date {
+  width: 600px;
+  padding-left: 510px;
+  border-bottom: 1px solid #C0C0C0;
+  margin-bottom: 25px;
+}
+
+.comment-center {
+  text-align: center;
+}
+
+.card {
+  width: 100%;
+  margin-top: 10px; /* カードの間隔を調整 */
+}
+
+.card-body {
+  /* カードのボディ部分のスタイルを指定 */
+}
+
+.text-center {
+  text-align: center;
+}

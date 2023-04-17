@@ -91,34 +91,36 @@
       <div class="like-icon-wrapper">
         <%= f.button type: :submit, class: "icon-button like-btn" do %>
           <span class="like-count">
-          <i class="fa-solid fa-heart"></i>
-      <%= @post_image.likes.count %>いいね
-      <% end %>
-      </span>
-      <span class="comment-count">
-  <%= link_to user_post_image_comments_path(@post_image) do %>
-  <i class="fa-solid fa-solid fa-comment-dots"></i>
+            <i class="fa-solid fa-heart"></i>
+              <%= @post_image.likes.count %>いいね
+            <% end %>
+          </span>
+        <span class="comment-count">
+      <%= link_to user_post_image_comments_path(@post_image) do %>
+    <i class="fa-solid fa-solid fa-comment-dots"></i>
   <%= @post_image.comments.count %>コメント
-    <% end %>
-    </span>
-    </div>
-  <% end %>
-<% else %>
-<%= form_with(model: [@post_image, @post_image.likes.build], url: user_post_image_likes_path(@post_image), local: true) do |f| %>
-  <div class="like-icon-wrapper">
-    <%= f.button type: :submit, class: "icon-button", style: "border: none;" do %>
-      <i class="fa-solid fa-heart"></i>
-        <% end %>
-        <span class="like-count"><%= @post_image.likes.count %>いいね</span>
-<span class="comment-count">
-  <%= link_to user_post_image_comments_path(@post_image) do %>
-  <i class="fa-solid fa-solid fa-comment-dots"></i>
-  <%= @post_image.comments.count %>コメント</span>
-    <% end %>
-    </span>
-    </div>
-  <% end %>
 <% end %>
+  </span>
+    </div>
+      <% end %>
+        <% else %>
+          <%= form_with(model: [@post_image, @post_image.likes.build], url: user_post_image_likes_path(@post_image), local: true) do |f| %>
+            <div class="like-icon-wrapper">
+              <%= f.button type: :submit, class: "icon-button like-btn", style: "border: none;" do %>
+                    <span class="like-count">
+                      <i class="fa-solid fa-heart"></i>
+                      <%= @post_image.likes.count %>いいね
+                    <% end %>
+                    </span>
+                  <span class="comment-count">
+                <%= link_to user_post_image_comments_path(@post_image) do %>
+              <i class="fa-solid fa-solid fa-comment-dots"></i>
+            <%= @post_image.comments.count %>コメント
+          <% end %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
 <div class="postimage-comments">

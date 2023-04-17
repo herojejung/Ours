@@ -191,18 +191,15 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 350px;
-}
-
-.postimage-likes .like-icon-wrapper .like-count {
-  padding: 5px;
+  margin-right: 80px;
 }
 
 .like-count {
   display: flex;
   align-items: center;
-  width: 200px;
+  width: 100px;
   margin-bottom: 5px;
+  margin-left: -35px;
 }
 
 button.like-btn {
@@ -230,13 +227,12 @@ button.like-btn i {
 }
 
 .like-icon-wrapper .icon-button {
-  margin-left: -65px;
+  margin-left: -90px;
 }
 
 i.fa-solid.fa-heart {
   font-size: 20px;
 }
-
 
 .postimage-comments {
   margin-bottom: 10px;
@@ -248,17 +244,18 @@ i.fa-solid.fa-heart {
 }
 
 .slick-dots li button:before{
-	font-size:60px!important;
+	font-size: 60px!important;
 }
 
 .comment-count {
   font-family: Helvetica;
   color: #000;
-  padding-left: 10px;
 }
 
 .comment-count a {
   color: #FF6928;
+  width: 300px;
+  padding-right: 180px;
 }
 
 // .fa-arrow-alt-circle-left {

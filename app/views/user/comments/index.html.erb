@@ -45,6 +45,7 @@
             <div class="card-body">
               <p class="card-text"><small class="text-muted"><%= comment.user.name %>さん</small></p>
               <p class="card-text"><%= comment.content %></p>
+              <p class="card-text"><small class="text-muted"><%= comment.created_at.strftime('%Y/%m/%d') %></small></p>
             </div>
           </div>
         <% end %>

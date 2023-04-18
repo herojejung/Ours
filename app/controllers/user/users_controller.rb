@@ -29,8 +29,18 @@ class User::UsersController < ApplicationController
   def unsubscribe
   end
 
-  def withdrawal
+def withdrawal
+  @user = current_user
+  if @user.email == 'guestda@example.com' # ゲストユーザーの場合
+    reset_session
+    redirect_to edit_user_user, notice: "ゲストユーザーは退会できません。" and return
+  else
+    @user.update(is_valid: false) # 退会処理を実行
+    reset_session
+    redirect_to root_path, notice: "退会が完了しました。" and return
   end
+end
+
 
   def destroy_confirm
     @user = current_user

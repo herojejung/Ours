@@ -8,7 +8,7 @@
               <li class="home-post-item" style="list-style: none;">
                 <div class="home-post-image">
                   <%= link_to user_post_image_path(post_image.id) do%>
-                  <%= image_tag(post_image.images.first, size: "100x100") %>
+                    <%= image_tag(post_image.images.first, class: "index-img") %>
                 <% end %>
               </div>
             <div class="home-post-title">

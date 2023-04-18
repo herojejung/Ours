@@ -25,7 +25,8 @@ end
 
 def index
   if params[:tag].present?
-    @post_images = PostImage.tagged_with(params[:tag]).order(created_at: :desc)
+    @tag_name = params[:tag] # 追加: タグ名を取得
+    @post_images = PostImage.tagged_with(@tag_name).order(created_at: :desc)
     @related_posts = @post_images.first.related_posts if @post_images.present?
   else
     @post_images = PostImage.order(created_at: :desc)
@@ -43,12 +44,12 @@ end
     @comments = @post_image.comments
     @q = PostImage.ransack(params[:q])
   end
-  
+
   def edit
     @post_image = PostImage.find(params[:id])
     @post_image.tag_names = @post_image.tags.map(&:name).join("#,#")
   end
-  
+
 def update
   @post_image = PostImage.find(params[:id])
   @post_image.tag_list.add(params[:post_image][:tag_list].split(","))
@@ -64,7 +65,7 @@ end
     redirect_to user_root_path
   end
   end
-  
+
 private
   # ストロングパラメータ
 def post_image_params
@@ -72,6 +73,6 @@ def post_image_params
 end
 def correct_user
   @post_image = PostImage.find(params[:id])
-  redirect_to user_root_path unless @post_image.user == current_user
+  redirect_to root_path unless @post_image.user == current_user
 end
 end

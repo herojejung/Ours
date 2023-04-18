@@ -3,8 +3,21 @@
   width: 500px;
 }
 
+.home-tag-row {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-tag-title {
+  margin-left: 1500px;
+  width: 700px;
+  margin-bottom: 20px;
+}
+
 .homes-item-tag {
-  margin-left: 540px;
+  margin-left: 1250px;
   width: 500px;
 }
 
@@ -28,6 +41,7 @@
   /* remove align-items: center; */
   width: 100px;
   height: 100px;
+  object-fit: cover;
 }
 
 

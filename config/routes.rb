@@ -18,7 +18,11 @@ devise_for :admins, skip: [:registrations, :passwords], controllers: {
 }
 
   namespace :user do
-    resources :users
+    resources :users do
+        member do
+      patch :withdrawal # withdrawalアクションのルートを定義
+      end
+    end
     resources :post_images do
     resources :comments, only:[:create,:index,:destroy]
     resources :likes, only:[:create,:destroy]

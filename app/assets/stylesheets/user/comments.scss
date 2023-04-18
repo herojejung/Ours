@@ -11,11 +11,20 @@
 }
 
 .comment-post-title {
-  /* タイトルのスタイルを指定 */
+  width: 350px;
+  max-width: 350px;
+  padding-bottom: 5px;
+  margin-left: 150px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.comment-post-title p::first-letter {
+  border-left: 6px solid #000000;
 }
 
 .comment-post-category {
-  /* カテゴリーのスタイルを指定 */
+  margin-left: 160px;
 }
 
 .comment-post-image {
@@ -29,35 +38,38 @@
 }
 
 .comment-slick-image {
-  width: 250px;
-	height: 250px;
+  width: 300px;
+	height: 300px;
 	object-fit: cover;
 }
 
 .comment-img{
-	width: 250px;
-	height: 250px;
+	width: 300px;
+	height: 300px;
 	object-fit: cover;
 }
 
 .comment-post-date {
   width: 600px;
-  padding-left: 510px;
+  padding-left: 370px;
   border-bottom: 1px solid #C0C0C0;
   margin-bottom: 25px;
+  color: #C0C0C0;
 }
 
 .comment-center {
   text-align: center;
+  margin-left: 300px;
 }
 
 .card {
-  width: 100%;
+  width: 450px;
   margin-top: 10px; /* カードの間隔を調整 */
+  margin-left: 70px;
 }
 
 .card-body {
-  /* カードのボディ部分のスタイルを指定 */
+
 }
 
 .text-center {

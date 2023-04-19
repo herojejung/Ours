@@ -2,6 +2,7 @@ require_relative "boot"
 
 require "rails/all"
 require 'acts-as-taggable-on'
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -11,6 +12,7 @@ module Blank
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
     config.autoloader = :classic
+    config.time_zone = 'Tokyo'
 
     # Configuration for the application, engines, and railties goes here.
     #

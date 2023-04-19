@@ -10,20 +10,20 @@
 </div>
 <% end %>
 
-  <div class="field">
+  <div class="field-category">
     <%= form.label :"カテゴリー名" %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
+  <div class="field-category">
     <%= form.fields_for :sub_categories do |sub_category_form| %>
       <%= render 'sub_category_fields', f: sub_category_form %>
     <% end %>
-    <div class="links">
+    <div class="links-category">
       <%= link_to_add_association "サブカテゴリーを追加する", form, :sub_categories, partial: 'sub_category_fields' %>
     </div>
   </div>
-  <div class="actions">
+  <div class="actions-category">
     <%= form.submit %>
   </div>
 <% end %>

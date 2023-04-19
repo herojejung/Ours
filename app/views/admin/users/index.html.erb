@@ -14,7 +14,7 @@
         <% if user.image.present? %>
   			  <td>
   			    <%= link_to admin_user_path(user.id) do%>
-  			    <%= image_tag user.image %>
+  			    <%= image_tag user.image, size: "200x200" %>
   			    <% end %>
   			    </td>
 			    <% end %>

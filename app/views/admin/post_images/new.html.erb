@@ -1,5 +1,5 @@
 <%= form_with model: @post_image, url: user_post_images_path do |f| %>
-<div class= "flex">
+<div class= "flex-admin">
   <table class="user_post_images_info post_form">
 			<thead>
 				<tr>
@@ -30,7 +30,7 @@
           <td><%=f.label :"タグ"%></td><br>
           <td><%= f.text_field :tag %></td>
         </tr>
-      <div class="actions">
+      <div class="actions-admin-post">
      <%= f.submit "投稿",class:"btn btn-primary" %>
   </div>
 </div>

@@ -29,23 +29,25 @@ end
 
 protected
 # 退会しているかを判断するメソッド
-def user_state
-  return unless params[:user].present? # 追加
 
+def user_state
   if user_signed_in?
     return
   end
 
-  @user = User.find_by(name: params[:user][:name])
-  return if !@user&.valid_password?(params[:user][:password])
+  if params[:user].present?
+    @user = User.find_by(name: params[:user][:name])
+    return if !@user&.valid_password?(params[:user][:password])
+  end
 
-  if @user.is_deleted == false
+  if @user&.is_deleted == false
     redirect_to new_user_registration_path
-  elsif @user.is_deleted == true
+  elsif @user&.is_deleted == true
     sign_in @user
-    redirect_to root_path
+    redirect_to root_path unless @user.email == 'guest@example.com'
   end
 end
+
 
 def set_ransack_variable
     @q = PostImage.none.ransack

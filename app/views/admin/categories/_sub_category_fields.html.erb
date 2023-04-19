@@ -1,4 +1,4 @@
-<div class="nested-fields">
+<div class="nested-fields-category">
   <%= f.label :"サブカテゴリ" %>
   <%= f.text_field :name %>
   <%= f.select :category_id, Category.all.map { |c| [c.name, c.id] } %>

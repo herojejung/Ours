@@ -87,7 +87,7 @@
 </ul>
 <div class="postimage-likes">
   <% if @post_image.likes.exists?(user_id: current_user.id) %>
-    <%= form_with(model: [@post_image.likes.find_by(user_id: current_user.id)], url: user_post_image_like_path(@post_image, @post_image.likes.find_by(user_id: current_user.id)), method: :delete, local: true) do |f| %>
+    <%= form_with(model: [@post_image.likes.find_by(user_id: current_user.id)], url: user_post_image_like_path(@post_image, @post_image.likes.find_by(user_id: current_user.id)), method: :delete, local: true, data: {remote: true}) do |f| %>
       <div class="like-icon-wrapper">
         <%= f.button type: :submit, class: "icon-button like-btn" do %>
           <span class="like-count">
@@ -104,7 +104,7 @@
     </div>
       <% end %>
         <% else %>
-          <%= form_with(model: [@post_image, @post_image.likes.build], url: user_post_image_likes_path(@post_image), local: true) do |f| %>
+          <%= form_with(model: [@post_image, @post_image.likes.build], url: user_post_image_likes_path(@post_image), local: true, data: {remote: true}) do |f| %>
             <div class="like-icon-wrapper">
               <%= f.button type: :submit, class: "icon-button like-btn", style: "border: none;" do %>
                     <span class="like-count">

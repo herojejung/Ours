@@ -10,9 +10,9 @@ class User::HomesController < ApplicationController
     else
       @post_images = PostImage.all.order(created_at: :desc).page(params[:page]).per(4)
     end
-    @tags = PostImage.tag_counts_on(:tags).order('count DESC').limit(10)
-    @tags_ranking = PostImage.tag_counts_on(:tags).order('count DESC').limit(10)
-    @likes_ranking = PostImage.joins(:likes).group('post_images.id').having('COUNT(likes.id) > 0').order('COUNT(likes.id) DESC').limit(10)
+      @tags = PostImage.tag_counts_on(:tags).order('count DESC').limit(10)
+      @tags_ranking = PostImage.tag_counts_on(:tags).order('count DESC').limit(10)
+      @likes_ranking = PostImage.joins(:likes).group('post_images.id').having('COUNT(likes.id) > 0').order('COUNT(likes.id) DESC').limit(10)
   end
 
   private

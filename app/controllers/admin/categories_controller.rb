@@ -9,7 +9,7 @@ class Admin::CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      flash[:success] = "Category created successfully"
+      flash[:success] = "カテゴリーを作成しました"
       redirect_to admin_categories_path
     else
       render :new
@@ -27,7 +27,7 @@ class Admin::CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
     if @category.update(category_params)
-      flash[:success] = "Category updated successfully"
+      flash[:success] = "カテゴリーを更新しました"
       redirect_to admin_categories_path
     else
       render :edit

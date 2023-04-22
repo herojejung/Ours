@@ -5,9 +5,9 @@ class Admin::SubCategoriesController < ApplicationController
     @category = Category.find(params[:category_id])
     @sub_category = @category.sub_categories.build(sub_category_params)
     if @sub_category.save
-      flash[:success] = "Sub category created successfully"
+      flash[:success] = "サブカテゴリーを作成しました"
     else
-      flash[:error] = "Failed to create sub category"
+      flash[:error] = "サブカテゴリーの作成に失敗しました"
     end
     redirect_to edit_admin_category_path(@category)
   end
@@ -16,9 +16,9 @@ class Admin::SubCategoriesController < ApplicationController
     @category = Category.find(params[:category_id])
     @sub_category = SubCategory.find(params[:id])
     if @sub_category.update(sub_category_params)
-      flash[:success] = "Sub category updated successfully"
+      flash[:success] = "サブカテゴリーを更新しました"
     else
-      flash[:error] = "Failed to update sub category"
+      flash[:error] = "サブカテゴリーの更新に失敗しました"
     end
     redirect_to edit_admin_category_path(@category)
   end
@@ -27,9 +27,9 @@ class Admin::SubCategoriesController < ApplicationController
     @category = Category.find(params[:category_id])
     @sub_category = SubCategory.find(params[:id])
     if @sub_category.destroy
-      flash[:success] = "Sub category deleted successfully"
+      flash[:success] = "サブカテゴリーを削除しました"
     else
-      flash[:error] = "Failed to delete sub category"
+      flash[:error] = "サブカテゴリーを削除できませんでした"
     end
     redirect_to edit_admin_category_path(@category)
   end

@@ -3,7 +3,6 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-
 import Rails from "@rails/ujs"
 //import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
@@ -19,6 +18,12 @@ require("@nathanvda/cocoon")
 Rails.start()
 //Turbolinks.start()
 ActiveStorage.start()
+
+$(document).on('click', '.remove_fields', function(event) {
+  $(this).prev('input[type=hidden]').val('1');
+  $(this).closest('.nested-fields-category').hide();
+  return event.preventDefault();
+});
 
 require("packs/dropdown")
 require("packs/post-image-form")

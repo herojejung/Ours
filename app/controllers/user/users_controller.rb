@@ -19,6 +19,7 @@ class User::UsersController < ApplicationController
   else
     @liked_post_images = PostImage.joins(:likes).where(likes: { user_id: current_user.id }).order(created_at: :desc).page(params[:page]).per(4)
   end
+
   end
 
   def update

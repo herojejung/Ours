@@ -1,0 +1,2 @@
+var like_count = $('#like-count-<%= @post_image.id %>');
+like_count.html("<i class='fa-solid fa-heart'></i><%= @post_image.likes.count %>いいね");

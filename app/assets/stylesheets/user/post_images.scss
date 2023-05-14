@@ -172,6 +172,7 @@ button {
   padding-left: 0;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .postimage-tag .postimage-tagname {

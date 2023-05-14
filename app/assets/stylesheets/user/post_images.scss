@@ -173,7 +173,9 @@ button {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .postimage-tag .postimage-tagname {

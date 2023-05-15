@@ -53,6 +53,16 @@
   margin-left: 335px;
 }
 
+.slick-slide img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.slick-track{ /* 追加 */
+  width: 50vh;
+}
+
 .image-single {
   width: 300px;
   max-width: 300px;

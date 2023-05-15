@@ -25,6 +25,11 @@ $(document).on('click', '.remove_fields', function(event) {
   return event.preventDefault();
 });
 
+$('.slick-slider').on('afterChange', function() {
+  $('.slick-prev').removeClass('slick-active');
+  $('.slick-next').removeClass('slick-active');
+});
+
 require("packs/dropdown")
 require("packs/post-image-form")
 //require("packs/preview")

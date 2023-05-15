@@ -101,6 +101,7 @@ Rails.application.configure do
   config.hosts.clear
   config.active_job.queue_adapter = :inline
   config.web_console.whitelisted_ips = '123.225.216.142'
+  config.web_console.enabled = true
   
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
   config.action_controller.perform_caching = true

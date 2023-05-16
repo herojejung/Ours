@@ -104,18 +104,27 @@
       </span>
     </div>
   <% end %>
-    <script>
-      $(document).on("ajax:beforeSend", "form[data-remote]", function(){
-        $(this).find('button:submit').prop('disabled', true);
-        $(this).find('.spinner-border').show();
-      });
+ <script>
+$(document).on("ajax:beforeSend", "form[data-remote]", function() {
+  $(this).find("button:submit").prop("disabled", true);
+  $(this).find(".spinner-border").show();
+});
 
-      $(document).on("ajax:success", "form[data-remote]", function(event, data){
-        var like_count = $(this).find('.like-count');
-        like_count.text(like_count.text().replace(/\d+/, data.likes_count));
-        $(this).find('.spinner-border').hide();
-        $(this).find('button:submit').prop('disabled', false);
-      });
+$(document).on("ajax:success", "form[data-remote]", function(event, data) {
+  var like_count = $(this).find(".like-count");
+  like_count.text(like_count.text().replace(/\d+/, data.likes_count));
+  $(this).find(".spinner-border").hide();
+  $(this).find(".like-btn").prop("disabled", false);
+  if (data.is_liked) {
+    // いいねしている場合
+    $(this).find(".like-btn").text("いいねを取り消す");
+    $(this).find(".like-btn").prepend('<i class="fa-solid fa-heart-broken"></i>');
+  } else {
+    // いいねしていない場合
+    $(this).find(".like-btn").text("いいね");
+    $(this).find(".like-btn").prepend('<i class="fa-solid fa-heart"></i>');
+  }
+});
     </script>
   <% else %>
 <%= form_with(model: [@post_image.likes.build(user_id: current_user.id)], url: user_post_image_likes_path(@post_image), data: {remote: true}) do |f| %>
@@ -135,27 +144,29 @@
 </div>
   <% end %>
 <script>
-  $(document).on("ajax:beforeSend", "form[data-remote]", function(){
-    $(this).find('button:submit').prop('disabled', true);
-    $(this).find('.spinner-border').show();
-  });
+$(document).on("ajax:beforeSend", "form[data-remote]", function() {
+  $(this).find("button:submit").prop("disabled", false);
+  $(this).find(".spinner-border").show();
+});
 
-  $(document).on("ajax:success", "form[data-remote]", function(event, data){
-    var like_count = $(this).find('.like-count');
-    like_count.text(like_count.text().replace(/\d+/, data.likes_count));
-    $(this).find('.spinner-border').hide();
-    $(this).find('button:submit').prop('disabled', false);
-  });
-
-  $(document).on("ajax:error", "form[data-remote]", function(event){
-    $(this).find('button:submit').prop('disabled', false);
-    $(this).find('.spinner-border').hide();
-    alert("エラーが発生しました。もう一度試してください。");
-  });
-  </script>
+$(document).on("ajax:success", "form[data-remote]", function(event, data) {
+  var like_count = $(this).find(".like-count");
+  like_count.text(like_count.text().replace(/\d+/, data.likes_count));
+  $(this).find(".spinner-border").hide();
+  $(this).find(".like-btn").prop("disabled", true);
+  if (data.is_liked) {
+    // いいねしている場合
+    $(this).find(".like-btn").text("いいねを取り消す");
+    $(this).find(".like-btn").prepend('<i class="fa-solid fa-heart-broken"></i>');
+  } else {
+    // いいねしていない場合
+    $(this).find(".like-btn").text("いいね");
+    $(this).find(".like-btn").prepend('<i class="fa-solid fa-heart"></i>');
+  }
+});
+</script>
   <% end %>
 </div>
-
 <div class="postimage-comments">
   <% @post_image.comments.last(2).each do |comment| %>
     <div class="postimage-comment-info">

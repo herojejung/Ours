@@ -87,8 +87,8 @@
   <% end %>
 </ul>
 <div class="postimage-likes">
-  <% if @post_image.likes.exists?(user_id: current_user.id) %>
-    <%= form_with(model: [@post_image.likes.find_by(user_id: current_user.id)], url: user_post_image_like_path(@post_image, @post_image.likes.find_by(user_id: current_user.id)), method: :delete, data: {remote: true}) do |f| %>
+  <% if @post_image.likes.where(user_id: current_user.id).exists? %>
+    <%= form_with(model: @post_image.likes.find_by(user_id: current_user.id), url: user_post_image_like_path(@post_image, @post_image.likes.find_by(user_id: current_user.id)), method: :delete, data: {remote: true}) do |f| %>
       <div class="like-icon-wrapper">
         <%= f.button type: :submit, class: "icon-button like-btn" do %>
           <span class="like-count" id="like-count-<%= @post_image.id %>">
@@ -101,6 +101,51 @@
             <i class="fa-solid fa-solid fa-comment-dots"></i>
           <%= @post_image.comments.count %>コメント
         <% end %>
+      </span>
+    </div>
+  <% end %>
+ <script>
+  $(document).on("ajax:beforeSend", "form[data-remote]", function() {
+    $(this).find("button:submit").prop("disabled", true);
+    $(this).find(".spinner-border").show();
+  });
+
+  $(document).on("ajax:success", "form[data-remote]", function(event, data) {
+    var like_count = $(this).find(".like-count");
+    like_count.text(like_count.text().replace(/\d+/, data.likes_count));
+    $(this).find(".spinner-border").hide();
+    $(this).find(".like-btn").prop("disabled", false);
+  if (data.is_liked) {
+    // いいねしている場合
+    if (current_user.id === @post_image.likes.find_by(user_id: current_user.id).user_id) {
+      $(this).find(".like-btn").text("いいねを取り消す");
+      $(this).find(".like-btn").prepend('<i class="fa-solid fa-heart-broken"></i>');
+    }
+    else {
+      $(this).find(".like-btn").text("いいね");
+      $(this).find(".like-btn").prepend('<i class="fa-solid fa-heart"></i>');
+    }
+  } else {
+    // いいねしていない場合
+    $(this).find(".like-btn").text("いいね");
+    $(this).find(".like-btn").prepend('<i class="fa-solid fa-heart"></i>');
+  }
+});
+    </script>
+  <% else %>
+<%= form_with(model: @post_image.likes.build(user_id: current_user.id), url: user_post_image_likes_path(@post_image), data: {remote: true}) do |f| %>
+  <div class="like-icon-wrapper">
+    <%= f.button type: :submit, class: "icon-button like-btn", style: "border: none;" do %>
+      <span class="like-count" id="like-count-<%= @post_image.id %>">
+        <i class="fa-solid fa-heart"></i>
+          <%= @post_image.likes.count %>いいね
+          </span>
+            <% end %>
+              <span class="comment-count">
+          <%= link_to user_post_image_comments_path(@post_image) do %>
+        <i class="fa-solid fa-solid fa-comment-dots"></i>
+      <%= @post_image.comments.count %>コメント
+      <% end %>
       </span>
     </div>
   <% end %>
@@ -131,50 +176,6 @@ $(document).on("ajax:success", "form[data-remote]", function(event, data) {
   }
 });
     </script>
-  <% else %>
-<%= form_with(model: [@post_image.likes.build(user_id: current_user.id)], url: user_post_image_likes_path(@post_image), data: {remote: true}) do |f| %>
-  <div class="like-icon-wrapper">
-    <%= f.button type: :submit, class: "icon-button like-btn", style: "border: none;" do %>
-      <span class="like-count" id="like-count-<%= @post_image.id %>">
-        <i class="fa-solid fa-heart"></i>
-          <%= @post_image.likes.count %>いいね
-          </span>
-            <% end %>
-              <span class="comment-count">
-          <%= link_to user_post_image_comments_path(@post_image) do %>
-        <i class="fa-solid fa-solid fa-comment-dots"></i>
-      <%= @post_image.comments.count %>コメント
-    <% end %>
-  </span>
-</div>
-  <% end %>
-<script>
-$(document).on("ajax:beforeSend", "form[data-remote]", function() {
-  $(this).find("button:submit").prop("disabled", false);
-  $(this).find(".spinner-border").show();
-});
-
-$(document).on("ajax:success", "form[data-remote]", function(event, data) {
-  var like_count = $(this).find(".like-count");
-  like_count.text(like_count.text().replace(/\d+/, data.likes_count));
-  $(this).find(".spinner-border").hide();
-  $(this).find(".like-btn").prop("disabled", false);
-  if (data.is_liked) {
-    // いいねしている場合
-    if (current_user.id === @post_image.likes.find_by(user_id: current_user.id).user_id) {
-      $(this).find(".like-btn").text("いいねを取り消す");
-      $(this).find(".like-btn").prepend('<i class="fa-solid fa-heart-broken"></i>');
-    } else {
-      $(this).find(".like-btn").text("いいね");
-      $(this).find(".like-btn").prepend('<i class="fa-solid fa-heart"></i>');
-    }
-  } else {
-    // いいねしていない場合
-    $(this).find(".like-btn").text("いいね");
-    $(this).find(".like-btn").prepend('<i class="fa-solid fa-heart"></i>');
-  }
-});
-</script>
   <% end %>
 </div>
 <div class="postimage-comments">

@@ -117,8 +117,13 @@ $(document).on("ajax:success", "form[data-remote]", function(event, data) {
   $(this).find(".like-btn").prop("disabled", false);
   if (data.is_liked) {
     // いいねしている場合
-    $(this).find(".like-btn").text("いいねを取り消す");
-    $(this).find(".like-btn").prepend('<i class="fa-solid fa-heart-broken"></i>');
+    if (current_user.id === @post_image.likes.find_by(user_id: current_user.id).user_id) {
+      $(this).find(".like-btn").text("いいねを取り消す");
+      $(this).find(".like-btn").prepend('<i class="fa-solid fa-heart-broken"></i>');
+    } else {
+      $(this).find(".like-btn").text("いいね");
+      $(this).find(".like-btn").prepend('<i class="fa-solid fa-heart"></i>');
+    }
   } else {
     // いいねしていない場合
     $(this).find(".like-btn").text("いいね");
@@ -153,11 +158,16 @@ $(document).on("ajax:success", "form[data-remote]", function(event, data) {
   var like_count = $(this).find(".like-count");
   like_count.text(like_count.text().replace(/\d+/, data.likes_count));
   $(this).find(".spinner-border").hide();
-  $(this).find(".like-btn").prop("disabled", true);
+  $(this).find(".like-btn").prop("disabled", false);
   if (data.is_liked) {
     // いいねしている場合
-    $(this).find(".like-btn").text("いいねを取り消す");
-    $(this).find(".like-btn").prepend('<i class="fa-solid fa-heart-broken"></i>');
+    if (current_user.id === @post_image.likes.find_by(user_id: current_user.id).user_id) {
+      $(this).find(".like-btn").text("いいねを取り消す");
+      $(this).find(".like-btn").prepend('<i class="fa-solid fa-heart-broken"></i>');
+    } else {
+      $(this).find(".like-btn").text("いいね");
+      $(this).find(".like-btn").prepend('<i class="fa-solid fa-heart"></i>');
+    }
   } else {
     // いいねしていない場合
     $(this).find(".like-btn").text("いいね");

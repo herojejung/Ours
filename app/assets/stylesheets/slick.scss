@@ -18,7 +18,7 @@
     position: relative;
     overflow: hidden;
     display: block;
-    margin: 0 -350px;
+    margin: 0 -335px;
     padding: 0;
 
     &:focus {
@@ -71,7 +71,7 @@
     img {
         display: block;
         margin-left: 0;
-        
+
     }
     &.slick-loading img {
         display: none;

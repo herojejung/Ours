@@ -16,22 +16,25 @@
             <div class="comment-post-image">
           <% @post_image.images.each do |image| %>
         <div class="comment-image-wrapper">
-      <%= image_tag image, class: "comment-slick-image" %>
+      <%= image_tag image.variant(resize_to_limit: [400, 600]), class: "slick-image" %>
     </div>
   <% end %>
 </div>
-<script>
-  $(function() {
-    $('.commnent-post-image').slick({
-      autoplay: true,
-      arrows: true,
-      dots: true,
-    });
-  });
-</script>
+    <script>
+      $(function() {
+        $('.comment-post-image').slick({
+          autoplay: true,
+          arrows: true,
+          dots: true,
+          adaptiveHeight: true,
+          // 追加: クラス名の修正
+          adaptiveWidth: true,
+        });
+      });
+    </script>
   <% else %>
     <div class="comment-post-single">
-      <%= image_tag @post_image.images[0],class: "comment-img" %>
+      <%= image_tag @post_image.images[0] .variant(resize_to_limit: [400, 600]),class: "comment-img" %>
     </div>
   <% end %>
 <% end %>

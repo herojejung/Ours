@@ -13,9 +13,28 @@
   align-items: center;
 }
 
+.back-button-container {
+  margin-left: 100px;
+}
+
+
+.back-button-show {
+  display: inline-block;
+  padding: 10px 30px;
+  color: white;
+  background-color: #00CC00;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.back-button i {
+  margin-right: 8px;
+}
+
 .flex-postimage {
   margin-left: 530px;
-  margin-top: 50px;
+  margin-top: 15px;
 }
 
 .postimage-container {

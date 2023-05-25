@@ -56,7 +56,9 @@
     <h3 class="text-center">コメントはまだありません。</h3>
   <% end %>
   <li class= "back-show" style="list-style: none;">
-  <%= link_to '戻る', user_post_image_path(@post_image), class: 'back-button' %>
+  <%= link_to user_post_image_path(@post_image), class: 'back-button' do %>
+    <i class="fa fa-arrow-left"></i> 戻る
+  <% end %>
   </li>
 </div>
 </div>

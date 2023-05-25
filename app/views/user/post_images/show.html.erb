@@ -1,5 +1,10 @@
 <div class="container-postimage-show">
   <div class="row-postimage-show">
+            <div class="back-button-container">
+      <%= link_to root_path, class: 'back-button-show' do %>
+    <i class="fa fa-arrow-left"></i> 戻る
+  <% end %>
+    </div>
     <% if user_signed_in? %>  <!--未ログインでは投稿の操作は不可能にする-->
       <% if @post_image.user_id == current_user.id %> <!--ログインユーザーは自分の投稿以外は削除できないようにする-->
         <section class="inner">

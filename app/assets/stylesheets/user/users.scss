@@ -57,17 +57,18 @@ margin-bottom: 30px;
 
 .sectionHeader {
 text-align: center;
-width: 100%;
+width: 300px;
 text-overflow: ellipsis;
 white-space: nowrap;
-margin-left: 30px;
+margin-left: 25px;
+border-bottom: 1px solid #DDDDDD;
 }
 
 .users-likes-theme {
-  width: 260px;
+  width: 230px;
   margin-bottom: 65px;
   margin-top: 55px;
-  margin-left: 650px;
+  margin-left: 600px;
   border-bottom: 2px solid #DDDDDD;
   position: relative; /* 親要素を基準にするためにposition: relative;を追加 */
 }

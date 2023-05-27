@@ -11,13 +11,13 @@ class User::UsersController < ApplicationController
     @q = current_user.articles.ransack(params[:q], search_key: :article_search)
   end
 
-def index
-  @user = params[:id] ? User.find(params[:id]) : current_user
-  @q = @user.articles.ransack(params[:q], search_key: :article_search)
-  @post_images = @q.result(distinct: true).where(user: @user).order(created_at: :desc).page(params[:page]).per(4)
+  def index
+    @user = params[:id] ? User.find(params[:id]) : current_user
+    @q = @user.articles.ransack(params[:q], search_key: :article_search)
+    @post_images = @q.result(distinct: true).where(user: @user).order(created_at: :desc).page(params[:page]).per(4)
 
-  @liked_post_images = PostImage.joins(:likes).where(likes: { user_id: @user.id }).order(created_at: :desc).page(params[:page]).per(4)
-end
+    @liked_post_images = PostImage.joins(:likes).where(likes: { user_id: @user.id }).order(created_at: :desc).page(params[:page]).per(4)
+  end
 
 
   def update
@@ -29,8 +29,6 @@ end
     end
   end
 
-  def unsubscribe
-  end
 
 def withdrawal
   @user = current_user
